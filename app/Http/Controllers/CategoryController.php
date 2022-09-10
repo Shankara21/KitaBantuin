@@ -15,7 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'message' => "Get categories success!",
+            'data' => Category::all()
+        ]);
     }
 
     /**
@@ -47,7 +50,10 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return response()->json([
+            'message' => 'Success get data of ' . $category->name,
+            'data' => $category
+        ]);
     }
 
     /**
