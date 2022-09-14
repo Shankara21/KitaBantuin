@@ -12,4 +12,18 @@ class Role extends Model
         'created_at',
         'updated_at'
     ];
+
+    protected $guarded = ['id'];
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    } public function worker()
+    {
+        return $this->belongsTo(Worker::class);
+    }
 }
