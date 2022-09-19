@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -39,7 +40,16 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|string|max:255|unique:roles',
+        ]);
+        // $validateData['slug'] = Str::slug($validateData(['name']));
+        $validateData['slug'] = Str::slug($validateData['name']);
+        Category::create($validateData);
+        return response()->json([
+            'message' => "Category baru berhasil ditambahkan!",
+            'data' => $validateData
+        ]);
     }
 
     /**
@@ -76,7 +86,16 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|string|max:255|unique:roles',
+        ]);
+        // $validateData['slug'] = Str::slug($validateData(['name']));
+        $validateData['slug'] = Str::slug($validateData['name']);
+        Category::where('id', $category->id)->update($validateData);
+        return response()->json([
+            'message' => "Role " . $category->name . " berhasil diubah!",
+            'data' => $validateData
+        ]);
     }
 
     /**
@@ -87,6 +106,18 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category = Category::findOrFail($category->id);
+        // try {
+        //     $category->delete();
+        //     alert()->success('SuccessAlert', 'Data Berhasil dihapus.');
+        // } catch (\Exception $e) {
+        //     if ($e->getCode() == "23000") {
+        //         alert()->error('ErrorAlert', 'Data tidak bisa dihapus karena berelasi ditabel lain.');
+        //     }
+        // }
+        $category->delete();
+        return response()->json([
+            'message' => "Data " . $category->name . " berhasil dihapus!"
+        ]);
     }
 }
