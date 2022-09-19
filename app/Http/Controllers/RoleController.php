@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
+use Illuminate\Support\Str;
 
 class RoleController extends Controller
 {
@@ -39,7 +40,16 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|string|max:255|unique:roles',
+        ]);
+        // $validateData['slug'] = Str::slug($validateData(['name']));
+        $validateData['slug'] = Str::slug($validateData['name']);
+        Role::create($validateData);
+        return response()->json([
+            'message' => "Role baru berhasil ditambahkan!",
+            'data' => $validateData
+        ]);
     }
 
     /**
@@ -50,7 +60,10 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return response()->json([
+            'message' => "Get role " . $role->name . " success!",
+            'data' => $role
+        ]);
     }
 
     /**
@@ -73,7 +86,16 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|string|max:255|unique:roles',
+        ]);
+        // $validateData['slug'] = Str::slug($validateData(['name']));
+        $validateData['slug'] = Str::slug($validateData['name']);
+        Role::where('id', $role->id)->update($validateData);
+        return response()->json([
+            'message' => "Data role " . $role->name . " berhasil diubah!",
+            'data' => $validateData
+        ]);
     }
 
     /**
@@ -84,6 +106,19 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+
+        $role = Role::findOrFail($role->id);
+        // try {
+        //     $role->delete();
+        //     alert()->success('SuccessAlert', 'Data Berhasil dihapus.');
+        // } catch (\Exception $e) {
+        //     if ($e->getCode() == "23000") {
+        //         alert()->error('ErrorAlert', 'Data tidak bisa dihapus karena berelasi ditabel lain.');
+        //     }
+        // }
+        $role->delete();
+        return response()->json([
+            'message' => "Data " . $role->name . " berhasil dihapus!"
+        ]);
     }
 }

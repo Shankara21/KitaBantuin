@@ -15,7 +15,10 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'message' => "Get Sub Categories success!",
+            'data' => SubCategory::all()
+        ]);
     }
 
     /**
@@ -47,7 +50,10 @@ class SubCategoryController extends Controller
      */
     public function show(SubCategory $subCategory)
     {
-        //
+        return response()->json([
+            'message' => "Get Sub Categories " . $subCategory->name . " success!",
+            'data' => $subCategory
+        ]);
     }
 
     /**
