@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SubCategory;
+use Illuminate\Support\Str;
 use App\Http\Requests\StoreSubCategoryRequest;
 use App\Http\Requests\UpdateSubCategoryRequest;
 
@@ -39,7 +40,16 @@ class SubCategoryController extends Controller
      */
     public function store(StoreSubCategoryRequest $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|string|max:255|unique:roles',
+            'category_id' => 'required'
+        ]);
+        $validateData['slug'] = Str::slug($validateData['name']);
+        SubCategory::create($validateData);
+        return response()->json([
+            'message' => "Category baru berhasil ditambahkan!",
+            'data' => $validateData
+        ]);
     }
 
     /**
@@ -76,7 +86,15 @@ class SubCategoryController extends Controller
      */
     public function update(UpdateSubCategoryRequest $request, SubCategory $subCategory)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|string|max:255|unique:roles',
+        ]);
+        $validateData['slug'] = Str::slug($validateData['name']);
+        SubCategory::where('id', $subCategory->id)->update($validateData);
+        return response()->json([
+            'message' => "Role " . $subCategory->name . " berhasil diubah!",
+            'data' => $validateData
+        ]);
     }
 
     /**
@@ -87,6 +105,18 @@ class SubCategoryController extends Controller
      */
     public function destroy(SubCategory $subCategory)
     {
-        //
+        $subcategory = SubCategory::findOrFail($subCategory->id);
+        // try {
+        //     $subcategory->delete();
+        //     alert()->success('SuccessAlert', 'Data Berhasil dihapus.');
+        // } catch (\Exception $e) {
+        //     if ($e->getCode() == "23000") {
+        //         alert()->error('ErrorAlert', 'Data tidak bisa dihapus karena berelasi ditabel lain.');
+        //     }
+        // }
+        $subcategory->delete();
+        return response()->json([
+            'message' => "Data " . $subCategory->name . " berhasil dihapus!"
+        ]);
     }
 }

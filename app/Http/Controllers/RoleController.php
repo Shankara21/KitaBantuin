@@ -43,7 +43,6 @@ class RoleController extends Controller
         $validateData = $request->validate([
             'name' => 'required|string|max:255|unique:roles',
         ]);
-        // $validateData['slug'] = Str::slug($validateData(['name']));
         $validateData['slug'] = Str::slug($validateData['name']);
         Role::create($validateData);
         return response()->json([
@@ -89,7 +88,6 @@ class RoleController extends Controller
         $validateData = $request->validate([
             'name' => 'required|string|max:255|unique:roles',
         ]);
-        // $validateData['slug'] = Str::slug($validateData(['name']));
         $validateData['slug'] = Str::slug($validateData['name']);
         Role::where('id', $role->id)->update($validateData);
         return response()->json([
