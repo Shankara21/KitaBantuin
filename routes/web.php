@@ -25,4 +25,8 @@ Route::resource('/categories', CategoryController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route untuk Dashboard
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('index');
+});
