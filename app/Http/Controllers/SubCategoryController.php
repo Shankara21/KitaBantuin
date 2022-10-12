@@ -6,6 +6,7 @@ use App\Models\SubCategory;
 use Illuminate\Support\Str;
 use App\Http\Requests\StoreSubCategoryRequest;
 use App\Http\Requests\UpdateSubCategoryRequest;
+use App\Models\Category;
 
 class SubCategoryController extends Controller
 {
@@ -60,9 +61,11 @@ class SubCategoryController extends Controller
      */
     public function show(SubCategory $subCategory)
     {
+        $references = Category::where('id', $subCategory->category_id)->get();
         return response()->json([
             'message' => "Get Sub Categories " . $subCategory->name . " success!",
-            'data' => $subCategory
+            'data' => $subCategory,
+            'references' => $references
         ]);
     }
 
