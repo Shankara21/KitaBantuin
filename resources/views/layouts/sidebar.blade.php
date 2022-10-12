@@ -62,6 +62,24 @@
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Pages</span>
     </li>
+    <li class="menu-item {{ Request::is('categories*') || Request::is('subCategories*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-grid-alt"></i>
+        <div data-i18n="Account Settings">Categories</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::is('categories*') ? 'active' : '' }}">
+          <a href="{{ route('categories.index') }}" class="menu-link">
+            <div data-i18n="Account">Category</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="pages-account-settings-notifications.html" class="menu-link">
+            <div data-i18n="Notifications">SubCategory</div>
+          </a>
+        </li>
+      </ul>
+    </li>
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-dock-top"></i>
