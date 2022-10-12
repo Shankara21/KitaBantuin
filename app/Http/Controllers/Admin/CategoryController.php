@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use Illuminate\Support\Str;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -16,9 +17,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'message' => "Get categories success!",
-            'data' => Category::all()
+        $category = Category::all();
+        return view('Admin.Category.index', [
+            'title' => 'Category',
+            'categories' => $category
         ]);
     }
 
@@ -29,7 +31,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Category.create', [
+            'title' => 'Create Category'
+        ]);
     }
 
     /**
@@ -40,16 +44,10 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        $validateData = $request->validate([
-            'name' => 'required|string|max:255|unique:categories',
-        ]);
-        // $validateData['slug'] = Str::slug($validateData(['name']));
-        $validateData['slug'] = Str::slug($validateData['name']);
-        Category::create($validateData);
-        return response()->json([
-            'message' => "Category baru berhasil ditambahkan!",
-            'data' => $validateData
-        ]);
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
+        Category::create($data);
+        return redirect()->route('categories.index')->with('success', 'Category created successfully');
     }
 
     /**
@@ -60,10 +58,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return response()->json([
-            'message' => 'Success get data of ' . $category->name,
-            'data' => $category
-        ]);
+        return $category->name;
     }
 
     /**
@@ -74,7 +69,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('Admin.Category.edit', [
+            'title' => 'Edit Category',
+            'category' => $category
+        ]);
     }
 
     /**
@@ -86,16 +84,11 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $validateData = $request->validate([
-            'name' => 'required|string|max:255|unique:roles',
+        $category->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
         ]);
-        // $validateData['slug'] = Str::slug($validateData(['name']));
-        $validateData['slug'] = Str::slug($validateData['name']);
-        Category::where('id', $category->id)->update($validateData);
-        return response()->json([
-            'message' => "Role " . $category->name . " berhasil diubah!",
-            'data' => $validateData
-        ]);
+        return redirect()->route('categories.index')->with('success', 'Category Updated Successfully');
     }
 
     /**
@@ -106,18 +99,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category = Category::findOrFail($category->id);
-        // try {
-        //     $category->delete();
-        //     alert()->success('SuccessAlert', 'Data Berhasil dihapus.');
-        // } catch (\Exception $e) {
-        //     if ($e->getCode() == "23000") {
-        //         alert()->error('ErrorAlert', 'Data tidak bisa dihapus karena berelasi ditabel lain.');
-        //     }
-        // }
         $category->delete();
-        return response()->json([
-            'message' => "Data " . $category->name . " berhasil dihapus!"
-        ]);
+        return redirect()->route('categories.index')->with('success', 'Category Deleted Successfully');
     }
 }
