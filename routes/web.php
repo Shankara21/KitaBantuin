@@ -25,4 +25,4 @@ Route::resource('/categories', CategoryController::class);
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
