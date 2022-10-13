@@ -71,7 +71,10 @@ class AdminUserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin.user.show', [
+            'user' => $user,
+            'title' => 'Detail User'
+        ]);
     }
 
     /**

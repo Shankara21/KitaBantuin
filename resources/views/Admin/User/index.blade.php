@@ -62,7 +62,10 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    {{-- <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a> --}}
+                                    <a class="dropdown-item" href="{{ route('user.show', $item -> id) }}">
+                                        <i class="bx bx-show me-1"></i>
+                                        Details
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('user.edit', $item -> id) }}">
                                         <i class="bx bx-edit-alt me-1"></i>
                                         Edit

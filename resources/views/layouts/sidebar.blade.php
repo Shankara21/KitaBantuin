@@ -2,7 +2,7 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand demo">
-    <a href="index.html" class="app-brand-link">
+    <a href="/" class="app-brand-link">
       <span class=" demo menu-text fw-bolder" style="font-size: 1.7em;">K<span class="text-warning"
           style="font-size: 1em;">IT</span>aBantuin.co</span>
     </a>
@@ -16,8 +16,8 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
-    <li class="menu-item active">
-      <a href="index.html" class="menu-link">
+    <li class="menu-item {{ Request::is('/') ? 'active' : '' }}">
+      <a href="/" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Dashboard</div>
       </a>
@@ -104,13 +104,13 @@
       </ul>
     </li>
 
-     <!-- Skill -->
-     <li class="menu-item">
-        <a href="{{ route('skill.index') }}" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-collection"></i>
-          <div data-i18n="Basic">Skill</div>
-        </a>
-      </li>
+    <!-- Skill -->
+    <li class="menu-item">
+      <a href="{{ route('skill.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-collection"></i>
+        <div data-i18n="Basic">Skill</div>
+      </a>
+    </li>
 
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Portofolio;
 use Illuminate\Support\Facades\Storage;
 
 class AdminWorkerController extends Controller
@@ -69,9 +70,15 @@ class AdminWorkerController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user, $id)
     {
-        //
+        $portofolio = Portofolio::where('user_id', $user->id)->get();
+        $user = User::findOrFail($id);
+        return view('admin.worker.show', [
+            'user' => $user,
+            'title' => 'Detail Worker',
+            'portofolio' => $portofolio
+        ]);
     }
 
     /**
