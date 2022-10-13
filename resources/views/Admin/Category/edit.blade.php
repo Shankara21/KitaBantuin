@@ -10,6 +10,15 @@
                 <h5 class="mb-0">Edit <strong>{{ $category -> name }}</strong></h5>
                 <small class="text-muted float-end">Categories Table</small>
             </div>
+            @if (count($errors) > 0)
+            <div class="mx-3 alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="card-body">
                 <form method="POST" action="{{ route('categories.update', $category -> slug) }}">
                     @method('PUT')

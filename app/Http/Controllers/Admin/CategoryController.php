@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::all();
+        $category = Category::paginate(10);
         return view('Admin.Category.index', [
             'title' => 'Category',
             'categories' => $category
@@ -44,6 +44,9 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
+        $validateData = $request->validate([
+            'name' => 'required|unique:categories|max:255',
+        ]);
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
         Category::create($data);

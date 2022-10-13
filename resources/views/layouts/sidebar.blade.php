@@ -73,9 +73,9 @@
             <div data-i18n="Account">Category</div>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="pages-account-settings-notifications.html" class="menu-link">
-            <div data-i18n="Notifications">SubCategory</div>
+        <li class="menu-item {{ Request::is('subCategories*') ? 'active' : '' }}"">
+          <a href=" {{ route('subCategories.index') }}" class="menu-link ">
+          <div data-i18n="Notifications">SubCategory</div>
           </a>
         </li>
       </ul>

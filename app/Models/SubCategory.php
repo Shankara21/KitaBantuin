@@ -24,4 +24,8 @@ class SubCategory extends Model
     {
         return $this->belongsTo(Project::class);
     }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

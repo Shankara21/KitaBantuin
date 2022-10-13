@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\SubCategoryController as AdminSubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,4 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 
 Route::resource('/categories', AdminCategoryController::class);
+Route::resource('/subCategories', AdminSubCategoryController::class);

@@ -4,6 +4,15 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card">
         <h5 class="card-header">List of Categories</h5>
+        @if (count($errors) > 0)
+        <div class="mx-3 alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="mx-3 mb-3">
             <a href="{{ route('categories.create') }}" class="btn btn-primary">
                 <i class="fa-solid fa-plus" style="padding-right: 10px"></i>
@@ -52,6 +61,9 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+        <div class="d-flex justify-content-end m-3">
+            {{ $categories -> links() }}
         </div>
     </div>
 </div>

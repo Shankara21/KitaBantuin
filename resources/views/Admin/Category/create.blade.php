@@ -10,6 +10,15 @@
                 <h5 class="mb-0">Create new Category</strong></h5>
                 <small class="text-muted float-end">Categories Table</small>
             </div>
+            @if (count($errors) > 0)
+            <div class="mx-3 alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="card-body">
                 <form method="POST" action="{{ route('categories.store') }}">
                     @csrf
