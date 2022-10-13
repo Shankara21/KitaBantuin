@@ -33,5 +33,4 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 });
 Route::resource('/sub-categories', SubCategoryController::class);
-Route::resource('/role', RoleController::class);
 Route::resource('/categories', CategoryController::class);

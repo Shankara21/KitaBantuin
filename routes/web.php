@@ -22,9 +22,6 @@ use App\Http\Controllers\Admin\SubCategoryController as AdminSubCategoryControll
 //     return view('auth.login');
 // });
 
-Route::resource('/categories', CategoryController::class);
-
-
 
 Auth::routes();
 
@@ -32,7 +29,8 @@ Auth::routes();
 // Route::middleware(['auth', 'isAdmin'])->group(function () {
 //     Route::get('/', [HomeController::class, 'index'])->name('index');
 // });
-Route::get('/', [HomeController::class, 'index'])->middleware('auth');
-
-Route::resource('/categories', AdminCategoryController::class);
-Route::resource('/subCategories', AdminSubCategoryController::class);
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/', [HomeController::class, 'index']);
+    Route::resource('/categories', AdminCategoryController::class);
+    Route::resource('/subCategories', AdminSubCategoryController::class);
+});

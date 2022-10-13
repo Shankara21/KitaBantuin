@@ -17,10 +17,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role_id == 1) {
+        if (Auth::user()->role == 'Admin') {
             return $next($request);
         } else {
-            return redirect('/');
+            // Akan diarahkan ke halaman 403
+            return response()->view('errors.403');
         }
     }
 }

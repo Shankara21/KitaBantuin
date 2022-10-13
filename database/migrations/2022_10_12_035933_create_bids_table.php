@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('worker_id')->constrained();
             $table->foreignId('project_id')->constrained();
             $table->integer('price');
             $table->timestamps();

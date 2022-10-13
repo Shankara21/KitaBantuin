@@ -80,6 +80,29 @@
         </li>
       </ul>
     </li>
+    <li class="menu-item {{ Request::is('categories*') || Request::is('subCategories*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon fa-solid fa-users"></i>
+        <div data-i18n="Account Settings">Users</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::is('categories*') ? 'active' : '' }}">
+          <a href="{{ route('categories.index') }}" class="menu-link">
+            <div data-i18n="Account">Admin</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('subCategories*') ? 'active' : '' }}"">
+          <a href=" {{ route('subCategories.index') }}" class="menu-link ">
+          <div data-i18n="Notifications">Worker</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('subCategories*') ? 'active' : '' }}"">
+          <a href=" {{ route('subCategories.index') }}" class="menu-link ">
+          <div data-i18n="Notifications">User</div>
+          </a>
+        </li>
+      </ul>
+    </li>
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-dock-top"></i>

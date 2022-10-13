@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
-use App\Http\Requests\StoreAdminRequest;
-use App\Http\Requests\UpdateAdminRequest;
+use App\Models\WorkerDetail;
+use App\Http\Requests\StoreWorkerDetailRequest;
+use App\Http\Requests\UpdateWorkerDetailRequest;
 
-class AdminController extends Controller
+class WorkerDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAdminRequest  $request
+     * @param  \App\Http\Requests\StoreWorkerDetailRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAdminRequest $request)
+    public function store(StoreWorkerDetailRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\WorkerDetail  $workerDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(WorkerDetail $workerDetail)
     {
         //
     }
@@ -53,10 +53,10 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\WorkerDetail  $workerDetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(WorkerDetail $workerDetail)
     {
         //
     }
@@ -64,11 +64,11 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAdminRequest  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Http\Requests\UpdateWorkerDetailRequest  $request
+     * @param  \App\Models\WorkerDetail  $workerDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdminRequest $request, Admin $admin)
+    public function update(UpdateWorkerDetailRequest $request, WorkerDetail $workerDetail)
     {
         //
     }
@@ -76,10 +76,10 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\WorkerDetail  $workerDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(WorkerDetail $workerDetail)
     {
         //
     }
