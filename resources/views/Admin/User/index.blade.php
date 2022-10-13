@@ -1,0 +1,92 @@
+@extends('layouts.main')
+
+@section('content')
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+        <h5 class="card-header">List of users</h5>
+        @if (count($errors) > 0)
+        <div class="mx-3 alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <div class="mx-3 mb-3">
+            <a href="{{ route('user.create') }}" class="btn btn-primary">
+                <i class="fa-solid fa-plus" style="padding-right: 10px"></i>
+                Add new User</a>
+        </div>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Bank Account</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @forelse ($users as $item)
+                    <tr>
+                        <td>{{ $loop -> iteration }}</td>
+                        <td>
+                            @if ($item->photo)
+                            <img src="{{ asset('storage/'. $item -> photo) }}" alt="" height="100px">
+                            @elseif (!$item -> photo && $item -> gender == 'Laki-laki')
+                            <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" height="100px">
+                            @elseif (!$item -> photo && $item -> gender == 'Perempuan')
+                            <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" height="100px">
+                            @else
+                            <img src="{{ asset('assets/img/icons/avatar/user.png') }}" alt="" height="100px">
+                            @endif
+                        </td>
+                        <td>{{ $item -> name }}</td>
+                        <td>{{ $item -> email ?? '-' }}</td>
+                        <td>{{ $item -> address ?? '-'}}</td>
+                        <td>{{ $item -> gender ?? '-'}}</td>
+                        <td>{{ $item -> phone ?? '-'}}</td>
+                        <td>{{ $item -> bank_account ?? '-'}}</td>
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                    data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    {{-- <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a> --}}
+                                    <a class="dropdown-item" href="{{ route('user.edit', $item -> id) }}">
+                                        <i class="bx bx-edit-alt me-1"></i>
+                                        Edit
+                                    </a>
+                                    <form action="{{ route('user.destroy', $item -> id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash me-1"></i>
+                                            Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @empty
+
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-end m-3">
+            {{ $users -> links() }}
+        </div>
+    </div>
+</div>
+@endsection

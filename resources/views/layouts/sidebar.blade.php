@@ -80,24 +80,24 @@
         </li>
       </ul>
     </li>
-    <li class="menu-item {{ Request::is('categories*') || Request::is('subCategories*') ? 'active' : '' }}">
+    <li class="menu-item {{ Request::is('admin*') || Request::is('user*')|| Request::is('worker*') ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon fa-solid fa-users"></i>
         <div data-i18n="Account Settings">Users</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item {{ Request::is('categories*') ? 'active' : '' }}">
-          <a href="{{ route('categories.index') }}" class="menu-link">
+        <li class="menu-item {{ Request::is('admin*') ? 'active' : '' }}">
+          <a href="{{ route('admin.index') }}" class="menu-link">
             <div data-i18n="Account">Admin</div>
           </a>
         </li>
-        <li class="menu-item {{ Request::is('subCategories*') ? 'active' : '' }}"">
-          <a href=" {{ route('subCategories.index') }}" class="menu-link ">
+        <li class="menu-item {{ Request::is('worker*') ? 'active' : '' }}"">
+          <a href=" {{ route('worker.index') }}" class="menu-link ">
           <div data-i18n="Notifications">Worker</div>
           </a>
         </li>
-        <li class="menu-item {{ Request::is('subCategories*') ? 'active' : '' }}"">
-          <a href=" {{ route('subCategories.index') }}" class="menu-link ">
+        <li class="menu-item {{ Request::is('user*') ? 'active' : '' }}"">
+          <a href=" {{ route('user.index') }}" class="menu-link ">
           <div data-i18n="Notifications">User</div>
           </a>
         </li>

@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\SubCategoryController as AdminSubCategoryController;
+use App\Http\Controllers\Admin\AdminAdminController as AdminController;
+use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
+use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +36,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/', [HomeController::class, 'index']);
     Route::resource('/categories', AdminCategoryController::class);
     Route::resource('/subCategories', AdminSubCategoryController::class);
+    Route::resource('/user', AdminUserController::class);
+    Route::resource('/admin', AdminController::class);
+    Route::resource('/worker', AdminWorkerController::class);
 });
