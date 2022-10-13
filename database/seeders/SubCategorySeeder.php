@@ -35,6 +35,8 @@ class SubCategorySeeder extends Seeder
             'Flutter',
             'Dart',
             'Kotlin',
+            'C++',
+            'C',
         ]);
         // $categories->each(function ($category) {
         //     SubCategory::create([

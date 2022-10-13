@@ -17,13 +17,13 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = collect([
-            'Website',
-            'Mobile',
+            'Website Programming',
+            'Mobile Programming',
             'UI/UX',
             'Cyber Security',
-            'FullStack',
-            'Front End',
-            'Back End'
+            'Desktop Programming',
+            'Game Programming',
+            'SEO & Website Maintenance'
         ]);
         $categories->each(function ($category) {
             Category::create([
