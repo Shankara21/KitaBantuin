@@ -25,31 +25,85 @@
                             <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                                 data-bs-target="#navs-pills-justified-profile"
                                 aria-controls="navs-pills-justified-profile" aria-selected="false">
-                                <i class="tf-icons bx bx-user"></i> Profile
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                                data-bs-target="#navs-pills-justified-messages"
-                                aria-controls="navs-pills-justified-messages" aria-selected="false">
-                                <i class="tf-icons bx bx-message-square"></i> Messages
+                                <i class="fa-solid fa-list-check"></i> Project
                             </button>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="navs-pills-justified-home" role="tabpanel">
-                            <p>
-                                Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame
-                                snaps
-                                powder. Bear claw candy topping.
-                            </p>
-                            <p class="mb-0">
-                                Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly.
-                                Bonbon
-                                jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans
-                                marshmallow
-                                jujubes sweet.
-                            </p>
+                            <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2" class="text-center">
+                                                    @if ($user->photo)
+                                                    <img src="{{ asset('storage/'. $user -> photo) }}" alt=""
+                                                        width="150px" class="mb-5 img-thumbnail rounded m-auto">
+                                                    @elseif (!$user -> photo && $user -> gender == 'Laki-laki')
+                                                    <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt=""
+                                                        width="150px" class="mb-5 img-thumbnail rounded m-auto">
+                                                    @elseif (!$user -> photo && $user -> gender == 'Perempuan')
+                                                    <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt=""
+                                                        width="150px" class="mb-5 img-thumbnail rounded m-auto">
+                                                    @else
+                                                    <img src="{{ asset('assets/img/icons/avatar/user.png') }}" alt=""
+                                                        width="150px" class="mb-5 img-thumbnail rounded m-auto">
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>Name</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>: {{ $user -> name }}</h4>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>email</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>: {{ $user -> email }}</h4>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>phone</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>: {{ $user -> phone }}</h4>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>address</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>: {{ $user -> address }}</h4>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>gender</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>: {{ $user -> gender }}</h4>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h4>bank_account</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>: {{ $user -> bank_account }}</h4>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="navs-pills-justified-profile" role="tabpanel">
                             <p>
@@ -62,20 +116,6 @@
                                 Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu
                                 halvah
                                 cotton candy liquorice caramels.
-                            </p>
-                        </div>
-                        <div class="tab-pane fade" id="navs-pills-justified-messages" role="tabpanel">
-                            <p>
-                                Oat cake chupa chups dragée donut toffee. Sweet cotton candy jelly beans macaroon
-                                gummies
-                                cupcake gummi bears cake chocolate.
-                            </p>
-                            <p class="mb-0">
-                                Cake chocolate bar cotton candy apple pie tootsie roll ice cream apple pie brownie cake.
-                                Sweet
-                                roll icing sesame snaps caramels danish toffee. Brownie biscuit dessert dessert. Pudding
-                                jelly
-                                jelly-o tart brownie jelly.
                             </p>
                         </div>
                     </div>

@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="card">
-        <h5 class="card-header">List of users</h5>
+    <div class="card h-100">
+        <h5 class="card-header">List of admins</h5>
         @if (count($errors) > 0)
         <div class="mx-3 alert alert-danger">
             <ul>
@@ -16,9 +16,9 @@
         <div class="mx-3 mb-3">
             <a href="{{ route('admin.create') }}" class="btn btn-primary">
                 <i class="fa-solid fa-plus" style="padding-right: 10px"></i>
-                Add new User</a>
+                Add new admin</a>
         </div>
-        <div class="table-responsive text-nowrap">
+        <div class="table-responsive text-nowrap h-100">
             <table class="table table-hover text-center">
                 <thead>
                     <tr>
@@ -26,10 +26,6 @@
                         <th>Photo</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Address</th>
-                        <th>Gender</th>
-                        <th>Phone</th>
-                        <th>Bank Account</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -50,11 +46,6 @@
                         </td>
                         <td>{{ $item -> name }}</td>
                         <td>{{ $item -> email ?? '-' }}</td>
-                        <td>{{ $item -> address ?? '-'}}</td>
-                        <td>{{ $item -> gender ?? '-'}}</td>
-                        <td>{{ $item -> phone ?? '-'}}</td>
-                        <td>{{ $item -> bank_account ?? '-'}}</td>
-
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -62,7 +53,6 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    {{-- <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a> --}}
                                     <a class="dropdown-item" href="{{ route('admin.show', $item -> id) }}">
                                         <i class="bx bx-show me-1"></i>
                                         Details
@@ -83,7 +73,11 @@
                         </td>
                     </tr>
                     @empty
-
+                    <tr>
+                        <td colspan="5">
+                            <h4 class="m-4">Tidak ada data Admin.</h4>
+                        </td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>

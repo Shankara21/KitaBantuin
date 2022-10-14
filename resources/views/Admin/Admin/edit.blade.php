@@ -44,7 +44,7 @@
                                 placeholder=" Insert your Email" name="password" />
                         </div>
                     </div>
-                    <input type="hidden" name="role" value="User">
+                    <input type="hidden" name="role" value="Admin">
                     <div class="row mb-3 align-items-center">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Gender</label>
                         <div class="col-sm-10">
@@ -68,7 +68,7 @@
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Bank Account</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="basic-default-name"
-                                placeholder="e.g 12612837120948187" name="bank_account" required
+                                placeholder="e.g 12612837120948187" name="bank_account"
                                 value="{{ $user -> bank_account }}" />
                         </div>
                     </div>

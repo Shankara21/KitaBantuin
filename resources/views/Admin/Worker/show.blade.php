@@ -53,7 +53,7 @@
                                                     <h4>Name</h4>
                                                 </td>
                                                 <td>
-                                                    <h4>{{ $user -> name }}</h4>
+                                                    <h4>: {{ $user -> name }}</h4>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -61,7 +61,7 @@
                                                     <h4>email</h4>
                                                 </td>
                                                 <td>
-                                                    <h4>{{ $user -> email }}</h4>
+                                                    <h4>: {{ $user -> email }}</h4>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -69,7 +69,7 @@
                                                     <h4>phone</h4>
                                                 </td>
                                                 <td>
-                                                    <h4>{{ $user -> phone }}</h4>
+                                                    <h4>: {{ $user -> phone }}</h4>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -77,7 +77,7 @@
                                                     <h4>address</h4>
                                                 </td>
                                                 <td>
-                                                    <h4>{{ $user -> address }}</h4>
+                                                    <h4>: {{ $user -> address }}</h4>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -85,7 +85,7 @@
                                                     <h4>gender</h4>
                                                 </td>
                                                 <td>
-                                                    <h4>{{ $user -> gender }}</h4>
+                                                    <h4>: {{ $user -> gender }}</h4>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -93,7 +93,7 @@
                                                     <h4>bank_account</h4>
                                                 </td>
                                                 <td>
-                                                    <h4>{{ $user -> bank_account }}</h4>
+                                                    <h4>: {{ $user -> bank_account }}</h4>
                                                 </td>
                                             </tr>
                                         </tbody>

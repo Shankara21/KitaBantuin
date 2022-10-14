@@ -69,8 +69,9 @@ class AdminAdminController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user, $id)
     {
+        $user = User::find($id);
         return view('admin.admin.show', [
             'user' => $user,
             'title' => 'Detail User'
@@ -109,8 +110,8 @@ class AdminAdminController extends Controller
             'role' => 'required',
             'gender' => 'required',
             'address' => 'required',
-            'phone' => 'required',
-            'bank_account' => 'required|numeric',
+            'phone' => 'required|numeric',
+            'bank_account' => 'numeric',
             'photo' => 'nullable|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         if ($request->password) {

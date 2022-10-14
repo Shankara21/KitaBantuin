@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card h-100">
-        <h5 class="card-header">List of users</h5>
+        <h5 class="card-header">List of Workers</h5>
         @if (count($errors) > 0)
         <div class="mx-3 alert alert-danger">
             <ul>
@@ -16,7 +16,7 @@
         <div class="mx-3 mb-3">
             <a href="{{ route('worker.create') }}" class="btn btn-primary">
                 <i class="fa-solid fa-plus" style="padding-right: 10px"></i>
-                Add new User</a>
+                Add new Worker</a>
         </div>
         <div class="table-responsive text-nowrap h-100">
             <table class="table table-hover text-center">
@@ -46,11 +46,6 @@
                         </td>
                         <td>{{ $item -> name }}</td>
                         <td>{{ $item -> email ?? '-' }}</td>
-                        {{-- <td>{{ $item -> address ?? '-'}}</td>
-                        <td>{{ $item -> gender ?? '-'}}</td>
-                        <td>{{ $item -> phone ?? '-'}}</td>
-                        <td>{{ $item -> bank_account ?? '-'}}</td> --}}
-
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -78,7 +73,11 @@
                         </td>
                     </tr>
                     @empty
-
+                    <tr>
+                        <td colspan="5">
+                            <h4 class="m-4">Tidak ada data worker.</h4>
+                        </td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>

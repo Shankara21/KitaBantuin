@@ -7,7 +7,7 @@
                 <a href="{{ route('admin.index') }}" class="btn btn-primary">Kembali</a>
             </div>
             <div class="card-header d-flex align-items-center justify-content-between">
-                <h5 class="mb-0">Create new User</strong></h5>
+                <h5 class="mb-0">Create new Admin</strong></h5>
                 <small class="text-muted float-end">user Table</small>
             </div>
             @if (count($errors) > 0)

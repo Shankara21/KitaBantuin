@@ -43,19 +43,6 @@
                                 placeholder=" Insert your Email" name="password" required />
                         </div>
                     </div>
-                    <div class="row mb-3 align-items-center">
-                        <label class="col-sm-2 col-form-label" for="basic-default-name">role</label>
-                        <div class="col-sm-10">
-                            <div class="col-sm-10">
-                                <select class="form-select" id="exampleFormControlSelect1"
-                                    aria-label="Default select example" name="role">
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
-                                    <option value="Perempuan">Perempuan</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                     <input type="hidden" name="role" value="User">
                     <div class="row mb-3 align-items-center">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Gender</label>
