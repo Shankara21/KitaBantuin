@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,14 +18,15 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             // 'username' => 'required|string|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8'
+            'password' => 'required|string|min:8',
+            'password_confirmation' => 'required|string|min:8'
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors());
         }
 
-        $user = Admin::create([
+        $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
@@ -39,12 +41,12 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        if (!Auth::attempt($request->only('email', 'password', 'role'))) {
             return response()
                 ->json(['message' => 'Unauthorized'], 401);
         }
 
-        $user = Admin::where('email', $request['email'])->firstOrFail();
+        $user = User::where('email', $request['email'])->firstOrFail();
 
         $token = $user->createToken('auth_token')->plainTextToken;
 

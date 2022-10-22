@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class LoginApiController extends Controller
 {
-
-
     use AuthenticatesUsers;
 
     /**
@@ -39,13 +39,23 @@ class LoginController extends Controller
         return $field;
     }
 
-    protected function redirectTo()
+    public function login(Request $request)
     {
-        if (Auth::user()->role == 'Admin') {
-            return 'dashboard';
+        if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
+            $user = User::where('role' == 'User');
+            $success['token'] = $user->createToken('MyApp')->plainTextToken;
+            $success['name'] = $user->name;
         }
-        else {
-            return '/';
+        elseif(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
+            $user = User::where('role' == 'Worker');
+            $success['token'] = $user->createToken('MyApp')->plainTextToken;
+            $success['name'] = $user->name;
         }
+
+        $response = [
+            'success' => true,
+            'data' => $success,
+            'message' => 'Login Berhasil'
+        ];
     }
 }

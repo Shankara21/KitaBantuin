@@ -32,7 +32,7 @@ use App\Http\Livewire\Homepage;
 Auth::routes();
 
 
-Route::get('/features', Features::class);
+
 // Route::middleware(['auth', 'isAdmin'])->group(function () {
 //     Route::get('/', [HomeController::class, 'index'])->name('index');
 // });
