@@ -87,7 +87,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $validateData = $request->validate([
-            'name' => 'required|string|max:255|unique:roles',
+            'name' => 'required|string|max:255',
         ]);
         // $validateData['slug'] = Str::slug($validateData(['name']));
         $validateData['slug'] = Str::slug($validateData['name']);

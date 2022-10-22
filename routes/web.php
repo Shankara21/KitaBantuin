@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\AdminAdminController as AdminController;
 use App\Http\Controllers\Admin\AdminSkillController;
 use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
+use App\Http\Livewire\Features;
+use App\Http\Livewire\Homepage;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,7 @@ use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 Auth::routes();
 
 
+Route::get('/features', Features::class);
 // Route::middleware(['auth', 'isAdmin'])->group(function () {
 //     Route::get('/', [HomeController::class, 'index'])->name('index');
 // });

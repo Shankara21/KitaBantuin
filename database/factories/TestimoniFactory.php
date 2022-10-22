@@ -17,7 +17,10 @@ class TestimoniFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => $this->faker->numberBetween(1, 1),
+            // 'project_id' => $this->faker->numberBetween(1, 1),
+            'description' => $this->faker->text(100),
+            'rating' => $this->faker->numberBetween(1, 5),
         ];
     }
 }

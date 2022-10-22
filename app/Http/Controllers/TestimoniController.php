@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Testimoni;
 use App\Http\Requests\StoreTestimoniRequest;
 use App\Http\Requests\UpdateTestimoniRequest;
+use App\Http\Resources\TestimoniResource;
 
 class TestimoniController extends Controller
 {
@@ -15,7 +16,12 @@ class TestimoniController extends Controller
      */
     public function index()
     {
-        //
+        $testimoni = Testimoni::with(['user']);
+        return response()->json([
+            'message' => "Get testimoni success!",
+            // 'data' => Testimoni::all(),
+            'data' => TestimoniResource::collection($testimoni->get()),
+        ]);
     }
 
     /**

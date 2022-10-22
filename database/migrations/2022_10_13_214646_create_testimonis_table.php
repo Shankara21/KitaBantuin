@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('project_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('project_id')->nullable()->constrained();
             $table->string('description');
-            $table->string('rating');
+            $table->string('rating')->nullable();
             $table->timestamps();
         });
     }

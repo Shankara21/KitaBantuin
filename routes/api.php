@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\TestimoniController;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,4 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::resource('/sub-categories', SubCategoryController::class);
 Route::resource('/categories', CategoryController::class);
+Route::resource('/testimoni', TestimoniController::class);

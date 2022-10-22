@@ -13,7 +13,8 @@
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="/js/app.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -38,66 +39,69 @@
     <!-- Helpers -->
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
+
+    @livewireStyles
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        {{ config('app.name', 'Laravel') }}
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            </div>
-            <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
-            <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
-            <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
-            <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    </div>
+    <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @endif
+    <!-- Right Side Of Navbar -->
+    <ul class="navbar-nav ms-auto">
+        <!-- Authentication Links -->
+        @guest
+        @if (Route::has('login'))
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
+        @endif
 
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-                @endif
-                @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
+        @if (Route::has('register'))
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        </li>
+        @endif
+        @else
+        <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
 
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                    {{ __('Logout') }}
+                </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-                @endguest
-            </ul>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+        @endguest
+    </ul>
     </div>
     </div>
-    </nav>
-
+    </nav> --}}
+    {{ $slot }}
+    </div>
+    @livewireScripts
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
