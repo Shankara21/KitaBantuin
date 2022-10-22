@@ -42,20 +42,39 @@ class LoginApiController extends Controller
     public function login(Request $request)
     {
         if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
-            $user = User::where('role' == 'User');
+            $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->plainTextToken;
             $success['name'] = $user->name;
+
+            $response = [
+                'success' => true,
+                'data' => $success,
+                'message' => 'Login Berhasil'
+            ];
+
+            return response()->json($response, 200);
         }
-        elseif(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
-            $user = User::where('role' == 'Worker');
-            $success['token'] = $user->createToken('MyApp')->plainTextToken;
-            $success['name'] = $user->name;
+        // elseif(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
+        //     $user = User::where('role' == 'Worker');
+        //     $success['token'] = $user->createToken('MyApp')->plainTextToken;
+        //     $success['name'] = $user->name;
+
+        //     $response = [
+        //         'success' => true,
+        //         'data' => $success,
+        //         'message' => 'Login Berhasil'
+        //     ];
+
+        //     return response()->json($response, 200);
+        // }
+        else {
+            $response = [
+                'success' => false,
+                'message' => 'Unauthorized'
+            ];
+            return response()->json($response);
         }
 
-        $response = [
-            'success' => true,
-            'data' => $success,
-            'message' => 'Login Berhasil'
-        ];
+
     }
 }

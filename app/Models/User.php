@@ -24,10 +24,6 @@ class User extends Authenticatable
     // ];
     protected $guarded = ['id'];
 
-    public function role()
-    {
-        return $this->hasOne(Role::class);
-    }
     /**
      * The attributes that should be hidden for serialization.
      *
