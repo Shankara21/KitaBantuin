@@ -16,15 +16,21 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
-    <li class="menu-item {{ Request::is('/') ? 'active' : '' }}">
-      <a href="/" class="menu-link">
+    <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
+      <a href="/dashboard" class="menu-link">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
+    <li class="menu-item {{ Request::is('/') ? 'active' : '' }}">
+      <a href="/" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home"></i>
+        <div data-i18n="Analytics">Homepage</div>
+      </a>
+    </li>
 
     <!-- Layouts -->
-    <li class="menu-item">
+    {{-- <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-layout"></i>
         <div data-i18n="Layouts">Layouts</div>
@@ -57,7 +63,7 @@
           </a>
         </li>
       </ul>
-    </li>
+    </li> --}}
 
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Pages</span>
@@ -151,19 +157,19 @@
     </li>
     <!-- Pembayaran -->
     <li class="menu-item">
-        <a href="" class="menu-link">
+      <a href="" class="menu-link">
         <i class="menu-icon fa-regular fa-credit-card"></i>
-          <div data-i18n="Basic">Pembayaran</div>
-        </a>
-      </li>
+        <div data-i18n="Basic">Pembayaran</div>
+      </a>
+    </li>
 
     <!-- Testimoni -->
     <li class="menu-item">
-        <a href="" class="menu-link">
-            <i class="menu-icon fa-regular fa-comments"></i>
-          <div data-i18n="Basic">Testimoni</div>
-        </a>
-      </li>
+      <a href="" class="menu-link">
+        <i class="menu-icon fa-regular fa-comments"></i>
+        <div data-i18n="Basic">Testimoni</div>
+      </a>
+    </li>
 
 
 

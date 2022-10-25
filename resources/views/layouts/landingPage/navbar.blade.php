@@ -15,10 +15,10 @@
             <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
                 <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
                 <li class="has-children">
-                    <a href="#">Dropdown</a>
+                    <a href="#">Project</a>
                     <ul class="dropdown">
-                        <li><a href="elements.html">Elements</a></li>
-                        <li><a href="#">Menu One</a></li>
+                        <li><a href="elements.html">Browse Project</a></li>
+                        <li><a href="#">Make Project</a></li>
                         <li class="has-children">
                             <a href="#">Menu Two</a>
                             <ul class="dropdown">
@@ -41,11 +41,30 @@
                 <li class="has-children">
                     <a href="#">{{ Auth::user() -> name }}</a>
                     <ul class="dropdown">
+                        @if (Auth::user() -> role == 'Admin')
                         <li><a href="/dashboard"><i class="fa-solid fa-paper-plane"></i> Dashboard</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a href="elements.html"><i class="fa-solid fa-user"></i> Profile</a></li>
+                        @endif
+                        <li>
+                            <a
+                                href="{{ Auth::user() -> role == 'Admin' || Auth::user() -> role == 'User' ? 'profile' : 'profile-worker' }}"><i
+                                    class="fa-solid fa-user"></i> Profile
+                            </a>
+                        </li>
+                        @if (Auth::user() -> role == 'User')
+                        <li><a href="/myProject"><i class="fa-solid fa-list-check"></i> My Project</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        @endif
+                        @if (Auth::user() -> role == 'Worker')
+                        <li><a href="/myBid"><i class="fa-solid fa-list-check"></i> My Bid</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        @endif
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

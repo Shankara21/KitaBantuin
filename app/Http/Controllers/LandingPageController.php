@@ -29,4 +29,16 @@ class LandingPageController extends Controller
             'testimonis' => Testimoni::all()
         ]);
     }
+    public function profile()
+    {
+        return view('landingPage.profile', [
+            'user' => auth()->user()
+        ]);
+    }
+    public function profileWorker()
+    {
+        return view('landingPage.profile-worker', [
+            'user' => auth()->user()
+        ]);
+    }
 }
