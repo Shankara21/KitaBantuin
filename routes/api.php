@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\LoginApiController;
-use App\Http\Controllers\Auth\RegisterApiController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\TestimoniController;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\Auth\LoginApiController;
+use App\Http\Controllers\Auth\RegisterApiController;
 
 /*
 |--------------------------------------------------------------------------

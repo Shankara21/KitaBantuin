@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminAdminController as AdminController;
 use App\Http\Controllers\Admin\AdminSkillController;
 use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Livewire\Features;
 use App\Http\Livewire\Homepage;
 
@@ -31,13 +32,25 @@ use App\Http\Livewire\Homepage;
 
 Auth::routes();
 
-
+// Route::get('/', function () {
+//     return view('landingPage.home');
+// });
+// Route::controller(OrderController::class)->group(function () {
+//     Route::get('/orders/{id}', 'show');
+//     Route::post('/orders', 'store');
+// });
+Route::controller(LandingPageController::class)->group(function () {
+    Route::get('/', 'home');
+    Route::get('/service', 'service');
+    Route::get('/about', 'about');
+    Route::get('/contact', 'contact');
+});
 
 // Route::middleware(['auth', 'isAdmin'])->group(function () {
 //     Route::get('/', [HomeController::class, 'index'])->name('index');
 // });
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/dashboard', [HomeController::class, 'index']);
     Route::resource('/categories', AdminCategoryController::class);
     Route::resource('/subCategories', AdminSubCategoryController::class);
     Route::resource('/user', AdminUserController::class);
