@@ -45,7 +45,7 @@ Dengan adanya bisnis ini, nantinya akan dapat membantu mahasiswa yang ingin mend
 
 ```bash
 git clone https://github.com/Shankara21/Kitabantuin.git
-cd PWL_PROJECT
+cd Kitabantuin
 composer install
 npm install
 cp .env.example .env
