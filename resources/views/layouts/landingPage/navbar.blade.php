@@ -17,9 +17,14 @@
                 <li class="has-children">
                     <a href="#">Project</a>
                     <ul class="dropdown">
-                        <li><a href="elements.html">Browse Project</a></li>
-                        <li><a href="#">Make Project</a></li>
-                        <li class="has-children">
+                        <li><a href="list-project">Browse Project</a></li>
+                        <li><a href="/create-project">Make Project</a></li>
+                        {{-- <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a href="/create-project">Browse Worker</a></li> --}}
+
+                        {{-- <li class="has-children">
                             <a href="#">Menu Two</a>
                             <ul class="dropdown">
                                 <li><a href="#">Sub Menu One</a></li>
@@ -27,9 +32,10 @@
                                 <li><a href="#">Sub Menu Three</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="#">Menu Three</a></li> --}}
                     </ul>
                 </li>
+                <li class="{{ Request::is('list-worker') ? 'active' : '' }}"><a href="/list-worker">Worker</a></li>
                 <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="/service">Services</a></li>
                 <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="about">About</a></li>
                 <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="contact">Contact Us</a></li>

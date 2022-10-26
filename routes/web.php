@@ -44,8 +44,11 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/service', 'service');
     Route::get('/about', 'about');
     Route::get('/contact', 'contact');
+    Route::get('/list-worker', 'worker');
+    Route::get('/list-project', 'project');
     Route::get('/profile', 'profile');
     Route::get('/profile-worker', 'profileWorker');
+    Route::get('/detail-project', 'detailProject');
 });
 
 // Route::middleware(['auth', 'isAdmin'])->group(function () {

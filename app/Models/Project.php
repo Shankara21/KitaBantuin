@@ -30,4 +30,9 @@ class Project extends Model
     {
         return $this->belongsTo(Project_result::class);
     }
+
+    public function testimoni()
+    {
+        return $this->hasOne(Testimoni::class);
+    }
 }

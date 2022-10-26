@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimoni;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -29,6 +30,14 @@ class LandingPageController extends Controller
             'testimonis' => Testimoni::all()
         ]);
     }
+    public function worker()
+    {
+        // $testimoni = Testimoni::with(['user']);
+        // dd($testimoni->get());
+        return view('landingPage.worker', [
+            'workers' => User::where('role', 'Worker')->get()
+        ]);
+    }
     public function profile()
     {
         return view('landingPage.profile', [
@@ -40,5 +49,13 @@ class LandingPageController extends Controller
         return view('landingPage.profile-worker', [
             'user' => auth()->user()
         ]);
+    }
+    public function project()
+    {
+        return view('landingPage.projects');
+    }
+    public function detailProject()
+    {
+        return view('landingPage.detail-project');
     }
 }

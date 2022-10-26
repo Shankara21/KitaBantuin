@@ -28,21 +28,11 @@
                                     <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-5">
                                         <input type="text" class="form-control" name="daterange">
                                     </div>
-                                    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-3">
-                                        <input type="text" class="form-control" placeholder="# of People">
-                                    </div>
 
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
                                         <input type="submit" class="btn btn-primary btn-block" value="Search">
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <label class="control control--checkbox mt-3">
-                                            <span class="caption">Save this search</span>
-                                            <input type="checkbox" checked="checked" />
-                                            <div class="control__indicator"></div>
-                                        </label>
                                     </div>
                                 </div>
                             </form>

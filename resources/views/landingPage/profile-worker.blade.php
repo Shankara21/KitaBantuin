@@ -16,7 +16,7 @@
 
 <div class="untree_co-section">
     <div class="container">
-        <div class="card">
+        <div class="card shadow" style="border-radius: 20px">
             <div class="card-body">
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-warning align-self-end my-3" id="edit" onclick="edit()">Edit profile <i
@@ -138,7 +138,7 @@
                 </div>
             </div>
         </div>
-        <div class="card my-5">
+        <div class="card my-5 shadow" style="border-radius: 20px">
             <div class="card-body">
                 <h3>About Me</h3>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
