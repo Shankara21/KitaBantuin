@@ -29,6 +29,14 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123'),
             'role' => 'Admin'
         ]);
+
+        User::factory()->create([
+            'name' => 'Firgi',
+            'email' => 'firgi@gmail.com',
+            'password' => bcrypt('123'),
+            'role' => 'Admin'
+        ]);
+
         Testimoni::factory(10)->create();
         $this->call([
             CategorySeeder::class,
