@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SubCategory;
 use App\Models\Testimoni;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -57,5 +58,11 @@ class LandingPageController extends Controller
     public function detailProject()
     {
         return view('landingPage.detail-project');
+    }
+    public function createProject()
+    {
+        return view('landingPage.create-project', [
+            'categories' => SubCategory::all()
+        ]);
     }
 }

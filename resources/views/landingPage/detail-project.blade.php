@@ -51,80 +51,137 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
+                                <h6 class="text-bold pl-5">Budget :
+                                    <span class="text-muted">Rp.750.000.000</span>
+                                </h6>
+                            </div>
+                            <div class="col-6">
+                                <h6 class=" pl-5">Deadline :
+                                    <span class="text-muted">12-12-2022</span>
+                                </h6>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="text-bold pl-5">Total Bid :
+                                    <span class="text-muted">12</span>
+                                </h6>
+                            </div>
+                            <div class="col-6">
+                                <h6 class=" pl-5">Deadline :
+                                    <span class="text-muted">12-12-2022</span>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-4">
+                <div class="card shadow" style="border-radius: 20px;background:white">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5">
                                 <h3>Project Owner</h3>
-
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <h4>John Doe</h4>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae
+                                            voluptates. Quisquam, quae voluptates.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-2"></div>
+                            <div class="col-5">
                                 <h3>Accepted Worker</h3>
-                                <h6 class=" pl-5">Deadline :
-                                    <span class="text-muted">12-12-2022</span>
-                                </h6>
-                            </div>
-                            <div class="col-6">
-                                <h6 class="text-bold pl-5">Total Bid :
-                                    <span class="text-muted">12</span>
-                                </h6>
-                            </div>
-                            <div class="col-6">
-                                <h6 class=" pl-5">Deadline :
-                                    <span class="text-muted">12-12-2022</span>
-                                </h6>
+                                <h6>Bid masih terbuka</h6>
+                                <a href="/bid" class="btn btn-primary mx-1 px-3 py-2 mb-2">Bid</a>
+                                <a href="/bid" class="btn btn-secondary mx-1 px-3 py-2">Chat</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="col-12 mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <h6 class="text-bold pl-5">Budget :
-                                    <span class="text-muted">Rp.750.000</span>
-                                </h6>
-                            </div>
-                            <div class="col-6">
-                                <h6 class=" pl-5">Deadline :
-                                    <span class="text-muted">12-12-2022</span>
-                                </h6>
-                            </div>
-                            <div class="col-6">
-                                <h6 class="text-bold pl-5">Total Bid :
-                                    <span class="text-muted">12</span>
-                                </h6>
-                            </div>
-                            <div class="col-6">
-                                <h6 class=" pl-5">Deadline :
-                                    <span class="text-muted">12-12-2022</span>
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-4">
-                <div class="card shadow" style="border-radius: 20px;background:white">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <h6 class="text-bold pl-5">Budget :
-                                    <span class="text-muted">Rp.750.000</span>
-                                </h6>
-                            </div>
-                            <div class="col-6">
-                                <h6 class=" pl-5">Deadline :
-                                    <span class="text-muted">12-12-2022</span>
-                                </h6>
-                            </div>
-                            <div class="col-6">
-                                <h6 class="text-bold pl-5">Total Bid :
-                                    <span class="text-muted">12</span>
-                                </h6>
-                            </div>
-                            <div class="col-6">
-                                <h6 class=" pl-5">Deadline :
-                                    <span class="text-muted">12-12-2022</span>
-                                </h6>
+                        <h3>User Bids</h3>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
+                                <div class="col-4 col-lg-1">
+                                    <a href="">
+                                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                                            class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

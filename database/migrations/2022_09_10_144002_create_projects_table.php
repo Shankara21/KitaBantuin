@@ -19,10 +19,10 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('worker_id')->references('id')->on('users');
             $table->string('title');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('description');
             $table->date('deadline');
-            $table->integer('budget');
+            $table->string('budget');
             $table->string('status');
             $table->timestamps();
         });

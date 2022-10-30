@@ -20,11 +20,11 @@
                 <div class="card shadow" style="border-radius: 20px;background:white">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-2">
+                            <div class="col-6 col-lg-2">
                                 <img src="/landingPage/images/person_1.jpg" alt="Image"
                                     class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
                             </div>
-                            <div class="col-lg-10">
+                            <div class="col-12 col-lg-10">
                                 <h5>Membuat Template Bootstrap 5</h5>
                                 <p class="text-muted">Web Development</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam laborum animi aperiam,

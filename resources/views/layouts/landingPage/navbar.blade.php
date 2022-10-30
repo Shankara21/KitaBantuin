@@ -14,7 +14,8 @@
 
             <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
                 <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
-                <li class="has-children">
+                <li
+                    class="has-children {{ Request::is('list-project') || Request::is('create-project') ? 'active' : '' }}">
                     <a href="#">Project</a>
                     <ul class="dropdown">
                         <li><a href="list-project">Browse Project</a></li>

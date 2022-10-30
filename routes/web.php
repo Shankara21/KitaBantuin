@@ -49,6 +49,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/profile', 'profile');
     Route::get('/profile-worker', 'profileWorker');
     Route::get('/detail-project', 'detailProject');
+    Route::get('/create-project', 'createProject');
 });
 
 // Route::middleware(['auth', 'isAdmin'])->group(function () {

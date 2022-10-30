@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4 mb-4">
+            <div class="col-lg-4 col-sm-12  mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
 
                     <div class="p-2 d-flex justify-content-center">
@@ -90,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-4">
+            <div class="col-lg-4 col-sm-12 mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
 
                     <div class="p-2 d-flex justify-content-center">
@@ -116,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-4">
+            <div class="col-lg-4 col-sm-12 mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
 
                     <div class="p-2 d-flex justify-content-center">
@@ -142,7 +142,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-4">
+            <div class="col-lg-4 col-sm-12 mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
 
                     <div class="p-2 d-flex justify-content-center">
@@ -168,7 +168,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-4">
+            <div class="col-lg-4 col-sm-12 mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
 
                     <div class="p-2 d-flex justify-content-center">

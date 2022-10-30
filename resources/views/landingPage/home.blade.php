@@ -28,7 +28,6 @@
                                     <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-5">
                                         <input type="text" class="form-control" name="daterange">
                                     </div>
-
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
