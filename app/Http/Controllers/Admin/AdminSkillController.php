@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Skill;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminSkillController extends Controller
 {
@@ -103,5 +104,11 @@ class AdminSkillController extends Controller
     {
         $skill->delete();
         return redirect()->route('skill.index')->with('success', 'Skill Deleted Successfully');
+    }
+
+    public function checkSlug(Request $request){
+        $slug = SlugService::createSlug(Skill::class, 'slug', $request->name);
+
+        return response()->json(['slug' => $slug]);
     }
 }

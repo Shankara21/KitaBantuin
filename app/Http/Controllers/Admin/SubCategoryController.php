@@ -8,6 +8,8 @@ use App\Http\Requests\StoreSubCategoryRequest;
 use App\Http\Requests\UpdateSubCategoryRequest;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 
 class SubCategoryController extends Controller
@@ -111,5 +113,11 @@ class SubCategoryController extends Controller
     {
         $subCategory->delete();
         return redirect()->route('subCategories.index')->with('success', 'SubCategory deleted successfully');
+    }
+
+    public function checkSlug(Request $request){
+        $slug = SlugService::createSlug(SubCategory::class, 'slug', $request->name);
+
+        return response()->json(['slug' => $slug]);
     }
 }

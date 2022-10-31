@@ -57,10 +57,14 @@ Route::controller(LandingPageController::class)->group(function () {
 // });
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index']);
+    Route::get('/categories/checkSlug', [AdminController::class, 'checkSlug']);
+    Route::get('/subCategories/checkSlug', [AdminSubCategoryController::class, 'checkSlug']);
+    Route::get('/skill/checkSlug', [AdminSkillController::class, 'checkSlug']);
     Route::resource('/categories', AdminCategoryController::class);
     Route::resource('/subCategories', AdminSubCategoryController::class);
     Route::resource('/user', AdminUserController::class);
     Route::resource('/admin', AdminController::class);
     Route::resource('/worker', AdminWorkerController::class);
     Route::resource('/skill', AdminSkillController::class);
+
 });

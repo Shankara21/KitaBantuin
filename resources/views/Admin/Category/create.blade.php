@@ -25,8 +25,15 @@
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="basic-default-name"
+                            <input type="text" class="form-control" id="name"
                                 placeholder="Name of category" name="name" required />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="slug">Slug</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="slug"
+                                placeholder="Slug" name="slug" required readonly/>
                         </div>
                     </div>
                     <div class="row justify-content-end">
@@ -39,4 +46,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    const name = document.querySelector('#name');
+    const slug = document.querySelector('#slug');
+
+  name.addEventListener('change', function(){
+    fetch('/categories/checkSlug?name=' + name.value)
+    .then(response => response.json())
+    .then(data => slug.value = data.slug)
+  });
+</script>
 @endsection
