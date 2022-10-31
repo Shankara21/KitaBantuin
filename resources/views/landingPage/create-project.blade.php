@@ -26,18 +26,19 @@
             </div>
         </div>
         <div class="row justify-content-center p-3">
-            <form class="contact-form bg-white">
+            <form class="contact-form bg-white" action="/create-project" method="POST" >
+                @csrf
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label class="text-black" for="fname">Judul Project</label>
-                            <input type="text" class="form-control" id="fname">
+                            <input type="text" class="form-control" id="fname" name="title">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label class="text-black" for="message">Deskripsi</label>
-                            <textarea name="editor1" class="form-control" id="message" cols="30" rows="5"></textarea>
+                            <textarea name="editor1" class="form-control" id="message" cols="30" rows="5" name="description"></textarea>
                         </div>
                     </div>
                 </div>
@@ -45,18 +46,18 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="text-black" for="fname">Budget</label>
-                            <input type="number" min="0" class="form-control" id="fname">
+                            <input type="number" min="0" class="form-control" id="fname" name="start">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="text-black" for="fname">Budget</label>
-                            <input type="number" min="0" class="form-control" id="fname">
+                            <input type="number" min="0" class="form-control" id="fname" name="end">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <small id="emailHelp" class="form-text text-danger">*Masukkan range budget dari project anda
-                            (Rp.1.000.000 - Rp.2.000.000)
+                            (misal Rp.1.000.000 - Rp.2.000.000)
                         </small>
                     </div>
                 </div>
@@ -65,14 +66,14 @@
                         <div class="form-group">
                             <label class="text-black" for="email">Deadline</label>
                             <input type="date" min="{{ date('Y-m-d') }}" class="form-control" id="email"
-                                aria-describedby="emailHelp">
+                                aria-describedby="emailHelp" name="deadline">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="text-black" for="select">Select</label>
 
-                            <select name="" id="select" class="custom-select">
+                            <select name="sub_categories_id" id="select" class="custom-select">
                                 @foreach ($categories as $item)
                                 <option value="{{ $item -> id }}">{{ $item -> name }}</option>
                                 @endforeach
@@ -81,7 +82,10 @@
                     </div>
                 </div>
                 <div id="editor"></div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary my-2" {{ !Auth()->user() ? 'disabled' : '' }} >Submit</button>
+                @if (!auth()->user())
+                <p class="text-danger">*Anda harus <a href="login">login</a> terlebih dahulu</p>
+                @endif
             </form>
         </div>
     </div>

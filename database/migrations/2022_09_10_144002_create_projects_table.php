@@ -17,10 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sub_categories_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('worker_id')->references('id')->on('users');
+            $table->foreignId('worker_id')->nullable()->references('id')->on('users');
             $table->string('title');
-            $table->string('image')->nullable();
-            $table->string('description');
+            $table->text('description');
             $table->date('deadline');
             $table->string('budget');
             $table->string('status');

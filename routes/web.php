@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminSkillController;
 use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\LandingPageProject;
 use App\Http\Livewire\Features;
 use App\Http\Livewire\Homepage;
 
@@ -51,7 +52,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/detail-project', 'detailProject');
     Route::get('/create-project', 'createProject');
 });
-
+Route::post('/create-project', [LandingPageProject::class, 'createProject']);
 // Route::middleware(['auth', 'isAdmin'])->group(function () {
 //     Route::get('/', [HomeController::class, 'index'])->name('index');
 // });
