@@ -1,6 +1,6 @@
 @extends('layouts.landingPage.main')
 @section('content')
-<<<<<<< HEAD
+
     <div class="hero hero-inner">
         <div class="container">
             <div class="row align-items-center">
@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-=======
+
 <div class="hero hero-inner">
     <div class="container">
         <div class="row align-items-center">
@@ -107,7 +107,7 @@
             @empty
 
             @endforelse
->>>>>>> 67744d0 (update 1 nov 2022)
+
         </div>
     </div>
 
