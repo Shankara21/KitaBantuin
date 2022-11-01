@@ -46,16 +46,18 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/about', 'about');
     Route::get('/contact', 'contact');
     Route::get('/list-worker', 'worker');
-    Route::get('/list-project', 'project');
+    Route::get('/list-project', 'project')->name('list-project');
     Route::get('/profile', 'profile');
     Route::get('/profile-worker', 'profileWorker');
-    Route::get('/detail-project', 'detailProject');
+    Route::get('/detail-project/{id}', 'detailProject');
     Route::get('/create-project', 'createProject');
+    Route::get('/myBid', 'myBid');
 });
-Route::post('/create-project', [LandingPageProject::class, 'createProject']);
-// Route::middleware(['auth', 'isAdmin'])->group(function () {
-//     Route::get('/', [HomeController::class, 'index'])->name('index');
-// });
+Route::controller(LandingPageProject::class)->group(function () {
+    Route::post('/create-project', 'createProject');
+    Route::post('/create-bid', 'createBid');
+});
+
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index']);
     Route::get('/categories/checkSlug', [AdminController::class, 'checkSlug']);
@@ -67,5 +69,4 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/admin', AdminController::class);
     Route::resource('/worker', AdminWorkerController::class);
     Route::resource('/skill', AdminSkillController::class);
-
 });

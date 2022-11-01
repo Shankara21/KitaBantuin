@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('project_id')->constrained();
             $table->integer('price');
+            $table->date('deadline');
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

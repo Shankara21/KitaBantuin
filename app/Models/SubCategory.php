@@ -10,6 +10,7 @@ class SubCategory extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'sub_categories';
 
     protected $hidden = [
         'created_at',
@@ -23,7 +24,7 @@ class SubCategory extends Model
 
     public function project()
     {
-        return $this->belongsTo(Project::class);
+        return $this->hasMany(Project::class);
     }
     public function getRouteKeyName()
     {

@@ -25,8 +25,17 @@
                 </p>
             </div>
         </div>
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="row justify-content-center p-3">
-            <form class="contact-form bg-white" action="/create-project" method="POST" >
+            <form class="contact-form bg-white" action="/create-project" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-sm-12">
@@ -38,9 +47,11 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label class="text-black" for="message">Deskripsi</label>
-                            <textarea name="editor1" class="form-control" id="message" cols="30" rows="5" name="description"></textarea>
+                            <textarea class="form-control" id="message" cols="30" rows="5"
+                                name="editor1"></textarea>
                         </div>
                     </div>
+                
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-6">
@@ -82,7 +93,8 @@
                     </div>
                 </div>
                 <div id="editor"></div>
-                <button type="submit" class="btn btn-primary my-2" {{ !Auth()->user() ? 'disabled' : '' }} >Submit</button>
+                <button type="submit" class="btn btn-primary my-2"
+                    {{ !Auth()->user() ? 'disabled' : '' }}>Submit</button>
                 @if (!auth()->user())
                 <p class="text-danger">*Anda harus <a href="login">login</a> terlebih dahulu</p>
                 @endif

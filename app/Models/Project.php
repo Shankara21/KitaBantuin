@@ -10,15 +10,16 @@ class Project extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'projects';
 
     public function subCategories()
     {
         return $this->hasMany(SubCategory::class);
     }
 
-    public function users()
+    public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function workers()
@@ -34,5 +35,18 @@ class Project extends Model
     public function testimoni()
     {
         return $this->hasOne(Testimoni::class);
+    }
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategory::class, 'sub_categories_id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'title';
+    }
+    public function bids()
+    {
+        return $this->hasMany(Bid::class);
     }
 }

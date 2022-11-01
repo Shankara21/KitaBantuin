@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SubCategory;
-use App\Models\Testimoni;
+use App\Models\Bid;
 use App\Models\User;
+use App\Models\Project;
+use App\Models\Testimoni;
+use App\Models\SubCategory;
+use App\Models\WorkerDetail;
 use Illuminate\Http\Request;
+use App\Http\Resources\TestimoniResource;
 
 class LandingPageController extends Controller
 {
@@ -35,8 +39,10 @@ class LandingPageController extends Controller
     {
         // $testimoni = Testimoni::with(['user']);
         // dd($testimoni->get());
+        $target = User::with(['workerDetail', 'portofolio'])->where('role', 'Worker')->get()->toArray();
+        // dd($target);
         return view('landingPage.worker', [
-            'workers' => User::where('role', 'Worker')->get()
+            'workers' => $target
         ]);
     }
     public function profile()
@@ -53,16 +59,33 @@ class LandingPageController extends Controller
     }
     public function project()
     {
-        return view('landingPage.projects');
+        // $target = Project::with(['subCategory'])->where('id', 1)->first();
+        // dd($target->user);
+
+        return view('landingPage.projects', [
+            'projects' => Project::orderBy('created_at', 'DESC')->paginate(6),
+
+        ]);
     }
-    public function detailProject()
+    public function detailProject($id)
     {
-        return view('landingPage.detail-project');
+        $project = Project::with(['subCategory'])->where('title', $id)->first();
+        $bids = Bid::where('project_id', $project->id)->get();
+        return view('landingPage.detail-project', [
+            'project' => $project,
+            'subCategory' => SubCategory::find($id),
+            'bid' => $bids,
+            'total_bid' => $bids->count()
+        ]);
     }
     public function createProject()
     {
         return view('landingPage.create-project', [
             'categories' => SubCategory::all()
         ]);
+    }
+    public function myBid()
+    {
+        return view('landingPage.myBid');
     }
 }

@@ -50,4 +50,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+    public function bid()
+    {
+        return $this->hasMany(Bid::class);
+    }
+    public function portofolio()
+    {
+        return $this->hasMany(Portofolio::class);
+    }
+    public function workerDetail()
+    {
+        return $this->hasOne(WorkerDetail::class);
+    }
 }
