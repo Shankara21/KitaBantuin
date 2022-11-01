@@ -12,10 +12,12 @@ class WorkerDetail extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function portofolio(){
+    public function portofolio()
+    {
         return $this->hasMany(Portofolio::class);
     }
-    public function skill(){
-        return $this->hasMany(Skill::class);
+    public function skill()
+    {
+        return $this -> belongsTo(Skill::class, 'skill_id');
     }
 }

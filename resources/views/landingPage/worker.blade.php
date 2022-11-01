@@ -78,34 +78,34 @@
         </div>
         <div class="row">
             @forelse ($workers as $item)
-                <div class="col-lg-4 col-sm-12  mb-4">
-                    <div class="card shadow" style="border-radius: 20px;background:white">
-                
-                        <div class="p-2 d-flex justify-content-center">
-                            <img src="/landingPage/images/person_1.jpg" alt="Image"
-                                class="img-fluid img-thumbnail rounded-circle w-50 ">
-                        </div>
-                
-                        <div class="card-body">
-                            <h5>{{ $item['name']}}</h5>
-                            <p class="text-muted mb-4">{{ $item['worker_detail']['skill_id']}}</p>
-                            <div class="mb-4">
-                                {{-- <div class="owl-single dots-absolute owl-carousel">
+            <div class="col-lg-4 col-sm-12  mb-4">
+                <div class="card shadow" style="border-radius: 20px;background:white">
+
+                    <div class="p-2 d-flex justify-content-center">
+                        <img src="/landingPage/images/person_1.jpg" alt="Image"
+                            class="img-fluid img-thumbnail rounded-circle w-50 ">
+                    </div>
+
+                    <div class="card-body">
+                        <h5>{{ $item['name']}}</h5>
+                        {{-- <p class="text-muted mb-4">{{ $item}}</p> --}}
+                        <div class="mb-4">
+                            {{-- <div class="owl-single dots-absolute owl-carousel">
                                     <img src="/landingPage/images/slider-1.jpg" alt="Free HTML Template by Untree.co" class="img-fluid"
                                         style="border-radius: 25px">
                                     <img src="/landingPage/images/slider-2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid"
                                         style="border-radius: 25px">
                                     </div> --}}
-                                    <img src="/landingPage/images/slider-4.jpg" alt="Free HTML Template by Untree.co" class="img-fluid"
-                                        style="border-radius: 25px">
-                            </div>
-                            <a href="/chat" class="btn btn-primary d-block mb-2">Chat</a>
-                            <a href="/details" class="btn btn-secondary d-block">Details</a>
+                            <img src="/landingPage/images/slider-4.jpg" alt="Free HTML Template by Untree.co"
+                                class="img-fluid" style="border-radius: 25px">
                         </div>
+                        <a href="/chat" class="btn btn-primary d-block mb-2">Chat</a>
+                        <a href="/details-worker/{{ $item -> id }}" class="btn btn-secondary d-block">Details</a>
                     </div>
                 </div>
+            </div>
             @empty
-                
+
             @endforelse
 >>>>>>> 67744d0 (update 1 nov 2022)
         </div>

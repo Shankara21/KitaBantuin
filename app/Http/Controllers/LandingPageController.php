@@ -10,6 +10,7 @@ use App\Models\SubCategory;
 use App\Models\WorkerDetail;
 use Illuminate\Http\Request;
 use App\Http\Resources\TestimoniResource;
+use App\Models\Portofolio;
 
 class LandingPageController extends Controller
 {
@@ -39,7 +40,7 @@ class LandingPageController extends Controller
     {
         // $testimoni = Testimoni::with(['user']);
         // dd($testimoni->get());
-        $target = User::with(['workerDetail', 'portofolio'])->where('role', 'Worker')->get()->toArray();
+        $target = User::with(['workerDetail', 'portofolio'])->where('role', 'Worker')->get();
         // dd($target);
         return view('landingPage.worker', [
             'workers' => $target
@@ -87,5 +88,16 @@ class LandingPageController extends Controller
     public function myBid()
     {
         return view('landingPage.myBid');
+    }
+    public function detailWorker($id)
+    {
+        $target = User::where('id', $id)->first();
+        $portofolio = Portofolio::where('user_id', $id)->get();
+        $details = WorkerDetail::where('user_id', $id)->first();
+        return view('landingPage.detail-worker', [
+            'worker' => $target,
+            'portofolio' => $portofolio,
+            'details' => $details
+        ]);
     }
 }

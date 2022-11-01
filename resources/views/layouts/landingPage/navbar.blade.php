@@ -55,10 +55,12 @@
                         </li>
                         @endif
                         <li>
-                            <a
-                                href="{{ Auth::user() -> role == 'Admin' || Auth::user() -> role == 'User' ? 'profile' : 'profile-worker' }}"><i
-                                    class="fa-solid fa-user"></i> Profile
-                            </a>
+                            @if (Auth::user() -> role == 'Admin' || Auth::user() -> role == 'User')
+                            <a href="/profile"><i class="fa-solid fa-user"></i> Profile</a>
+
+                            @else
+                            <a href="/profile-worker"><i class="fa-solid fa-user"></i> Profile</a>
+                            @endif
                         </li>
                         @if (Auth::user() -> role == 'User')
                         <li><a href="/myProject"><i class="fa-solid fa-list-check"></i> My Project</a></li>

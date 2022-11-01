@@ -99,7 +99,7 @@
                                 <h6>Bid masih terbuka</h6>
                                 @if (Auth::user() -> id !== $project -> user_id)
                                 <button type="button" class="btn btn-primary mx-1 px-3 py-2 mb-2" data-toggle="modal"
-                                    data-target="#staticBackdrop">
+                                    data-target="#staticBackdrop" {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }}>
                                     Bid
                                 </button>
                                 @endif
@@ -141,7 +141,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="/bid" class="btn btn-secondary mx-1 px-3 py-2 mb-2">Chat</a>
+                                <a href="/bid" class="btn btn-info mx-1 px-3 py-2 mb-2">Chat</a>
                             </div>
                         </div>
                     </div>
