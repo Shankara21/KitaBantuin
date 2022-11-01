@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LandingPageProject;
+use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Features;
 use App\Http\Livewire\Homepage;
 
@@ -48,6 +49,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/list-worker', 'worker');
     Route::get('/list-project', 'project')->name('list-project');
     Route::get('/profile', 'profile');
+    Route::put('/profile/{id}', [ProfileController::class, 'update']);
     Route::get('/profile-worker', 'profileWorker');
     Route::get('/detail-project/{id}', 'detailProject');
     Route::get('/create-project', 'createProject');
