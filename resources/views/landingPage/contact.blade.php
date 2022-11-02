@@ -52,19 +52,19 @@
                 <div class="quick-contact-item d-flex align-items-center mb-4">
                     <span class="flaticon-house"></span>
                     <address class="text">
-                        155 Market St #101, Paterson, NJ 07505, United States
+                        Jl.Pisang Kipas Kec.Lowokwaru Kab.Malang Jawa Timur
                     </address>
                 </div>
                 <div class="quick-contact-item d-flex align-items-center mb-4">
                     <span class="flaticon-phone-call"></span>
                     <address class="text">
-                        +1 202 2020 200
+                        +62 896 7905 1179
                     </address>
                 </div>
                 <div class="quick-contact-item d-flex align-items-center mb-4">
                     <span class="flaticon-mail"></span>
                     <address class="text">
-                        @info@mydomain.com
+                        kitabantuin@gmail.com
                     </address>
                 </div>
             </div>

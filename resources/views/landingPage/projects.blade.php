@@ -72,6 +72,7 @@
                                         Details
                                     </a>
                                     <!-- Button trigger modal -->
+                                    <!-- pop up -->
                                     <button type="button" class="btn btn-secondary mx-1 px-3 py-2" data-toggle="modal"
                                         data-target="#staticBackdrop">
                                         Bid
