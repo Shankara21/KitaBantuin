@@ -54,9 +54,9 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/profile-worker', 'profileWorker');
     Route::get('/detail-project/{id}', 'detailProject');
     Route::get('/create-project', 'createProject')->name('create-project');
-    Route::get('/myBid', 'myBid');
+    Route::get('/myBid', 'myBid')->middleware('isWorker');
     Route::get('/details-worker/{id}', 'detailWorker');
-    Route::get('/myProject', 'listProject')->name('myProject');
+    Route::get('/myProject', 'listProject')->name('myProject')->middleware('isUser');
 });
 Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/create-project', 'createProject');

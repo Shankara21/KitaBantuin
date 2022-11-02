@@ -19,32 +19,23 @@
             <div class="card-body">
                 <h3 class="my-3">My Projects</h3>
                 <div class="row">
-                    <div class="col-lg-6 col-sm-12  mb-4">
-                        <div class="card shadow" style="border-radius: 20px;background:white">
-                            <div class="card-body">
-                                <h2>Membuat template bootstrap 5</h2>
-                                <p class="text-muted">Tanggal : 2022-12-21</p>
-                                <p class="text-muted">Total bid : 12</p>
-                                {{-- <p class="text-muted mb-4">{{ $item}}</p> --}}
-                                <div class="d-flex justify-content-end">
-                                    <a href="/details-worker/" class="btn btn-primary ">Details</a>
+                    @forelse ($projects as $item)
+                        <div class="col-lg-6 col-sm-12  mb-4">
+                            <div class="card shadow" style="border-radius: 20px;background:white">
+                                <div class="card-body">
+                                    <h2>{{ $item -> title }}</h2>
+                                    <p class="text-muted">Tanggal : {{ $item -> created_at -> format('Y-m-d') }}</p>
+                                    <p class="text-muted">Deadline: {{ $item -> deadline }}</p>
+                                    <p class="text-muted mb-4">Range Budget : {{ $item -> budget}}</p>
+                                    <div class="d-flex justify-content-end">
+                                        <a href="/details-worker/" class="btn btn-primary ">Details</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-12  mb-4">
-                        <div class="card shadow" style="border-radius: 20px;background:white">
-                            <div class="card-body">
-                                <h2>Membuat template bootstrap 5</h2>
-                                <p class="text-muted">Tanggal : 2022-12-21</p>
-                                <p class="text-muted">Total bid : 12</p>
-                                {{-- <p class="text-muted mb-4">{{ $item}}</p> --}}
-                                <div class="d-flex justify-content-end">
-                                    <a href="/details-worker/" class="btn btn-primary ">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                        
+                    @endforelse
                 </div>
             </div>
         </div>

@@ -142,6 +142,9 @@
                                     </div>
                                 </div>
                                 <a href="/bid" class="btn btn-info mx-1 px-3 py-2 mb-2">Chat</a>
+                                @if (Auth::user() -> role !== 'Worker')
+                                <p class="text-danger">Tidak bisa melakukan bid, karena anda bukan worker</p>
+                                @endif
                             </div>
                         </div>
                     </div>
