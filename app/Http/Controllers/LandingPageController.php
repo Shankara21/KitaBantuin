@@ -87,7 +87,9 @@ class LandingPageController extends Controller
     }
     public function myBid()
     {
-        return view('landingPage.myBid');
+        return view('landingPage.myBid', [
+            'bids' => Bid::where('user_id', auth()->user()->id)->get()
+        ]);
     }
     public function detailWorker($id)
     {

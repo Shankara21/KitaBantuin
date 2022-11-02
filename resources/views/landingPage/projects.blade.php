@@ -71,12 +71,19 @@
                                         class="btn btn-primary mx-1 px-3 py-2">
                                         Details
                                     </a>
+
                                     <!-- Button trigger modal -->
                                     <!-- pop up -->
+
+                                    @if (Auth::user() -> role == 'Worker')
+                                         <!-- Button trigger modal -->
+
                                     <button type="button" class="btn btn-secondary mx-1 px-3 py-2" data-toggle="modal"
-                                        data-target="#staticBackdrop">
-                                        Bid
-                                    </button>
+                                    data-target="#staticBackdrop">
+                                    Bid
+                                </button>
+                                    @endif
+
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="staticBackdrop" data-backdrop="static"
