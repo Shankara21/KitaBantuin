@@ -74,7 +74,7 @@ class ProfileController extends Controller
 
 
         $validateData = $request->validate([
-            // validasi 
+            // validasi
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
@@ -94,6 +94,33 @@ class ProfileController extends Controller
         User::where('id', $id)
             ->update($validateData);
         return redirect('/profile')->with('success', 'Profile telah diupdate!');
+    }
+
+    public function updateWorker(Request $request, $id)
+    {
+
+
+        $validateData = $request->validate([
+            // validasi
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'photo' => 'image|file',
+            // 'bank_account' => 'required',
+        ]);
+
+        if ($request->file('photo')) {
+            if ($request->oldImage) {
+                Storage::delete('public/' . $request->oldImage);
+            }
+            $validateData['photo'] = $request->file('photo')->store('profile', 'public');
+        }
+
+        User::where('id', $id)
+            ->update($validateData);
+        return redirect('/profile-worker')->with('success', 'Profile telah diupdate!');
     }
 
     /**

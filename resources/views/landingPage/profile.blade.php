@@ -110,9 +110,8 @@
                                 <div class="col-lg-6 col-sm-12  mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                     <select class="custom-select" name="gender">
-                                        <option selected>Open this select menu</option>
-                                        <option value="Laki-laki">Laki-laki</option>
-                                        <option value="Perempuan">Perempuan</option>
+                                        <option value="Laki-Laki" {{  $user->gander == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                        <option value="Perempuan" {{  $user->gander == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-6 col-sm-12  mb-3">

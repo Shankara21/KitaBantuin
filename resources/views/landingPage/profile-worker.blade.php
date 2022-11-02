@@ -40,13 +40,14 @@
                             class="rounded-circle img-thumbnail mb-3">
                         @endif
                         <h4 id="username">{{ $user -> username }}</h4>
-                        <form method="POST" enctype="multipart/form-data">
+                        <form method="POST" enctype="multipart/form-data" action="/profile-worker/{{ $user->id }}">
+                            @method('PUT')
                             @csrf
                             <div class="mb-3 text-start d-none" id="update">
                                 <label for="formFile" class="form-label">Update Foto</label>
-                                <input class="form-control" value="{{ $user -> image }}" type="file" id="formFile"
-                                    name="image">
-                                <input type="hidden" name="oldImage" value="{{ $user -> image }}">
+                                <input class="form-control" value="{{ $user -> photo }}" type="file" id="formFile"
+                                    name="photo">
+                                <input type="hidden" name="oldPhoto" value="{{ $user -> photo }}">
                             </div>
                     </div>
                     <div class="col-lg-9 col-sm-12">
@@ -57,12 +58,6 @@
                                     <div class="card" style="border: none">
                                         <label for="">Nama</label>
                                         <h4>{{ $user -> name }}</h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-12  mb-3">
-                                    <div class="card" style="border: none">
-                                        <label for="">Username</label>
-                                        <h4>{{ $user -> username }}</h4>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-12  mb-3">
@@ -100,11 +95,6 @@
                                         id="exampleInputEmail1" name="name">
                                 </div>
                                 <div class="col-lg-6 col-sm-12  mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                                    <input type="text" class="form-control" value="{{ $user -> username }}"
-                                        id="exampleInputEmail1" name="username">
-                                </div>
-                                <div class="col-lg-6 col-sm-12  mb-3">
                                     <label for="exampleInputEmail1" class="form-label">No HP</label>
                                     <input type="text" class="form-control" value="{{ $user -> phone }}"
                                         id="exampleInputEmail1" name="phone">
@@ -112,9 +102,8 @@
                                 <div class="col-lg-6 col-sm-12  mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                     <select class="custom-select" name="gender">
-                                        <option selected>Open this select menu</option>
-                                        <option value="Laki-laki">Laki-laki</option>
-                                        <option value="Perempuan">Perempuan</option>
+                                        <option value="Laki-Laki" {{  $user->gander == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                        <option value="Perempuan" {{  $user->gander == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-6 col-sm-12  mb-3">

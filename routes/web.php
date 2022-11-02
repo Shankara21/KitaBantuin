@@ -50,6 +50,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/list-project', 'project')->name('list-project');
     Route::get('/profile', 'profile');
     Route::put('/profile/{id}', [ProfileController::class, 'update']);
+    Route::put('/profile-worker/{id}', [ProfileController::class, 'updateWorker']);
     Route::get('/profile-worker', 'profileWorker');
     Route::get('/detail-project/{id}', 'detailProject');
     Route::get('/create-project', 'createProject')->name('create-project');
