@@ -55,7 +55,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <h6 class="text-bold pl-5">Created At:
-                                                    <span class="text-muted">{{ $item -> created_at}}</span>
+                                                    <span class="text-muted">{{ $item -> created_at -> format('Y-m-d')}}</span>
                                                 </h6>
                                             </div>
                                             <div class="col-6">

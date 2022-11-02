@@ -52,9 +52,10 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::put('/profile/{id}', [ProfileController::class, 'update']);
     Route::get('/profile-worker', 'profileWorker');
     Route::get('/detail-project/{id}', 'detailProject');
-    Route::get('/create-project', 'createProject');
+    Route::get('/create-project', 'createProject')->name('create-project');
     Route::get('/myBid', 'myBid');
     Route::get('/details-worker/{id}', 'detailWorker');
+    Route::get('/myProject', 'listProject')->name('list-project');
 });
 Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/create-project', 'createProject');

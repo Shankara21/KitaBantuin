@@ -18,8 +18,8 @@
                     class="has-children {{ Request::is('list-project') || Request::is('create-project') ? 'active' : '' }}">
                     <a href="#">Project</a>
                     <ul class="dropdown">
-                        <li><a href="list-project">Browse Project</a></li>
-                        <li><a href="/create-project">Make Project</a></li>
+                        <li><a href="{{ route('list-project') }}">Browse Project</a></li>
+                        <li><a href="{{ route('create-project') }}">Make Project</a></li>
                         {{-- <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -63,7 +63,7 @@
                             @endif
                         </li>
                         @if (Auth::user() -> role == 'User')
-                        <li><a href="/myProject"><i class="fa-solid fa-list-check"></i> My Project</a></li>
+                        <li><a href="{{ route('list-project') }}"><i class="fa-solid fa-list-check"></i> My Project</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

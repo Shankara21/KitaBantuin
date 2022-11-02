@@ -102,4 +102,11 @@ class LandingPageController extends Controller
             'details' => $details
         ]);
     }
+
+    public function listProject()
+    {
+        return view('landingPage.myProjects', [
+            'projects' => Project::where('user_id', auth()->user()->id)->get()
+        ]);
+    }
 }

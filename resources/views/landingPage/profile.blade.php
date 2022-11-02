@@ -40,14 +40,14 @@
                             class="rounded-circle img-thumbnail mb-3">
                         @endif
                         @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <form method="POST" enctype="multipart/form-data" action="/profile/{{ $user->id }}">
                             @method('PUT')
                             @csrf
@@ -133,44 +133,6 @@
                         </div>
                     </div>
                     </form>
-                </div>
-            </div>
-        </div>
-        <div class="card my-5 shadow" style="border-radius: 20px">
-            <div class="card-body">
-                <h3>About Me</h3>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    @if (Auth::user()->role == 'Worker')
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                            aria-controls="home" aria-selected="true">Portofolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                            aria-controls="profile" aria-selected="false">Expertise</a>
-                    </li>
-                    @endif
-
-                    @if (Auth::user()->role = 'User')
-                    <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                            aria-controls="contact" aria-selected="false">Project</a>
-                    </li>
-                    @endif
-
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade mt-3 show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        Portofolio
-                    </div>
-                    <div class="tab-pane fade mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-                            <div class="col-6">Skill</div>
-                            <div class="col-6">CV</div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade mt-3" id="contact" role="tabpanel" aria-labelledby="contact-tab">Project
-                    </div>
                 </div>
             </div>
         </div>
