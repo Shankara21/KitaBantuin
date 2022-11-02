@@ -32,6 +32,8 @@
                             class="img-fluid rounded-20">
                         <img src="/landingPage/images/slider-5.jpg" alt="Free HTML Template by Untree.co"
                             class="img-fluid rounded-20">
+                        <img src="/landingPage/images/slider-6.jpg" alt="Free HTML Template by Untree.co"
+                            class="img-fluid rounded-20">
                     </div>
                 </div>
                 <div class="col-lg-5 pl-lg-5 ml-auto">
