@@ -63,7 +63,7 @@
                             @endif
                         </li>
                         @if (Auth::user() -> role == 'User')
-                        <li><a href="{{ route('list-project') }}"><i class="fa-solid fa-list-check"></i> My Project</a></li>
+                        <li><a href="{{ route('myProject') }}"><i class="fa-solid fa-list-check"></i> My Project</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

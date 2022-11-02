@@ -55,7 +55,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/create-project', 'createProject')->name('create-project');
     Route::get('/myBid', 'myBid');
     Route::get('/details-worker/{id}', 'detailWorker');
-    Route::get('/myProject', 'listProject')->name('list-project');
+    Route::get('/myProject', 'listProject')->name('myProject');
 });
 Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/create-project', 'createProject');
