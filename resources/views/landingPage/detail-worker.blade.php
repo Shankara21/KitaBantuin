@@ -23,16 +23,16 @@
                             <div class="col-6 col-lg-3">
                                 @if ($worker-> photo)
                                 <img src="{{ asset('storage/'. $worker-> photo) }}" alt="" width="250px"
-                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
                                 @elseif (!$worker-> photo && $worker-> gender == 'Laki-laki')
                                 <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
-                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
                                 @elseif (!$worker-> photo && $worker-> gender == 'Perempuan')
                                 <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" width="250px"
-                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
                                 @else
                                 <img src="{{ asset('assets/img/icons/avatar/user.png') }}" alt="" width="250px"
-                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
                                 @endif
                             </div>
                             <div class="col-12 col-lg-9">

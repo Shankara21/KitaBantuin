@@ -69,8 +69,19 @@
                 <div class="card shadow" style="border-radius: 20px;background:white">
 
                     <div class="p-2 d-flex justify-content-center">
-                        <img src="/landingPage/images/person_1.jpg" alt="Image"
-                            class="img-fluid img-thumbnail rounded-circle w-50 ">
+                            @if ($item-> photo)
+                            <img src="{{ asset('storage/'. $item-> photo) }}" alt="" width="250px"
+                                class="img-fluid img-thumbnail rounded-circle w-50 ">
+                            @elseif (!$item-> photo && $item-> gender == 'Laki-laki')
+                            <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
+                                class="img-fluid img-thumbnail rounded-circle w-50 ">
+                            @elseif (!$item-> photo && $item-> gender == 'Perempuan')
+                            <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" width="250px"
+                                class="img-fluid img-thumbnail rounded-circle w-50 ">
+                            @else
+                            <img src="{{ asset('assets/img/icons/avatar/user.png') }}" alt="" width="250px"
+                                class="img-fluid img-thumbnail rounded-circle w-50 ">
+                            @endif
                     </div>
 
                     <div class="card-body">

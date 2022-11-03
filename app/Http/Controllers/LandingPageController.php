@@ -110,4 +110,21 @@ class LandingPageController extends Controller
             'projects' => Project::where('user_id', auth()->user()->id)->get()
         ]);
     }
+    public function detailMyProject($id)
+    {
+        $project = Project::with(['subCategory'])->where('title', $id)->first();
+        $bids = Bid::where('project_id', $project->id)->get();
+
+        // Menghitung perbedaan hari antara deadline dan created_at
+        $date1 = date_create($project->created_at);
+        $date2 = date_create($project->deadline);
+        $diff = date_diff($date1, $date2);
+        $day = $diff->format("%a");
+        return view('landingPage.detail-myprojects', [
+            'project' => $project,
+            'bid' => $bids,
+            'total_bid' => $bids->count(),
+            'day' => $day
+        ]);
+    }
 }

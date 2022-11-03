@@ -28,7 +28,7 @@
                                     <p class="text-muted">Deadline: {{ $item -> deadline }}</p>
                                     <p class="text-muted mb-4">Range Budget : {{ $item -> budget}}</p>
                                     <div class="d-flex justify-content-end">
-                                        <a href="/details-worker/" class="btn btn-primary ">Details</a>
+                                        <a href="{{ route('detail-myProject', $item -> title) }}" class="btn btn-primary ">Details</a>
                                     </div>
                                 </div>
                             </div>
