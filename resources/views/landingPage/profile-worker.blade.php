@@ -148,7 +148,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade mt-3 show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="d-flex justify-content-end">
-                            <a href="" class="btn btn-primary">Upload portofoliomu</a>
+                            <a href="/create-portofolio" class="btn btn-primary">Upload portofoliomu</a>
                         </div>
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-sm-12">

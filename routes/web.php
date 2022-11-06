@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LandingPageProject;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Features;
 use App\Http\Livewire\Homepage;
@@ -63,6 +64,13 @@ Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/create-project', 'createProject')->name('createProject');
     Route::post('/create-bid', 'createBid')->name('createBid');
     Route::post('/accept-bid/{id}', 'acceptBid')->name('acceptBid');
+});
+
+Route::controller(PortofolioController::class)->group(function () {
+    Route::get('/create-portofolio', 'create')->name('create');
+    Route::post('/create-portofolio', 'store')->name('store');
+    Route::get('/edit-portofolio/{id}', 'edit')->name('edit');
+    Route::post('/edit-portofilo', 'update')->name('update');
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
