@@ -102,8 +102,10 @@
                                 <div class="col-lg-6 col-sm-12  mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                     <select class="custom-select" name="gender">
-                                        <option value="Laki-Laki" {{  $user->gander == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
-                                        <option value="Perempuan" {{  $user->gander == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                        <option value="Laki-Laki" {{  $user->gander == 'Laki-Laki' ? 'selected' : '' }}>
+                                            Laki-Laki</option>
+                                        <option value="Perempuan" {{  $user->gander == 'Perempuan' ? 'selected' : '' }}>
+                                            Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-6 col-sm-12  mb-3">
@@ -146,7 +148,28 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade mt-3 show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        Portofolio
+                        <div class="d-flex justify-content-end">
+                            <a href="" class="btn btn-primary">Upload portofoliomu</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card shadow" style="border-radius: 20px;background:white">
+                                    <div class="card-body">
+                                        <h2>Website</h2>
+                                        <div class="mb-4">
+                                            <img src="/landingPage/images/slider-4.jpg"
+                                                alt="Free HTML Template by Untree.co" class="img-fluid"
+                                                style="border-radius: 25px">
+                                        </div>
+                                        <p class="text-muted">Link website : </p>
+                                        <p class="text-muted">Deadline: </p>
+                                        <p class="text-muted mb-4">Range Budget :</p>
+                                        <div class="d-flex justify-content-end">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">

@@ -116,9 +116,10 @@ class LandingPageController extends Controller
         $bids = Bid::where('project_id', $project->id)->get();
 
         // Menghitung perbedaan hari antara deadline dan created_at
-        $date1 = date_create($project->created_at);
+        $date1 =  date('Y-m-d H:i:s');
+        $datetest = date_create($date1);
         $date2 = date_create($project->deadline);
-        $diff = date_diff($date1, $date2);
+        $diff = date_diff($datetest, $date2);
         $day = $diff->format("%a");
         return view('landingPage.detail-myprojects', [
             'project' => $project,

@@ -53,9 +53,9 @@
                                 <h6 class=" pl-5">Total Bid :
                                     <span class="text-muted">
                                         @if ($total_bid > 0)
-                                            {{ $total_bid }}
-                                            @else
-                                            -
+                                        {{ $total_bid }}
+                                        @else
+                                        -
                                         @endif
                                     </span>
                                 </h6>
@@ -97,11 +97,14 @@
                             <div class="col-5">
                                 <h3>Accepted Worker</h3>
                                 <h6>Bid masih terbuka</h6>
+                                @if (Auth::user())
                                 @if (Auth::user() -> id !== $project -> user_id)
                                 <button type="button" class="btn btn-primary mx-1 px-3 py-2 mb-2" data-toggle="modal"
-                                    data-target="#staticBackdrop" {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }}>
+                                    data-target="#staticBackdrop"
+                                    {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }}>
                                     Bid
                                 </button>
+                                @endif
                                 @endif
 
                                 <!-- Modal -->
@@ -142,8 +145,10 @@
                                     </div>
                                 </div>
                                 <a href="/bid" class="btn btn-info mx-1 px-3 py-2 mb-2">Chat</a>
-                                @if (Auth::user() -> role !== 'Worker')
+                                @if (Auth::user())
+                                @if (Auth::user() -> role !== 'Worker' )
                                 <p class="text-danger">Tidak bisa melakukan bid, karena anda bukan worker</p>
+                                @endif
                                 @endif
                             </div>
                         </div>

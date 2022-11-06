@@ -42,26 +42,26 @@ Auth::routes();
 //     Route::post('/orders', 'store');
 // });
 Route::controller(LandingPageController::class)->group(function () {
-    Route::get('/', 'home');
-    Route::get('/service', 'service');
-    Route::get('/about', 'about');
-    Route::get('/contact', 'contact');
-    Route::get('/list-worker', 'worker');
+    Route::get('/', 'home') -> name('home');
+    Route::get('/service', 'service') -> name('service');
+    Route::get('/about', 'about')  -> name('about');
+    Route::get('/contact', 'contact') -> name('contact');
+    Route::get('/list-worker', 'worker') -> name('worker');
     Route::get('/list-project', 'project')->name('list-project');
-    Route::get('/profile', 'profile');
-    Route::put('/profile/{id}', [ProfileController::class, 'update']);
-    Route::put('/profile-worker/{id}', [ProfileController::class, 'updateWorker']);
-    Route::get('/profile-worker', 'profileWorker');
-    Route::get('/detail-project/{id}', 'detailProject');
+    Route::get('/profile', 'profile') -> name('profile');
+    Route::put('/profile/{id}', [ProfileController::class, 'update']) -> name('profile.update');
+    Route::put('/profile-worker/{id}', [ProfileController::class, 'updateWorker']) -> name('profile.updateWorker');
+    Route::get('/profile-worker', 'profileWorker') -> name('profileWorker');
+    Route::get('/detail-project/{id}', 'detailProject') -> name('detailProject');
     Route::get('/create-project', 'createProject')->name('create-project');
-    Route::get('/myBid', 'myBid')->middleware('isWorker');
-    Route::get('/details-worker/{id}', 'detailWorker');
+    Route::get('/myBid', 'myBid')->middleware('isWorker')->name('myBid');
+    Route::get('/details-worker/{id}', 'detailWorker')->name('detailWorker');
     Route::get('/myProject', 'listProject')->name('myProject')->middleware('isUser');
     Route::get('/detail-myProject/{id}', 'detailMyProject')->middleware('isUser')->name('detail-myProject');
 });
 Route::controller(LandingPageProject::class)->group(function () {
-    Route::post('/create-project', 'createProject');
-    Route::post('/create-bid', 'createBid');
+    Route::post('/create-project', 'createProject') -> name('createProject');
+    Route::post('/create-bid', 'createBid') -> name('createBid');
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

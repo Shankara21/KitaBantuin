@@ -36,13 +36,16 @@
                         <li><a href="#">Menu Three</a></li> --}}
                     </ul>
                 </li>
-                <li class="{{ Request::is('list-worker') ? 'active' : '' }}"><a href="/list-worker">Worker</a></li>
-                <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="/service">Services</a></li>
-                <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="about">About</a></li>
-                <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="contact">Contact Us</a></li>
+                <li class="{{ Request::is('list-worker') ? 'active' : '' }}"><a href="{{ route('worker') }}">Worker</a>
+                </li>
+                <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="{{ route('service') }}">Services</a>
+                </li>
+                <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ route('about') }}">About</a></li>
+                <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact Us</a>
+                </li>
                 @guest
                 <li>
-                    <a href="login" class="btn btn-outline-white">Login</a>
+                    <a href="{{ route('login') }}" class="btn btn-outline-white">Login</a>
                 </li>
                 @else
                 <li class="has-children">
@@ -56,20 +59,21 @@
                         @endif
                         <li>
                             @if (Auth::user() -> role == 'Admin' || Auth::user() -> role == 'User')
-                            <a href="/profile"><i class="fa-solid fa-user"></i> Profile</a>
+                            <a href="{{ route('profile') }}"><i class="fa-solid fa-user"></i> Profile</a>
 
                             @else
-                            <a href="/profile-worker"><i class="fa-solid fa-user"></i> Profile</a>
+                            <a href="{{ route('profileWorker') }}"><i class="fa-solid fa-user"></i> Profile</a>
                             @endif
                         </li>
                         @if (Auth::user() -> role == 'User')
-                        <li><a href="{{ route('myProject') }}"><i class="fa-solid fa-list-check"></i> My Project</a></li>
+                        <li><a href="{{ route('myProject') }}"><i class="fa-solid fa-list-check"></i> My Project</a>
+                        </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         @endif
                         @if (Auth::user() -> role == 'Worker')
-                        <li><a href="/myBid"><i class="fa-solid fa-list-check"></i> My Bid</a></li>
+                        <li><a href="{{ route('myBid') }}"><i class="fa-solid fa-list-check"></i> My Bid</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
