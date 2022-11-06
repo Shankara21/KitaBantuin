@@ -151,23 +151,28 @@
                             <a href="/create-portofolio" class="btn btn-primary">Upload portofoliomu</a>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card shadow" style="border-radius: 20px;background:white">
-                                    <div class="card-body">
-                                        <h2>Website</h2>
-                                        <div class="mb-4">
-                                            <img src="/landingPage/images/slider-4.jpg"
-                                                alt="Free HTML Template by Untree.co" class="img-fluid"
-                                                style="border-radius: 25px">
-                                        </div>
-                                        <p class="text-muted">Link website : </p>
-                                        <p class="text-muted">Deadline: </p>
-                                        <p class="text-muted mb-4">Range Budget :</p>
-                                        <div class="d-flex justify-content-end">
+                           @forelse ($portofolios as $item)
+                               <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                    <div class="card shadow" style="border-radius: 20px;background:white">
+                                        <div class="card-body">
+                                            <h2>{{ $item -> title }}</h2>
+                                            <div class="mb-4">
+                                                <img src="{{ asset('storage/'.$item -> image) }}" height="196px" width="100%"
+                                                    style="border-radius: 25px">
+                                            </div>
+                                            <p class="text-muted">
+                                                <a href="{{ $item -> link }}" target="_blank" class="text-decoration-underline">{{ $item -> link }}</a>
+                                            </p>
+                                            <p class="text-muted">Deadline: </p>
+                                            <p class="text-muted mb-4">Range Budget :</p>
+                                            <div class="d-flex justify-content-end">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                           @empty
+                               
+                           @endforelse
                         </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">

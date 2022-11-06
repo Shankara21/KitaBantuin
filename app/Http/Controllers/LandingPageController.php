@@ -55,7 +55,8 @@ class LandingPageController extends Controller
     public function profileWorker()
     {
         return view('landingPage.profile-worker', [
-            'user' => auth()->user()
+            'user' => auth()->user(),
+            'portofolios' => Portofolio::where('user_id', auth()->user()->id)->get()
         ]);
     }
     public function project()
@@ -108,9 +109,9 @@ class LandingPageController extends Controller
     {
         $open = Project::where('user_id', auth()->user()->id)->where('status', 'Open')->get();
         $onProcess =
-        Project::where('user_id', auth()->user()->id)->where('status', 'onProcess')->get();
+            Project::where('user_id', auth()->user()->id)->where('status', 'onProcess')->get();
         $done =
-        Project::where('user_id', auth()->user()->id)->where('status', 'Done')->get();
+            Project::where('user_id', auth()->user()->id)->where('status', 'Done')->get();
         return view('landingPage.myProjects', [
             'projectsOpen' => $open,
             'projectsOnProcess' => $onProcess,
