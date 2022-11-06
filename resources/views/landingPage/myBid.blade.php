@@ -29,7 +29,7 @@
                                     <p class="bg-warning p-2 " style="border-radius: 30px"><i
                                             class="fa-regular fa-clock"></i> {{ $item -> status }}
                                     </p>
-                                    @elseif ($item -> status == 'Success')
+                                    @elseif ($item -> status == 'Accepted')
                                     <p class="bg-success p-2 text-white" style="border-radius: 30px"><i
                                             class="fa-regular fa-circle-check"></i> {{ $item -> status }}
                                     </p>

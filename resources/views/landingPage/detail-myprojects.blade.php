@@ -100,8 +100,14 @@
                                                 <p>Rp.{{ number_format($item -> price) }}</p>
                                             </div>
                                             <div class="">
-                                                <a href="" class="btn btn-success p-2"><i
-                                                        class="fa-solid fa-circle-check"></i> Accept</a>
+                                                <form action="{{ route('acceptBid', $item -> user -> id) }}"
+                                                    class="d-inline" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="project_id" value="{{ $project -> id }}">
+                                                    <input type="hidden" name="bid_id" id="" value="{{ $item -> id }}">
+                                                    <button type="submit" class="btn btn-success p-2"><i
+                                                            class="fa-solid fa-circle-check"></i> Accept</button>
+                                                </form>
                                                 <a href="{{ route('detailWorker', $item -> user -> id) }}"
                                                     class="btn btn-info p-2"> <i class="fa-solid fa-circle-info"></i>
                                                     Details</a>
@@ -113,7 +119,7 @@
                                 <div class="col-12">
                                     <h5 class="text-center">No Bids</h5>
                                 </div>
-                                @endforelse 
+                                @endforelse
                             </div>
 
                         </div>

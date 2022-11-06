@@ -39,4 +39,16 @@ class LandingPageProject extends Controller
         Bid::create($validateData);
         return redirect()->route('list-project')->with('success', 'Bid created successfully');
     }
+
+    // TODO Function Accept Bid
+    public function acceptBid(Request $request)
+    {
+        $project = Project::where('id', $request->project_id)->first();
+        $project->status = 'onProcess';
+        $project->save();
+        $bid = Bid::where('id', $request->bid_id)->first();
+        $bid->status = 'Accepted';
+        $bid->save();
+        return redirect()->route('list-project')->with('success', 'Bid accepted successfully');
+    }
 }

@@ -106,8 +106,15 @@ class LandingPageController extends Controller
 
     public function listProject()
     {
+        $open = Project::where('user_id', auth()->user()->id)->where('status', 'Open')->get();
+        $onProcess =
+        Project::where('user_id', auth()->user()->id)->where('status', 'onProcess')->get();
+        $done =
+        Project::where('user_id', auth()->user()->id)->where('status', 'Done')->get();
         return view('landingPage.myProjects', [
-            'projects' => Project::where('user_id', auth()->user()->id)->get()
+            'projectsOpen' => $open,
+            'projectsOnProcess' => $onProcess,
+            'projectsDone' => $done
         ]);
     }
     public function detailMyProject($id)

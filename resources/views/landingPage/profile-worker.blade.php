@@ -51,7 +51,6 @@
                             </div>
                     </div>
                     <div class="col-lg-9 col-sm-12">
-
                         <div class="bio">
                             <div class="row p-5">
                                 <div class="col-lg-6 col-sm-12  mb-3">
