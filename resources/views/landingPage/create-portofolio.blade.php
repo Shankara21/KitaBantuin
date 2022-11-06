@@ -66,11 +66,11 @@
                                       @enderror
                                       </div>
                                       <div class="mb-3">
-                                        <label for="description" class="form-label">Deskripsi</label>
-                                        @error('description')
+                                        <label for="editor1" class="form-label">Deskripsi</label>
+                                        @error('editor1')
                                           <p class="text-danger">{{ $message }}</p>
                                         @enderror
-                                        <input id="editor1" type="hidden" name="editor1" value="{{ old('description') }}">
+                                        <textarea class="form-control" id="message" cols="30" rows="5" name="editor1"></textarea>
 
                                       </div>
 

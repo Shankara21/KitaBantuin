@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portofolio;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePortofolioRequest;
 use App\Http\Requests\UpdatePortofolioRequest;
 
@@ -36,18 +37,18 @@ class PortofolioController extends Controller
      */
     public function store(StorePortofolioRequest $request)
     {
+
         $validateData = $request->validate([
             'title' => 'required',
             'link' => 'required',
             'image' => 'image|file',
         ]);
 
-        $validateData['user_id'] = $request->Auth::user()->id;
-        $validateData['description'] = $request -> editor1;
+        $validateData['user_id'] = Auth::user()->id;
+        $validateData['description'] = $request->editor1;
         if ($request->file('image')) {
             $validateData['image'] = $request->file('image')->store('portofolio', 'public');
         }
-        dd($validateData);
 
         Portofolio::create($validateData);
         return redirect('/profile-worker')->with('toast_success', 'Portofolio berhasil ditambahkan!');
