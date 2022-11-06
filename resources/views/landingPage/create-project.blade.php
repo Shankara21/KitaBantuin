@@ -56,13 +56,13 @@
                 <div class="row mb-3">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label class="text-black" for="fname">Budget</label>
+                            <label class="text-black" for="fname">Start From </label>
                             <input type="number" min="0" class="form-control" id="fname" name="start">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label class="text-black" for="fname">Budget</label>
+                            <label class="text-black" for="fname">Up to</label>
                             <input type="number" min="0" class="form-control" id="fname" name="end">
                         </div>
                     </div>
