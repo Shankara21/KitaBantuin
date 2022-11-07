@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Testimoni;
 use App\Models\User;
+use App\Models\WorkerDetail;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -48,12 +49,16 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123'),
             'role' => 'User'
         ]);
-
+        
         Testimoni::factory(10)->create();
         $this->call([
             CategorySeeder::class,
             SubCategorySeeder::class,
             SkillSeeder::class,
+        ]);
+        WorkerDetail::factory()->create([
+            'user_id' => 3,
+            'skill_id' => 1,
         ]);
     }
 }

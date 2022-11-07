@@ -45,10 +45,12 @@ class LandingPageController extends Controller
         // dd($testimoni->get());
         $target = User::with(['workerDetail', 'portofolio'])->where('role', 'Worker')->get();
         // dd($target);
-        $check = Pengajuan::where('user_id', Auth::user()->id)->first();
+        if (Auth::user()) {
+            $check = Pengajuan::where('user_id', Auth::user()->id)->first();
+        }
         return view('landingPage.worker', [
             'workers' => $target,
-            'check' => $check
+            'check' => $check ?? null
         ]);
     }
     public function profile()
@@ -104,6 +106,7 @@ class LandingPageController extends Controller
         $target = User::where('id', $id)->first();
         $portofolio = Portofolio::where('user_id', $id)->get();
         $details = WorkerDetail::where('user_id', $id)->first();
+        dd($details -> skill);
         return view('landingPage.detail-worker', [
             'worker' => $target,
             'portofolio' => $portofolio,
