@@ -171,13 +171,51 @@
                                     </div>
                                 </div>
                            @empty
-                               
+
                            @endforelse
                         </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                                <!-- Button trigger modal -->
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary p-2" data-toggle="modal" data-target="#staticBackdrop">
+                                Upload CV
+                            </button>
+                            <a href="/create-skill" class="btn btn-primary p-2">Tambah Skill</a>
+                            <a href="/edit-skill" class="btn btn-primary p-2">Update Skill</a>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Upload CV anda</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                ...
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Understood</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                         <div class="row">
-                            <div class="col-6">Skill</div>
+                            <div class="col-6">
+                                Skill
+                                <ul>
+                                    @foreach ($details as $detail)
+                                        <li>{{ $detail->skill }}</li>
+                                    @endforeach
+
+                                </ul>
+
+                            </div>
                             <div class="col-6">CV</div>
                         </div>
                     </div>

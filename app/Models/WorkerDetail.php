@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class WorkerDetail extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+    protected $casts = [
+        'skill_id' => 'array',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -18,6 +24,6 @@ class WorkerDetail extends Model
     }
     public function skill()
     {
-        return $this -> belongsTo(Skill::class, 'skill_id');
+        return $this -> belongsToMany(Skill::class);
     }
 }

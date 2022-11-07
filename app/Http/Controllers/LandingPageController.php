@@ -56,7 +56,8 @@ class LandingPageController extends Controller
     {
         return view('landingPage.profile-worker', [
             'user' => auth()->user(),
-            'portofolios' => Portofolio::where('user_id', auth()->user()->id)->get()
+            'portofolios' => Portofolio::where('user_id', auth()->user()->id)->get(),
+            'details' => WorkerDetail::where('user_id', auth()->user()->id)->get()
         ]);
     }
     public function project()

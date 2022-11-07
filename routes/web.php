@@ -14,6 +14,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LandingPageProject;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SkillController;
 use App\Http\Livewire\Features;
 use App\Http\Livewire\Homepage;
 
@@ -64,6 +65,13 @@ Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/create-project', 'createProject')->name('createProject');
     Route::post('/create-bid', 'createBid')->name('createBid');
     Route::post('/accept-bid/{id}', 'acceptBid')->name('acceptBid');
+});
+
+Route::controller(SkillController::class)->group(function () {
+    Route::get('/create-skill', 'create')->name('create');
+    Route::post('/create-skill', 'store')->name('store');
+    Route::get('/edit-skill', 'edit')->name('edit');
+    Route::post('/edit-skill/{id}', 'update')->name('update');
 });
 
 Route::controller(PortofolioController::class)->group(function () {

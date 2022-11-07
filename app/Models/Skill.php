@@ -26,6 +26,9 @@ class Skill extends Model
     }
     public function workerDetail()
     {
-        return $this->hasMany(WorkerDetail::class);
+        return $this->belongsToMany(WorkerDetail::class);
+    }
+    public function skillWorker(){
+        return $this->hasMany(SkillWorker::class);
     }
 }

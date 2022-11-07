@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Skill;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreSkillRequest;
 use App\Http\Requests\UpdateSkillRequest;
+use App\Models\WorkerDetail;
 
 class SkillController extends Controller
 {
@@ -25,7 +27,9 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('landingPage.create-skill-worker', [
+            'skills' => Skill::all(),
+        ]);
     }
 
     /**
@@ -36,7 +40,20 @@ class SkillController extends Controller
      */
     public function store(StoreSkillRequest $request)
     {
-        //
+
+
+        request()->validate([
+            'skill_id' => 'required|array'
+        ]);
+
+        $skill = WorkerDetail::create([
+            'user_id' => auth()->user()->id,
+        ]);
+        $skill->skill()->sync(request('skill_id'));
+
+
+        return redirect('/profile-worker')->with('success', 'Skill telah ditambahkan!');
+
     }
 
     /**
@@ -58,8 +75,11 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        //
+        return view('landingPage.edit-skill-worker', [
+            'skills' => Skill::all(),
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.
