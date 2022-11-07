@@ -20,9 +20,13 @@
         <!-- Button trigger modal -->
 
         <div class="d-flex justify-content-end">
+            @if (Auth::user())
+            @if (!$check)
             <button type="button" class="btn btn-primary p-2 my-4 " data-toggle="modal" data-target="#staticBackdrop">
                 Ingin jadi worker?
             </button>
+            @endif
+            @endif
         </div>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
@@ -58,7 +62,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                        <a href="{{ route('submitWorker') }}" class="btn btn-primary">Apply</a>
                     </div>
                 </div>
             </div>

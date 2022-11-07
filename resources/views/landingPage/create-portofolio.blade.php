@@ -90,7 +90,7 @@
 <script>
     CKEDITOR.replace( 'editor1' );
 </script>
-    <script>
+<script>
         function previewImage(){
     const image = document.querySelector('#image');
     const imgPreview = document.querySelector('.img-preview');
@@ -108,5 +108,5 @@
   document.addEventListener('trix-file-accept', function(e){
     e.preventDefault()
   })
-    </script>
+</script>
 @endsection

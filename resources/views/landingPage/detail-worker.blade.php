@@ -64,7 +64,9 @@
                                                             <td>
                                                                 <h4>Name</h4>
                                                             </td>
-                                                            <td><h4>:</h4></td>
+                                                            <td>
+                                                                <h4>:</h4>
+                                                            </td>
                                                             <td>
                                                                 <h4>{{ $details -> user -> name }}</h4>
                                                             </td>
@@ -73,7 +75,9 @@
                                                             <td>
                                                                 <h4>email</h4>
                                                             </td>
-                                                            <td><h4>:</h4></td>
+                                                            <td>
+                                                                <h4>:</h4>
+                                                            </td>
                                                             <td>
                                                                 <h4>{{ $details -> user -> email }}</h4>
                                                             </td>
@@ -82,7 +86,9 @@
                                                             <td>
                                                                 <h4>gender</h4>
                                                             </td>
-                                                            <td><h4>:</h4></td>
+                                                            <td>
+                                                                <h4>:</h4>
+                                                            </td>
                                                             <td>
                                                                 <h4>{{ $details -> user -> gender }}</h4>
                                                             </td>
@@ -91,7 +97,9 @@
                                                             <td>
                                                                 <h4>address</h4>
                                                             </td>
-                                                            <td><h4>:</h4></td>
+                                                            <td>
+                                                                <h4>:</h4>
+                                                            </td>
                                                             <td>
                                                                 <h4>{{ $details -> user -> address }}</h4>
                                                             </td>
@@ -100,7 +108,9 @@
                                                             <td>
                                                                 <h4>phone</h4>
                                                             </td>
-                                                            <td><h4>:</h4></td>
+                                                            <td>
+                                                                <h4>:</h4>
+                                                            </td>
                                                             <td>
                                                                 <h4>{{ $details -> user -> phone }}</h4>
                                                             </td>
@@ -109,7 +119,9 @@
                                                             <td>
                                                                 <h4>skill</h4>
                                                             </td>
-                                                            <td><h4>:</h4></td>
+                                                            <td>
+                                                                <h4>:</h4>
+                                                            </td>
                                                             <td>
                                                                 <h4>{{ $details -> skill -> name }}</h4>
                                                             </td>

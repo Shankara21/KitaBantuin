@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Bid;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Pengajuan;
 use App\Models\Testimoni;
+use App\Models\Portofolio;
 use App\Models\SubCategory;
 use App\Models\WorkerDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\TestimoniResource;
-use App\Models\Portofolio;
 
 class LandingPageController extends Controller
 {
@@ -42,8 +45,10 @@ class LandingPageController extends Controller
         // dd($testimoni->get());
         $target = User::with(['workerDetail', 'portofolio'])->where('role', 'Worker')->get();
         // dd($target);
+        $check = Pengajuan::where('user_id', Auth::user()->id)->first();
         return view('landingPage.worker', [
-            'workers' => $target
+            'workers' => $target,
+            'check' => $check
         ]);
     }
     public function profile()
@@ -136,5 +141,45 @@ class LandingPageController extends Controller
             'total_bid' => $bids->count(),
             'day' => $day
         ]);
+    }
+    public function submitWorker()
+    {
+        return view('landingPage.submit-worker', [
+            'categories' => SubCategory::all()
+        ]);
+    }
+    public function processWorker(Request $request)
+    {
+        $validateUserData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'photo' => 'image|file|max:2048',
+            'bank_account' => 'required',
+        ]);
+        if ($request->file('photo')) {
+            if ($request->oldImage) {
+                Storage::delete('public/' . $request->oldImage);
+            }
+            $validateUserData['photo'] = $request->file('photo')->store('profile', 'public');
+        }
+        User::where('id', auth()->user()->id)->update($validateUserData);
+
+        $validateDataPengajuan = $request->validate([
+            'cv' => 'image|file',
+            'ktp' => 'image|file',
+        ]);
+        if ($request->file('cv')) {
+            $validateDataPengajuan['cv'] = $request->file('cv')->store('pengajuan', 'public');
+        }
+        if ($request->file('ktp')) {
+            $validateDataPengajuan['ktp'] = $request->file('ktp')->store('pengajuan', 'public');
+        }
+        $validateDataPengajuan['user_id'] = auth()->user()->id;
+        Pengajuan::create($validateDataPengajuan);
+
+        return redirect()->route('worker')->with('success', 'Data berhasil diubah');
     }
 }

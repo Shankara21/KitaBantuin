@@ -101,8 +101,8 @@
                                 <div class="col-lg-6 col-sm-12  mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                     <select class="custom-select" name="gender">
-                                        <option value="Laki-Laki" {{  $user->gander == 'Laki-Laki' ? 'selected' : '' }}>
-                                            Laki-Laki</option>
+                                        <option value="Laki-laki" {{  $user->gander == 'Laki-laki' ? 'selected' : '' }}>
+                                            Laki-laki</option>
                                         <option value="Perempuan" {{  $user->gander == 'Perempuan' ? 'selected' : '' }}>
                                             Perempuan</option>
                                     </select>
@@ -151,28 +151,34 @@
                             <a href="/create-portofolio" class="btn btn-primary">Upload portofoliomu</a>
                         </div>
                         <div class="row">
-                           @forelse ($portofolios as $item)
-                               <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                                    <div class="card shadow" style="border-radius: 20px;background:white">
-                                        <div class="card-body">
-                                            <h2>{{ $item -> title }}</h2>
-                                            <div class="mb-4">
-                                                <img src="{{ asset('storage/'.$item -> image) }}" height="196px" width="100%"
-                                                    style="border-radius: 25px">
-                                            </div>
-                                            <p class="text-muted">
-                                                <a href="{{ $item -> link }}" target="_blank" class="text-decoration-underline">{{ $item -> link }}</a>
-                                            </p>
-                                            <p class="text-muted">Deadline: </p>
-                                            <p class="text-muted mb-4">Range Budget :</p>
-                                            <div class="d-flex justify-content-end">
-                                            </div>
+                            @forelse ($portofolios as $item)
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                <div class="card shadow" style="border-radius: 20px;background:white">
+                                    <div class="card-body">
+                                        <h2>{{ $item -> title }}</h2>
+                                        <div class="mb-4">
+                                            <img src="{{ asset('storage/'.$item -> image) }}" height="196px"
+                                                width="100%" style="border-radius: 25px">
+                                        </div>
+                                        <p class="text-muted">
+                                            <a href="{{ $item -> link }}" target="_blank"
+                                                class="text-decoration-underline">{{ $item -> link }}</a>
+                                        </p>
+                                        <p class="text-muted">Deadline: </p>
+                                        <p class="text-muted mb-4">Range Budget :</p>
+                                        <div class="d-flex justify-content-end">
                                         </div>
                                     </div>
                                 </div>
+
                            @empty
 
                            @endforelse
+
+                            </div>
+                            @empty
+
+                            @endforelse
                         </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">

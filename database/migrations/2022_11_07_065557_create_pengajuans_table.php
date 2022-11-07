@@ -13,18 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('worker_details', function (Blueprint $table) {
+        Schema::create('pengajuans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-
-            $table->string('cv')->nullable();
-            $table->string('about')->nullable();
-
-            $table->foreignId('skill_id')->constrained();
             $table->string('ktp');
             $table->string('cv');
-            $table->string('about');
-
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }
@@ -36,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('worker_details');
+        Schema::dropIfExists('pengajuans');
     }
 };

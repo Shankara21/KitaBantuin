@@ -60,6 +60,8 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/details-worker/{id}', 'detailWorker')->name('detailWorker');
     Route::get('/myProject', 'listProject')->name('myProject')->middleware('isUser');
     Route::get('/detail-myProject/{id}', 'detailMyProject')->middleware('isUser')->name('detail-myProject');
+    Route::get('/submitWorker', 'submitWorker')->name('submitWorker')->middleware(['auth', 'isUser']);
+    Route::post('/submitWorker', 'processWorker')->name('processWorker')->middleware(['auth', 'isUser']);
 });
 Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/create-project', 'createProject')->name('createProject');

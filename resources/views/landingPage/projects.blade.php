@@ -55,7 +55,8 @@
                                             </div>
                                             <div class="col-6">
                                                 <h6 class="text-bold pl-5">Created At:
-                                                    <span class="text-muted">{{ $item -> created_at -> format('Y-m-d')}}</span>
+                                                    <span
+                                                        class="text-muted">{{ $item -> created_at -> format('Y-m-d')}}</span>
                                                 </h6>
                                             </div>
                                             <div class="col-6">
@@ -76,13 +77,14 @@
                                     <!-- pop up -->
 
                                     @if (Auth::user())
-                                        @if (Auth::user() -> role == 'Worker')
-                                        <!-- Button trigger modal -->
-                                        
-                                        <button type="button" class="btn btn-secondary mx-1 px-3 py-2" data-toggle="modal" data-target="#staticBackdrop">
-                                            Bid
-                                        </button>
-                                        @endif
+                                    @if (Auth::user() -> role == 'Worker')
+                                    <!-- Button trigger modal -->
+
+                                    <button type="button" class="btn btn-secondary mx-1 px-3 py-2" data-toggle="modal"
+                                        data-target="#staticBackdrop">
+                                        Bid
+                                    </button>
+                                    @endif
                                     @endif
 
 
