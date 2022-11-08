@@ -4,9 +4,9 @@
             <div class="row">
                 <div class="col-md-6 col-lg-4">
                     <div class="widget">
-                        <h3 class="heading">About Tour</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts.</p>
+                        <h3 class="heading">About kITabantuin.co</h3>
+                        <p>KitaBantuin.co merupakan sebuah bisnis berbasis IT yang menyediakan layanan pengerjaan proyek
+                            atau pekerjaan yang terkait dengan IT.</p>
                     </div>
                     <div class="widget">
                         <ul class="list-unstyled social">
@@ -45,9 +45,10 @@
                     <div class="widget">
                         <h3 class="heading">Contact</h3>
                         <ul class="list-unstyled quick-info links">
-                            <li class="email"><a href="#">mail@example.com</a></li>
-                            <li class="phone"><a href="#">+1 222 212 3819</a></li>
-                            <li class="address"><a href="#">43 Raymouth Rd. Baltemoer, London 3910</a></li>
+                            <li class="email"><a href="#">kitabantuin@gmail.com</a></li>
+                            <li class="phone"><a href="#">+62 896 7905 1179</a></li>
+                            <li class="address"><a href="#">Jl.Pisang Kipas Kec.Lowokwaru Kab.Malang Jawa
+                                    Timur</a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,12 +62,10 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-8 mb-3 mb-md-0 mx-auto">
-                    <p>Copyright &copy;<script>
+                    <p>Copyright &copy;
+                        <script>
                             document.write(new Date().getFullYear());
-                        </script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co"
-                            class="link-highlight">Untree.co</a>
-                        <!-- License information: https://untree.co/license/ -->Distributed By <a
-                            href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                        </script>. All Rights Reserved. &mdash; Designed with love by kITabantuin.co
                     </p>
                 </div>
 
