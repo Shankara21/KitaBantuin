@@ -15,7 +15,11 @@ class ProjectResultController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project_result::paginate(10);
+        return view('Admin.ProjectResult.index', [
+            'title' => 'Project',
+            'projects' => $projects
+        ]);
     }
 
     /**

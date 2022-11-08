@@ -8,16 +8,22 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\SubCategoryController as AdminSubCategoryController;
 use App\Http\Controllers\Admin\AdminAdminController as AdminController;
 use App\Http\Controllers\Admin\AdminSkillController;
+use App\Http\Controllers\Admin\TestimoniController as AdminTestimoniController;
 use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
+
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LandingPageProject;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectResultController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\TestimoniController;
 use App\Http\Livewire\Features;
 use App\Http\Livewire\Homepage;
+use App\Models\Project_result;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,4 +103,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/worker', AdminWorkerController::class);
     Route::resource('/skill', AdminSkillController::class);
     Route::resource('/pengajuan', PengajuanController::class);
+    Route::resource('/testimoni', AdminTestimoniController::class);
+    Route::resource('/projects', ProjectController::class);
+    Route::resource('/result', ProjectResultController::class);
 });

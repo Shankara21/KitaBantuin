@@ -8,7 +8,7 @@
             </div>
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Admin Detail</strong></h5>
-                <small class="text-muted float-end">user Table</small>
+                <small class="text-muted float-end">Pengajuan Table</small>
             </div>
             <div class="mx-3">
                 <div class="card">
@@ -121,6 +121,18 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <form class="d-inline my-5" action="{{ route('pengajuan.update', $pengajuan -> id) }}" method="POST">
+                        @method('PUT')
+                        @csrf
+                       <div class="d-flex justify-content-center">
+                        <button class="btn btn-success text-white font-bold w-25 ">
+                            <i class="bx bx-check-circle display-6" style="transform: translateY(-2px)"></i>
+                            <h4 class="d-inline text-white" >Accept</h4>
+                        </button>
+                       </div>
+                    </form>
+
                 </div>
             </div>
         </div>

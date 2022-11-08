@@ -111,26 +111,26 @@
     </li>
 
     <!-- Skill -->
-    <li class="menu-item">
+    <li class="menu-item {{ Request::is('skill*') ? 'active' : '' }}">
       <a href="{{ route('skill.index') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-collection"></i>
         <div data-i18n="Basic">Skill</div>
       </a>
     </li>
 
-    <li class="menu-item">
+    <li class="menu-item {{ Request::is('projects*') || Request::is('result*') ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-dock-top"></i>
         <div data-i18n="Project">Project</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="pages-account-settings-account.html" class="menu-link">
+        <li class="menu-item {{ Request::is('projects*') ? 'active' : '' }}">
+          <a href="/projects" class="menu-link">
             <div data-i18n="Project">Project</div>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="pages-account-settings-notifications.html" class="menu-link">
+        <li class="menu-item {{ Request::is('result*') ? 'active' : '' }}">
+          <a href="/result" class="menu-link">
             <div data-i18n="Project Result">Project Result</div>
           </a>
         </li>
@@ -156,16 +156,16 @@
       </ul>
     </li>
     <!-- Pembayaran -->
-    <li class="menu-item">
-      <a href="" class="menu-link">
+    <li class="menu-item {{ Request::is('payment*') ? 'active' : '' }}" >
+      <a href="payment" class="menu-link">
         <i class="menu-icon fa-regular fa-credit-card"></i>
         <div data-i18n="Basic">Pembayaran</div>
       </a>
     </li>
 
     <!-- Testimoni -->
-    <li class="menu-item">
-      <a href="" class="menu-link">
+    <li class="menu-item {{ Request::is('testimoni*') ? 'active' : '' }}">
+      <a href="{{ route('testimoni.index') }}" class="menu-link">
         <i class="menu-icon fa-regular fa-comments"></i>
         <div data-i18n="Basic">Testimoni</div>
       </a>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card h-100">
-        <h5 class="card-header">List of Workers</h5>
+        <h5 class="card-header">List of User</h5>
         @if (count($errors) > 0)
         <div class="mx-3 alert alert-danger">
             <ul>

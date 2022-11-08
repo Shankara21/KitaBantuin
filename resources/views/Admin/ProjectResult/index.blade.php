@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card h-100">
-        <h5 class="card-header">List of Pengajuan</h5>
+        <h5 class="card-header">List of projects Result</h5>
         @if (count($errors) > 0)
         <div class="mx-3 alert alert-danger">
             <ul>
@@ -27,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    @forelse ($pengajuan as $item)
+                    @forelse ($projects as $item)
                     <tr>
                         <td>{{ $loop -> iteration }}</td>
                         <td>{{ $item -> user ->  name }}</td>
@@ -37,7 +37,7 @@
                         <td><span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span></td>
                         <td class="text-center">
 
-                            <form class="d-inline" action="{{ route('pengajuan.update', $item -> id) }}" method="POST">
+                            <form class="d-inline" action="{{ route('projects.update', $item -> id) }}" method="POST">
                                 @method('PUT')
                                 @csrf
                                 <button class="btn btn-success p-1 text-white font-bold">
@@ -46,11 +46,11 @@
                                 </button>
                             </form>
                             <a class="btn btn-info p-1 text-white font-bold p-1"
-                                href="{{ route('pengajuan.show', $item -> id) }}">
+                                href="{{ route('projects.show', $item -> id) }}">
                                 <i class="bx bx-info-circle me-1"></i>
                                 Details
                             </a>
-                            <form action="{{ route('pengajuan.destroy', $item -> id) }}" method="POST" class="d-inline">
+                            <form action="{{ route('projects.destroy', $item -> id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1"><i
@@ -68,7 +68,7 @@
             </table>
         </div>
         <div class="d-flex justify-content-end m-3">
-            {{ $pengajuan -> links() }}
+            {{ $projects -> links() }}
         </div>
     </div>
 </div>

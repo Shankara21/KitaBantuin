@@ -104,6 +104,8 @@ class PengajuanController extends Controller
      */
     public function destroy(Pengajuan $pengajuan)
     {
-        //
+        $pengajuan->delete();
+
+        return redirect()->route('pengajuan.index')->with('success', 'Pengajuan berhasil ditolak');
     }
 }
