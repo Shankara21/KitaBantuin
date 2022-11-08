@@ -83,10 +83,8 @@ class LandingPageController extends Controller
     {
         // $target = Project::with(['subCategory'])->where('id', 1)->first();
         // dd($target->user);
-        
         return view('landingPage.projects', [
-            'projects' => Project::latest()->paginate(10),
-
+            'projects' => Project::latest()->filter(request(['search', 'subCategory', 'author']))->paginate(7)->withQueryString(),
         ]);
     }
     public function detailProject($id)

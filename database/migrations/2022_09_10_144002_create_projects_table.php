@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('worker_id')->nullable()->references('id')->on('users');
             $table->string('title');
             $table->text('description');
+            $table->text('excerpt');
             $table->date('deadline');
             $table->string('budget');
             $table->string('status');

@@ -18,12 +18,19 @@
         {{-- Make search --}}
         <div class="row">
             <div class="col-md-12">
-                <form action="" method="GET">
+                <form action="" {{ route('list-project') }}>
+                    @if (request('subCategory'))
+                    <input type="hidden" name="subCategory" value="{{ request('subCategory') }}">
+                    @endif
+                    @if (request('author'))
+                    <input type="hidden" name="auhtor" value="{{ request('author') }}">
+                    @endif
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Search"
+                                    onchange="submit()" value="{{ request('search') }}">
                             </div>
                         </div>
                     </div>
@@ -39,21 +46,25 @@
                             <div class="col-6 col-lg-2">
                                 @if ($item -> user -> photo)
                                 <img src="{{ asset('storage/'. $item -> user -> photo) }}" alt="" width="250px"
-                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-2">
                                 @elseif (!$item -> user -> photo && $item -> user -> gender == 'Laki-Laki')
                                 <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
-                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-2">
                                 @elseif (!$item -> user -> photo && $item -> user -> gender == 'Perempuan')
                                 <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" width="250px"
-                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-2">
                                 @else
                                 <img src="{{ asset('assets/img/icons/avatar/user.png') }}" alt="" width="250px"
-                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
+                                    class="mg-fluid img-thumbnail rounded-circle w-100 mb-2">
                                 @endif
+                               <p class="text-center">
+                                <a href="/list-project?author={{ $item -> user -> name }}">{{ $item -> user -> name }}</a>
+                               </p>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <h5>{{ $item -> title }}</h5>
-                                <p class="text-muted">{{ $item -> subCategory -> name }}</p>
+                                <a class="text-muted"
+                                    href="/list-project?subCategory={{ $item -> subCategory -> name }}">{{ $item -> subCategory -> name }}</a>
                                 <p>{!! $item -> description !!}</p>
                                 <div class="card mb-3 shadow" style="border-radius: 20px">
                                     <div class="card-body">
@@ -71,7 +82,7 @@
                                             <div class="col-6">
                                                 <h6 class="text-bold pl-5">Created At:
                                                     <span
-                                                        class="text-muted">{{ $item -> created_at -> format('Y-m-d')}}</span>
+                                                        class="text-muted">{{ $item -> created_at ->diffForHumans()}}</span>
                                                 </h6>
                                             </div>
                                             <div class="col-6">
@@ -140,8 +151,13 @@
                 </div>
             </div>
             @empty
-            <div class="row justify-content-center">
-                <h1>Belum ada project!</h1>
+            <div class="container">
+                <div class="row align-items-center m-3">
+                    <div class="col-lg-6 mx-auto text-center">
+
+                        <h1 class="">Tidak ada project!</h1>
+                    </div>
+                </div>
             </div>
             @endforelse
         </div>

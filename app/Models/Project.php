@@ -49,5 +49,25 @@ class Project extends Model
     {
         return $this->hasMany(Bid::class);
     }
-
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('description', 'like', '%' . $search . '%');
+        });
+        $query->when($filters['subCategory'] ?? false, function ($query, $subCategory) {
+            return $query->whereHas('subCategory', function ($query) use ($subCategory) {
+                $query->where('name', $subCategory);
+            });
+        });
+        $query->when(
+            $filters['author'] ?? false,
+            fn ($query, $author) =>
+            $query->whereHas(
+                'user',
+                fn ($query) =>
+                $query->where('name', $author)
+            )
+        );
+    }
 }
