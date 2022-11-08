@@ -15,6 +15,21 @@
 </div>
 <div class="untree_co-section" style="background: #F8F9FA">
     <div class="container">
+        {{-- Make search --}}
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" method="GET">
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="row">
             @forelse ($projects as $item)
             <div class="col-12 mb-4">

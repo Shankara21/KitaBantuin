@@ -83,9 +83,9 @@ class LandingPageController extends Controller
     {
         // $target = Project::with(['subCategory'])->where('id', 1)->first();
         // dd($target->user);
-
+        
         return view('landingPage.projects', [
-            'projects' => Project::orderBy('created_at', 'DESC')->paginate(6),
+            'projects' => Project::latest()->paginate(10),
 
         ]);
     }
