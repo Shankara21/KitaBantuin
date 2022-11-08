@@ -58,8 +58,8 @@
                         <div class="form-group">
                             <label class="text-black" for="fname">Gender</label>
                             <select name="gender" id="" class="custom-select">
-                                <option value="Laki-laki" {{  Auth::user()->gander == 'Laki-laki' ? 'selected' : '' }}>
-                                    Laki-laki</option>
+                                <option value="Laki-Laki" {{  Auth::user()->gander == 'Laki-Laki' ? 'selected' : '' }}>
+                                    Laki-Laki</option>
                                 <option value="Perempuan" {{  Auth::user()->gander == 'Perempuan' ? 'selected' : '' }}>
                                     Perempuan</option>
                             </select>
@@ -82,12 +82,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="text-black" for="fname">Skill</label>
-                            <select class="js-example-basic-multiple select2-multiple form-control" name="skill[]" multiple="multiple">
+                            <select class="js-example-basic-multiple select2-multiple form-control" name="skill[]"
+                                multiple="multiple">
                                 @foreach ($skills as $skill)
 
                                 <option value="{{ $skill->name }}">{{ $skill->name }}</option>
                                 @endforeach
-                              </select>
+                            </select>
                         </div>
                     </div>
                     <div class="col-sm-6">

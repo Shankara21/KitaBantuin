@@ -25,7 +25,7 @@
                                 @if ($item -> user -> photo)
                                 <img src="{{ asset('storage/'. $item -> user -> photo) }}" alt="" width="250px"
                                     class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
-                                @elseif (!$item -> user -> photo && $item -> user -> gender == 'Laki-laki')
+                                @elseif (!$item -> user -> photo && $item -> user -> gender == 'Laki-Laki')
                                 <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
                                     class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
                                 @elseif (!$item -> user -> photo && $item -> user -> gender == 'Perempuan')

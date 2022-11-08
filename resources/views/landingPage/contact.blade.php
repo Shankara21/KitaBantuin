@@ -86,7 +86,7 @@
                         <figure class="img-wrap">
                             @if ($item->photo)
                             <img src="{{ asset('storage/'. $item -> photo) }}" alt="" class="img-fluid">
-                            @elseif (!$item -> photo && $item -> gender == 'Laki-laki')
+                            @elseif (!$item -> photo && $item -> gender == 'Laki-Laki')
                             <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" class="img-fluid">
                             @elseif (!$item -> photo && $item -> gender == 'Perempuan')
                             <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" class="img-fluid">

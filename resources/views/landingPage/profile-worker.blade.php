@@ -29,7 +29,7 @@
                         @if ($user->photo)
                         <img src="{{ asset('storage/'. $user -> photo) }}" alt="" width="250px"
                             class="rounded-circle img-thumbnail mb-3">
-                        @elseif (!$user -> photo && $user -> gender == 'Laki-laki')
+                        @elseif (!$user -> photo && $user -> gender == 'Laki-Laki')
                         <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
                             class="rounded-circle img-thumbnail mb-3">
                         @elseif (!$user -> photo && $user -> gender == 'Perempuan')
@@ -101,8 +101,8 @@
                                 <div class="col-lg-6 col-sm-12  mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                     <select class="custom-select" name="gender">
-                                        <option value="Laki-laki" {{  $user->gander == 'Laki-laki' ? 'selected' : '' }}>
-                                            Laki-laki</option>
+                                        <option value="Laki-Laki" {{  $user->gander == 'Laki-Laki' ? 'selected' : '' }}>
+                                            Laki-Laki</option>
                                         <option value="Perempuan" {{  $user->gander == 'Perempuan' ? 'selected' : '' }}>
                                             Perempuan</option>
                                     </select>
@@ -169,40 +169,43 @@
                                     </div>
                                 </div>
 
-                           @empty
+                                @empty
 
-                           @endforelse
+                                @endforelse
 
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                                <!-- Button trigger modal -->
+                        <!-- Button trigger modal -->
                         <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary p-2" data-toggle="modal" data-target="#staticBackdrop">
+                            <button type="button" class="btn btn-primary p-2" data-toggle="modal"
+                                data-target="#staticBackdrop">
                                 Upload CV
                             </button>
                             <a href="/edit-skill/{{ $details->id }}/edit" class="btn btn-primary p-2">Update Skill</a>
                         </div>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Upload CV anda</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Upload CV anda</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Understood</button>
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                ...
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Understood</button>
-                                </div>
-                            </div>
                             </div>
                         </div>
                         <div class="row">
@@ -210,7 +213,7 @@
                                 Skill
                                 <ul>
                                     @foreach ($skill as $item)
-                                        <li>{{ $item }}</li>
+                                    <li>{{ $item }}</li>
                                     @endforeach
 
                                 </ul>

@@ -75,7 +75,7 @@
                                         @if ($project-> user -> photo)
                                         <img src="{{ asset('storage/'. $project-> user -> photo) }}" alt=""
                                             width="250px" class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
-                                        @elseif (!$project-> user -> photo && $project-> user -> gender == 'Laki-laki')
+                                        @elseif (!$project-> user -> photo && $project-> user -> gender == 'Laki-Laki')
                                         <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
                                             class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
                                         @elseif (!$project-> user -> photo && $project-> user -> gender == 'Perempuan')
@@ -169,7 +169,7 @@
                                         <img src="{{ asset('storage/'. $item -> user -> photo) }}" alt="" width="250px"
                                             class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
                                         @elseif (!$item -> user -> photo && $item -> user -> gender ==
-                                        'Laki-laki')
+                                        'Laki-Laki')
                                         <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
                                             class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">
                                         @elseif (!$item -> user -> photo && $item -> user -> gender ==

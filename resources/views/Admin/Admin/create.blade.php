@@ -59,7 +59,7 @@
                         <div class="col-sm-10">
                             <select class="form-select" id="exampleFormControlSelect1"
                                 aria-label="Default select example" name="gender">
-                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
                                 <option value="Perempuan">Perempuan</option>
                             </select>
                         </div>
