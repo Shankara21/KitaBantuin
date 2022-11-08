@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class SkillWorker extends Model
 {
     use HasFactory;
-    protected $guarded = [''];
+    protected $guarded = [];
 
-    public function user(){
-        return $this->belongsToMany(User::class);
-    }
     public function skill(){
-        return $this->belongsToMany(Skill::class);
+        return $this->belongsToMany(Skill::class, 'skill_worker_detail', 'skill_id', 'user_id');
     }
+
 }

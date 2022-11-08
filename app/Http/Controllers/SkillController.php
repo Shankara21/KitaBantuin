@@ -6,6 +6,7 @@ use App\Models\Skill;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreSkillRequest;
 use App\Http\Requests\UpdateSkillRequest;
+use App\Models\SkillWorker;
 use App\Models\WorkerDetail;
 
 class SkillController extends Controller
@@ -46,10 +47,10 @@ class SkillController extends Controller
             'skill_id' => 'required|array'
         ]);
 
-        $skill = WorkerDetail::create([
-            'user_id' => auth()->user()->id,
+        $skill = SkillWorker::create([
+            'user_id' => Auth::user()->id,
         ]);
-        $skill->skill()->sync(request('skill_id'));
+        $skill->skill()->attach(request('skill_id'));
 
 
         return redirect('/profile-worker')->with('success', 'Skill telah ditambahkan!');

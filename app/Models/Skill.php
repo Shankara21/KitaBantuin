@@ -31,4 +31,5 @@ class Skill extends Model
     public function skillWorker(){
         return $this->hasMany(SkillWorker::class);
     }
+
 }
