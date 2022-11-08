@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LandingPageProject;
+use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SkillController;
@@ -83,6 +84,7 @@ Route::controller(PortofolioController::class)->group(function () {
     Route::post('/edit-portofilo', 'update')->name('update');
 });
 
+// ! Admin Routing
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index']);
     Route::get('/categories/checkSlug', [AdminController::class, 'checkSlug']);
@@ -94,4 +96,5 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/admin', AdminController::class);
     Route::resource('/worker', AdminWorkerController::class);
     Route::resource('/skill', AdminSkillController::class);
+    Route::resource('/pengajuan', PengajuanController::class);
 });

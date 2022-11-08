@@ -18,7 +18,7 @@ class AdminWorkerController extends Controller
     public function index()
     {
         $user = User::where('role', 'Worker')->paginate(10);
-        return view('admin.worker.index', [
+        return view('Admin.Worker.index', [
             'users' => $user,
             'title' => 'User'
         ]);
@@ -31,7 +31,7 @@ class AdminWorkerController extends Controller
      */
     public function create()
     {
-        return view('admin.worker.create', [
+        return view('Admin.Worker.create', [
             'title' => 'Create Worker'
         ]);
     }
@@ -74,7 +74,7 @@ class AdminWorkerController extends Controller
     {
         $portofolio = Portofolio::where('user_id', $user->id)->get();
         $user = User::findOrFail($id);
-        return view('admin.worker.show', [
+        return view('Admin.Worker.show', [
             'user' => $user,
             'title' => 'Detail Worker',
             'portofolio' => $portofolio
@@ -90,7 +90,7 @@ class AdminWorkerController extends Controller
     public function edit(User $user, $id)
     {
         $user = User::find($id);
-        return view('admin.worker.edit', [
+        return view('Admin.Worker.edit', [
             'user' => $user,
             'title' => 'Edit Worker'
         ]);

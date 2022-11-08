@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengajuan;
+use App\Models\WorkerDetail;
 use App\Http\Requests\StorePengajuanRequest;
 use App\Http\Requests\UpdatePengajuanRequest;
-use App\Models\Pengajuan;
+use App\Models\User;
 
 class PengajuanController extends Controller
 {
@@ -15,7 +17,11 @@ class PengajuanController extends Controller
      */
     public function index()
     {
-        //
+        $pengajuan = Pengajuan::where('status', 'Pending')->paginate(10);
+
+        return view('Admin.Pengajuan.index', [
+            'pengajuan' => $pengajuan
+        ]);
     }
 
     /**
@@ -47,7 +53,9 @@ class PengajuanController extends Controller
      */
     public function show(Pengajuan $pengajuan)
     {
-        //
+        return view('Admin.Pengajuan.show', [
+            'pengajuan' => $pengajuan
+        ]);
     }
 
     /**
@@ -70,7 +78,22 @@ class PengajuanController extends Controller
      */
     public function update(UpdatePengajuanRequest $request, Pengajuan $pengajuan)
     {
-        //
+        $workerDetail = new WorkerDetail();
+        $workerDetail->user_id = $pengajuan->user_id;
+        $workerDetail->cv = $pengajuan->cv;
+        $workerDetail->about = $pengajuan->about;
+        $workerDetail->ktp = $pengajuan->ktp;
+        $pengajuan->status = 'Accepted';
+
+        $workerDetail->save();
+
+        $pengajuan->save();
+
+        $user = User::find($pengajuan->user_id);
+        $user->role = 'Worker';
+        $user->save();
+
+        return redirect()->route('pengajuan.index')->with('success', 'Pengajuan berhasil diterima');
     }
 
     /**

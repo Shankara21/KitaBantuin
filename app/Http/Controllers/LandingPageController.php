@@ -173,6 +173,7 @@ class LandingPageController extends Controller
         $validateDataPengajuan = $request->validate([
             'cv' => 'image|file',
             'ktp' => 'image|file',
+            'about' => 'required',
         ]);
         if ($request->file('cv')) {
             $validateDataPengajuan['cv'] = $request->file('cv')->store('pengajuan', 'public');

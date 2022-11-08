@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('ktp');
             $table->string('cv');
+            $table->string('about');
             $table->string('status')->default('Pending');
             $table->timestamps();
         });

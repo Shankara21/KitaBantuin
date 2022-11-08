@@ -21,7 +21,7 @@
 
         <div class="d-flex justify-content-end">
             @if (Auth::user())
-            @if (!$check)
+            @if (!$check && Auth::user() -> role == 'User')
             <button type="button" class="btn btn-primary p-2 my-4 " data-toggle="modal" data-target="#staticBackdrop">
                 Ingin jadi worker?
             </button>

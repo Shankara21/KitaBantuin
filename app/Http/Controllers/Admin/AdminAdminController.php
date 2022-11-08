@@ -17,7 +17,7 @@ class AdminAdminController extends Controller
     public function index()
     {
         $user = User::paginate(10);
-        return view('admin.admin.index', [
+        return view('Admin.Admin.index', [
             'users' => $user,
             'title' => 'User'
         ]);
@@ -30,7 +30,7 @@ class AdminAdminController extends Controller
      */
     public function create()
     {
-        return view('admin.admin.create', [
+        return view('Admin.Admin.create', [
             'title' => 'Create User'
         ]);
     }
@@ -72,7 +72,7 @@ class AdminAdminController extends Controller
     public function show(User $user, $id)
     {
         $user = User::find($id);
-        return view('admin.admin.show', [
+        return view('Admin.Admin.show', [
             'user' => $user,
             'title' => 'Detail User'
         ]);
@@ -87,7 +87,7 @@ class AdminAdminController extends Controller
     public function edit(User $user, $id)
     {
         $user = User::find($id);
-        return view('admin.admin.edit', [
+        return view('Admin.Admin.edit', [
             'user' => $user,
             'title' => 'Edit User'
         ]);

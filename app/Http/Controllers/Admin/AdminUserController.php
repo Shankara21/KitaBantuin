@@ -17,7 +17,7 @@ class AdminUserController extends Controller
     public function index()
     {
         $user = User::where('role', 'User')->paginate(10);
-        return view('admin.user.index', [
+        return view('Admin.User.index', [
             'users' => $user,
             'title' => 'User'
         ]);
@@ -30,7 +30,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create', [
+        return view('Admin.User.create', [
             'title' => 'Create User'
         ]);
     }
@@ -71,7 +71,7 @@ class AdminUserController extends Controller
      */
     public function show(User $user)
     {
-        return view('admin.user.show', [
+        return view('Admin.User.show', [
             'user' => $user,
             'title' => 'Detail User'
         ]);
@@ -85,7 +85,7 @@ class AdminUserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.user.edit', [
+        return view('Admin.User.edit', [
             'user' => $user,
             'title' => 'Edit User'
         ]);

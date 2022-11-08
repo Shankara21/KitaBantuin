@@ -97,14 +97,14 @@
             <div data-i18n="Account">Admin</div>
           </a>
         </li>
-        <li class="menu-item {{ Request::is('worker*') ? 'active' : '' }}"">
+        <li class="menu-item {{ Request::is('worker*') ? 'active' : '' }}">
           <a href=" {{ route('worker.index') }}" class="menu-link ">
-          <div data-i18n="Notifications">Worker</div>
+            <div data-i18n="Notifications">Worker</div>
           </a>
         </li>
-        <li class="menu-item {{ Request::is('user*') ? 'active' : '' }}"">
+        <li class="menu-item {{ Request::is('user*') ? 'active' : '' }}">
           <a href=" {{ route('user.index') }}" class="menu-link ">
-          <div data-i18n="Notifications">User</div>
+            <div data-i18n="Notifications">User</div>
           </a>
         </li>
       </ul>
@@ -168,6 +168,13 @@
       <a href="" class="menu-link">
         <i class="menu-icon fa-regular fa-comments"></i>
         <div data-i18n="Basic">Testimoni</div>
+      </a>
+    </li>
+    <!-- Pengajuan -->
+    <li class="menu-item {{ Request::is('pengajuan*') ? 'active' : '' }}">
+      <a href="{{ route('pengajuan.index') }}" class="menu-link">
+        <i class="menu-icon fa-regular fa-handshake"></i>
+        <div data-i18n="Basic">Pengajuan</div>
       </a>
     </li>
 

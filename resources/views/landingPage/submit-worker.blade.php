@@ -79,11 +79,19 @@
                                 value="{{ Auth::user() -> bank_account }}" name="bank_account">
                         </div>
                     </div>
+                    <div class="col-sm-6"></div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="text-black" for="message">Alamat</label>
                             <textarea id="basic-default-message" class="form-control" cols="10" rows="5"
                                 name="address">{{ Auth::user() -> address }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="text-black" for="message">About me</label>
+                            <textarea id="basic-default-message" class="form-control" cols="10" rows="5"
+                                name="about">{{ Auth::user() -> address }}</textarea>
                         </div>
                     </div>
                 </div>
