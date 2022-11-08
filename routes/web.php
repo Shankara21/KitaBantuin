@@ -21,6 +21,8 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectResultController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TestimoniController;
+
+use App\Http\Controllers\WorkerController;
 use App\Http\Livewire\Features;
 use App\Http\Livewire\Homepage;
 use App\Models\Project_result;
@@ -76,11 +78,12 @@ Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/accept-bid/{id}', 'acceptBid')->name('acceptBid');
 });
 
+
 Route::controller(SkillController::class)->group(function () {
     Route::get('/create-skill', 'create')->name('create');
     Route::post('/create-skill', 'store')->name('store');
-    Route::get('/edit-skill', 'edit')->name('edit');
-    Route::post('/edit-skill/{id}', 'update')->name('update');
+    Route::get('/edit-skill/{id}/edit', 'edit')->name('edit');
+    Route::put('/edit-skill/{id}', 'update')->name('update');
 });
 
 Route::controller(PortofolioController::class)->group(function () {

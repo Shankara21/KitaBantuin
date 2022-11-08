@@ -32,14 +32,15 @@
                             </ul>
                         </div>
                         @endif
-                                <form action="/create-skill" method="POST" class="mb-5" enctype="multipart/form-data">
+                                <form action="/edit-skill/{id}" method="POST" class="mb-5" enctype="multipart/form-data">
+                                    @method('PUT')
                                     @csrf
                                     <div class="mb-3">
                                         <label for="Skill" class="form-label">Skill</label>
                                         <select class="js-example-basic-multiple select2-multiple" name="skill[]" multiple="multiple">
                                             @foreach ($skills as $skill)
 
-                                            <option value="{{ $skill->name }}">{{ $skill->name }}</option>
+                                            <option value="{{ $skill->name }}" {{ $skill->name == $details->skill ? 'selected' : '' }}>{{ $skill->name }}</option>
                                             @endforeach
                                           </select>
                                       </div>

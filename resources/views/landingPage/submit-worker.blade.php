@@ -79,7 +79,17 @@
                                 value="{{ Auth::user() -> bank_account }}" name="bank_account">
                         </div>
                     </div>
-                    <div class="col-sm-6"></div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="text-black" for="fname">Skill</label>
+                            <select class="js-example-basic-multiple select2-multiple form-control" name="skill[]" multiple="multiple">
+                                @foreach ($skills as $skill)
+
+                                <option value="{{ $skill->name }}">{{ $skill->name }}</option>
+                                @endforeach
+                              </select>
+                        </div>
+                    </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="text-black" for="message">Alamat</label>
@@ -198,5 +208,20 @@
 //   document.addEventListener('trix-file-accept', function(e){
 //     e.preventDefault()
 //   })
+
+</script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Select2 Multiple
+        $('.select2-multiple').select2({
+            placeholder: "Select",
+            allowClear: true
+        });
+
+    });
+
 </script>
 @endsection

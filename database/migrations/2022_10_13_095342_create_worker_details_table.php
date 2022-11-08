@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('cv')->nullable();
             $table->string('about')->nullable();
-            $table->foreignId('skill_id')->constrained();
-            $table->string('ktp');
+            $table->text('skill')->nullable();
+            $table->string('ktp')->nullable();
 
 
             $table->timestamps();

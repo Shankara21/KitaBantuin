@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bid;
 use App\Models\User;
+use App\Models\Skill;
 use App\Models\Project;
 use App\Models\Pengajuan;
 use App\Models\Testimoni;
@@ -11,9 +12,11 @@ use App\Models\Portofolio;
 use App\Models\SubCategory;
 use App\Models\WorkerDetail;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\TestimoniResource;
+use Illuminate\Support\Facades\DB;
 
 class LandingPageController extends Controller
 {
@@ -41,9 +44,9 @@ class LandingPageController extends Controller
     }
     public function worker()
     {
-        // $testimoni = Testimoni::with(['user']);
+        // $testimoni = \App\Models\Testimoni::with(['user']);
         // dd($testimoni->get());
-        $target = User::with(['workerDetail', 'portofolio'])->where('role', 'Worker')->get();
+        $target = User::with('workerDetail', 'portofolio')->where('role', 'Worker')->get();
         // dd($target);
         if (Auth::user()) {
             $check = Pengajuan::where('user_id', Auth::user()->id)->first();
@@ -106,7 +109,6 @@ class LandingPageController extends Controller
         $target = User::where('id', $id)->first();
         $portofolio = Portofolio::where('user_id', $id)->get();
         $details = WorkerDetail::where('user_id', $id)->first();
-        dd($details -> skill);
         return view('landingPage.detail-worker', [
             'worker' => $target,
             'portofolio' => $portofolio,
@@ -148,7 +150,8 @@ class LandingPageController extends Controller
     public function submitWorker()
     {
         return view('landingPage.submit-worker', [
-            'categories' => SubCategory::all()
+            'categories' => SubCategory::all(),
+            'skills' => Skill::all()
         ]);
     }
     public function processWorker(Request $request)
@@ -161,6 +164,7 @@ class LandingPageController extends Controller
             'address' => 'required',
             'photo' => 'image|file|max:2048',
             'bank_account' => 'required',
+
         ]);
         if ($request->file('photo')) {
             if ($request->oldImage) {
@@ -174,6 +178,7 @@ class LandingPageController extends Controller
             'cv' => 'image|file',
             'ktp' => 'image|file',
             'about' => 'required',
+            'skill' => 'required|array'
         ]);
         if ($request->file('cv')) {
             $validateDataPengajuan['cv'] = $request->file('cv')->store('pengajuan', 'public');
@@ -181,8 +186,9 @@ class LandingPageController extends Controller
         if ($request->file('ktp')) {
             $validateDataPengajuan['ktp'] = $request->file('ktp')->store('pengajuan', 'public');
         }
+        $validateDataPengajuan['skill'] = implode(', ', $request->skill);
         $validateDataPengajuan['user_id'] = auth()->user()->id;
-        Pengajuan::create($validateDataPengajuan);
+        WorkerDetail::create($validateDataPengajuan);
 
         return redirect()->route('worker')->with('success', 'Data berhasil diubah');
     }

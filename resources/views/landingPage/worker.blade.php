@@ -89,11 +89,13 @@
                                 @endif
                             </div>
 
-                            <div class="card-body">
-                                <h5>{{ $item->name }}</h5>
-                                {{-- <p class="text-muted mb-4">{{ $item}}</p> --}}
-                                <div class="mb-4">
-                                    {{-- <div class="owl-single dots-absolute owl-carousel">
+
+                    <div class="card-body">
+                        <h5> Nama : {{ $item->name}}</h5>
+                        <h6>Skill : {{ $item->workerDetail->skill }}</h6>
+                        {{-- <p class="text-muted mb-4">{{ $item}}</p> --}}
+                        <div class="mb-4">
+                            {{-- <div class="owl-single dots-absolute owl-carousel">
                                     <img src="/landingPage/images/slider-1.jpg" alt="Free HTML Template by Untree.co" class="img-fluid"
                                         style="border-radius: 25px">
                                     <img src="/landingPage/images/slider-2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid"

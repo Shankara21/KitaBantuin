@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Worker;
+use App\Models\Pengajuan;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreWorkerRequest;
 use App\Http\Requests\UpdateWorkerRequest;
 
@@ -15,7 +18,7 @@ class WorkerController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

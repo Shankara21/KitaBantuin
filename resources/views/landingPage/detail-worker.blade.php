@@ -123,22 +123,46 @@
                                                                 <h4>:</h4>
                                                             </td>
                                                             <td>
-                                                                <h4>{{ $details -> skill -> name }}</h4>
+                                                                <h4>{{ $details -> skill }}</h4>
                                                             </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div class="tab-pane fade mt-3" id="profile" role="tabpanel"
+                                            <div class="tab-pane fade mt-3 show active" id="profile" role="tabpanel"
                                                 aria-labelledby="profile-tab">
                                                 <div class="row">
-                                                    <div class="col-6">Skill</div>
-                                                    <div class="col-6">CV</div>
+                                                    @forelse ($portofolio as $item)
+                                                    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                                        <div class="card shadow" style="border-radius: 20px;background:white">
+                                                            <div class="card-body">
+                                                                <h2>{{ $item -> title }}</h2>
+                                                                <div class="mb-4">
+                                                                    <img src="{{ asset('storage/'.$item -> image) }}" height="196px"
+                                                                        width="100%" style="border-radius: 25px">
+                                                                </div>
+                                                                <p class="text-muted">
+                                                                    <a href="{{ $item -> link }}" target="_blank"
+                                                                        class="text-decoration-underline">{{ $item -> link }}</a>
+                                                                </p>
+                                                                <div class="d-flex justify-content-end">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                   @empty
+
+                                                   @endforelse
+
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade mt-3" id="contact" role="tabpanel"
                                                 aria-labelledby="contact-tab">Project
                                             </div>
+                                        </div>
+                                        <div class="tab-content" id="myTabContent">
+
                                         </div>
                                     </div>
                                 </div>

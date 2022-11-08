@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreSkillRequest;
 use App\Http\Requests\UpdateSkillRequest;
 use App\Models\SkillWorker;
+use App\Models\User;
 use App\Models\WorkerDetail;
 
 class SkillController extends Controller
@@ -76,8 +77,10 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
+        $user = WorkerDetail::where('user_id', Auth::user()->id)->first();
         return view('landingPage.edit-skill-worker', [
             'skills' => Skill::all(),
+            'details' => $user,
         ]);
     }
 
@@ -89,9 +92,16 @@ class SkillController extends Controller
      * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSkillRequest $request, Skill $skill)
+    public function update(UpdateSkillRequest $request, WorkerDetail $wd)
     {
-        //
+        $user = WorkerDetail::where('user_id', Auth::user()->id)->first();
+        $validateData = $request->validate([
+            'skill' => 'required|array'
+        ]);
+        $validateData['skill'] = $request->skill;
+        WorkerDetail::where('user_id', $user->id)->update($validateData);
+
+        return redirect('/profile-worker')->with('success', 'Skill telah ditambahkan!');
     }
 
     /**

@@ -164,8 +164,6 @@
                                             <a href="{{ $item -> link }}" target="_blank"
                                                 class="text-decoration-underline">{{ $item -> link }}</a>
                                         </p>
-                                        <p class="text-muted">Deadline: </p>
-                                        <p class="text-muted mb-4">Range Budget :</p>
                                         <div class="d-flex justify-content-end">
                                         </div>
                                     </div>
@@ -176,9 +174,6 @@
                            @endforelse
 
                             </div>
-                            @empty
-
-                            @endforelse
                         </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -187,8 +182,7 @@
                             <button type="button" class="btn btn-primary p-2" data-toggle="modal" data-target="#staticBackdrop">
                                 Upload CV
                             </button>
-                            <a href="/create-skill" class="btn btn-primary p-2">Tambah Skill</a>
-                            <a href="/edit-skill" class="btn btn-primary p-2">Update Skill</a>
+                            <a href="/edit-skill/{{ $details->user_id }}/edit" class="btn btn-primary p-2">Update Skill</a>
                         </div>
 
                         <!-- Modal -->
@@ -215,10 +209,9 @@
                             <div class="col-6">
                                 Skill
                                 <ul>
-                                    @foreach ($details as $detail)
-                                        <li>{{ $detail->skill }}</li>
+                                    @foreach ($details as $item)
+                                        <li>{{ $item->skill }}</li>
                                     @endforeach
-
                                 </ul>
 
                             </div>
