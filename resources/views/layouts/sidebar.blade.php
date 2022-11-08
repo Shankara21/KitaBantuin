@@ -86,7 +86,7 @@
         </li>
       </ul>
     </li>
-    <li class="menu-item {{ Request::is('admin*') || Request::is('user*')|| Request::is('worker*') ? 'active' : '' }}">
+    <li class="menu-item {{ Request::is('admin*') || Request::is('user*')|| Request::is('workers*') ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon fa-solid fa-users-rays"></i>
         <div data-i18n="Account Settings">Users</div>
@@ -97,8 +97,8 @@
             <div data-i18n="Account">Admin</div>
           </a>
         </li>
-        <li class="menu-item {{ Request::is('worker*') ? 'active' : '' }}">
-          <a href=" {{ route('worker.index') }}" class="menu-link ">
+        <li class="menu-item {{ Request::is('workers*') ? 'active' : '' }}">
+          <a href=" {{ route('workers.index') }}" class="menu-link ">
             <div data-i18n="Notifications">Worker</div>
           </a>
         </li>
@@ -156,7 +156,7 @@
       </ul>
     </li>
     <!-- Pembayaran -->
-    <li class="menu-item {{ Request::is('payment*') ? 'active' : '' }}" >
+    <li class="menu-item {{ Request::is('payment*') ? 'active' : '' }}">
       <a href="payment" class="menu-link">
         <i class="menu-icon fa-regular fa-credit-card"></i>
         <div data-i18n="Basic">Pembayaran</div>
@@ -171,8 +171,8 @@
       </a>
     </li>
     <!-- Pengajuan -->
-    <li class="menu-item {{ Request::is('pengajuan*') ? 'active' : '' }}">
-      <a href="{{ route('pengajuan.index') }}" class="menu-link">
+    <li class="menu-item {{ Request::is('worker-details*') ? 'active' : '' }}">
+      <a href="{{ route('worker-details.index') }}" class="menu-link">
         <i class="menu-icon fa-regular fa-handshake"></i>
         <div data-i18n="Basic">Pengajuan</div>
       </a>

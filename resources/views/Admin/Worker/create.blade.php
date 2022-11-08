@@ -4,7 +4,7 @@
     <div class="col-xxl">
         <div class="card mb-4">
             <div class="m-3">
-                <a href="{{ route('worker.index') }}" class="btn btn-primary">Kembali</a>
+                <a href="{{ route('workers.index') }}" class="btn btn-primary">Kembali</a>
             </div>
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Create new Worker</strong></h5>
@@ -20,7 +20,7 @@
             </div>
             @endif
             <div class="card-body">
-                <form method="POST" action="{{ route('worker.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('workers.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3 align-items-center">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>

@@ -20,7 +20,7 @@
             </div>
             @endif
             <div class="card-body">
-                <form method="POST" action="{{ route('worker.update', $user -> id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('workers.update', $user -> id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row mb-3 align-items-center">

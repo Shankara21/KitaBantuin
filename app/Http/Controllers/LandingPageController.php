@@ -46,10 +46,12 @@ class LandingPageController extends Controller
     {
         // $testimoni = \App\Models\Testimoni::with(['user']);
         // dd($testimoni->get());
-        $target = WorkerDetail::all();
-        // dd($target);
+        $check = User::where('role', 'Worker')->get();
+        if ($check ?? false) {
+            $target = WorkerDetail::where('status', 'Accepted')->get();
+        }
         if (Auth::user()) {
-            $check = Pengajuan::where('user_id', Auth::user()->id)->first();
+            $check = WorkerDetail::where('user_id', Auth::user()->id)->first();
         }
 
         return view('landingPage.worker', [

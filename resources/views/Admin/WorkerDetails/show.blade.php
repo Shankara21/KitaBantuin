@@ -4,7 +4,7 @@
     <div class="col-xxl">
         <div class="card mb-4">
             <div class="m-3">
-                <a href="{{ route('pengajuan.index') }}" class="btn btn-primary">Kembali</a>
+                <a href="{{ route('worker-details.index') }}" class="btn btn-primary">Kembali</a>
             </div>
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Admin Detail</strong></h5>
@@ -123,7 +123,7 @@
                         </table>
                     </div>
 
-                    <form class="d-inline my-5" action="{{ route('pengajuan.update', $pengajuan -> id) }}"
+                    <form class="d-inline my-5" action="{{ route('worker-details.update', $pengajuan -> id) }}"
                         method="POST">
                         @method('PUT')
                         @csrf

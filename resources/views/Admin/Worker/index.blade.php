@@ -14,7 +14,7 @@
         </div>
         @endif
         <div class="mx-3 mb-3">
-            <a href="{{ route('worker.create') }}" class="btn btn-primary">
+            <a href="{{ route('workers.create') }}" class="btn btn-primary">
                 <i class="fa-solid fa-plus" style="padding-right: 10px"></i>
                 Add new Worker</a>
         </div>
@@ -53,15 +53,15 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('worker.show', $item -> id) }}">
+                                    <a class="dropdown-item" href="{{ route('workers.show', $item -> id) }}">
                                         <i class="bx bx-show me-1"></i>
                                         Details
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('worker.edit', $item -> id) }}">
+                                    <a class="dropdown-item" href="{{ route('workers.edit', $item -> id) }}">
                                         <i class="bx bx-edit-alt me-1"></i>
                                         Edit
                                     </a>
-                                    <form action="{{ route('worker.destroy', $item -> id) }}" method="POST"
+                                    <form action="{{ route('workers.destroy', $item -> id) }}" method="POST"
                                         class="d-inline">
                                         @csrf
                                         @method('DELETE')

@@ -23,6 +23,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TestimoniController;
 
 use App\Http\Controllers\WorkerController;
+use App\Http\Controllers\WorkerDetailController;
 use App\Http\Livewire\Features;
 use App\Http\Livewire\Homepage;
 use App\Models\Project_result;
@@ -103,9 +104,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/subCategories', AdminSubCategoryController::class);
     Route::resource('/user', AdminUserController::class);
     Route::resource('/admin', AdminController::class);
-    Route::resource('/worker', AdminWorkerController::class);
+    Route::resource('/workers', AdminWorkerController::class);
     Route::resource('/skill', AdminSkillController::class);
-    Route::resource('/pengajuan', PengajuanController::class);
+    Route::resource('/worker-details', WorkerDetailController::class);
     Route::resource('/testimoni', AdminTestimoniController::class);
     Route::resource('/projects', ProjectController::class);
     Route::resource('/result', ProjectResultController::class);

@@ -37,7 +37,8 @@
                         <td><span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span></td>
                         <td class="text-center">
 
-                            <form class="d-inline" action="{{ route('pengajuan.update', $item -> id) }}" method="POST">
+                            <form class="d-inline" action="{{ route('worker-details.update', $item -> id) }}"
+                                method="POST">
                                 @method('PUT')
                                 @csrf
                                 <button class="btn btn-success p-1 text-white font-bold">
@@ -46,11 +47,12 @@
                                 </button>
                             </form>
                             <a class="btn btn-info p-1 text-white font-bold p-1"
-                                href="{{ route('pengajuan.show', $item -> id) }}">
+                                href="{{ route('worker-details.show', $item -> id) }}">
                                 <i class="bx bx-info-circle me-1"></i>
                                 Details
                             </a>
-                            <form action="{{ route('pengajuan.destroy', $item -> id) }}" method="POST" class="d-inline">
+                            <form action="{{ route('worker-details.destroy', $item -> id) }}" method="POST"
+                                class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1"><i

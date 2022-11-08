@@ -74,13 +74,13 @@
                 <div class="card shadow" style="border-radius: 20px;background:white">
 
                     <div class="p-2 d-flex justify-content-center">
-                        @if ($item->photo)
-                        <img src="{{ asset('storage/' . $item->photo) }}" alt="" width="250px"
+                        @if ($item-> user -> photo)
+                        <img src="{{ asset('storage/' . $item-> user -> photo) }}" alt="" width="250px"
                             class="img-fluid img-thumbnail rounded-circle w-50 ">
-                        @elseif (!$item->photo && $item->gender == 'Laki-Laki')
+                        @elseif (!$item-> user -> photo && $item-> user -> gender == 'Laki-Laki')
                         <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
                             class="img-fluid img-thumbnail rounded-circle w-50 ">
-                        @elseif (!$item->photo && $item->gender == 'Perempuan')
+                        @elseif (!$item-> user -> photo && $item-> user -> gender == 'Perempuan')
                         <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" width="250px"
                             class="img-fluid img-thumbnail rounded-circle w-50 ">
                         @else
@@ -88,8 +88,6 @@
                             class="img-fluid img-thumbnail rounded-circle w-50 ">
                         @endif
                     </div>
-
-
                     <div class="card-body">
                         <h5> Nama : {{ $item-> user -> name}}</h5>
                         <h6>Skill : {{ $item->skill }}</h6>
@@ -106,14 +104,22 @@
                                 class="img-fluid" style="border-radius: 25px">
                         </div>
                         <a href="/chat" class="btn btn-primary d-block mb-2">Chat</a>
-                        <a href="/details-worker/{{ $item->id }}" class="btn btn-secondary d-block">Details</a>
+                        <a href="/details-worker/{{ $item->user_id }}" class="btn btn-secondary d-block">Details</a>
                     </div>
                 </div>
             </div>
             @empty
+            <div class="container">
+                <div class="row align-items-center m-3">
+                    <div class="col-lg-6 mx-auto text-center">
+
+                        <h1 class="">Tidak ada Worker!</h1>
+                    </div>
+                </div>
+            </div>
+            @endforelse
         </div>
     </div>
-    @endforelse
 
 </div>
 
