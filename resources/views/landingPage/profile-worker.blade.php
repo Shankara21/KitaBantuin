@@ -182,7 +182,7 @@
                             <button type="button" class="btn btn-primary p-2" data-toggle="modal" data-target="#staticBackdrop">
                                 Upload CV
                             </button>
-                            <a href="/edit-skill/{{ $details->user_id }}/edit" class="btn btn-primary p-2">Update Skill</a>
+                            <a href="/edit-skill/{{ $details->id }}/edit" class="btn btn-primary p-2">Update Skill</a>
                         </div>
 
                         <!-- Modal -->
@@ -209,9 +209,10 @@
                             <div class="col-6">
                                 Skill
                                 <ul>
-                                    @foreach ($details as $item)
-                                        <li>{{ $item->skill }}</li>
+                                    @foreach ($skill as $item)
+                                        <li>{{ $item }}</li>
                                     @endforeach
+
                                 </ul>
 
                             </div>

@@ -46,11 +46,12 @@ class LandingPageController extends Controller
     {
         // $testimoni = \App\Models\Testimoni::with(['user']);
         // dd($testimoni->get());
-        $target = User::with('workerDetail', 'portofolio')->where('role', 'Worker')->get();
+        $target = WorkerDetail::all();
         // dd($target);
         if (Auth::user()) {
             $check = Pengajuan::where('user_id', Auth::user()->id)->first();
         }
+
         return view('landingPage.worker', [
             'workers' => $target,
             'check' => $check ?? null
@@ -64,10 +65,18 @@ class LandingPageController extends Controller
     }
     public function profileWorker()
     {
+        $tes = WorkerDetail::where('user_id', auth()->user()->id)->first();
+
+        //    memecah isi dari skill dari koma
+        if ($tes) {
+            $skill = explode(',', $tes->skill);
+        }
+
         return view('landingPage.profile-worker', [
             'user' => auth()->user(),
             'portofolios' => Portofolio::where('user_id', auth()->user()->id)->get(),
-            'details' => WorkerDetail::where('user_id', auth()->user()->id)->get()
+            'details' => $tes,
+            'skill' => $skill ?? null
         ]);
     }
     public function project()

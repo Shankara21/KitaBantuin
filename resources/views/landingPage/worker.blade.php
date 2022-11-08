@@ -91,8 +91,9 @@
 
 
                     <div class="card-body">
-                        <h5> Nama : {{ $item->name}}</h5>
-                        <h6>Skill : {{ $item->workerDetail->skill }}</h6>
+                        <h5> Nama : {{ $item-> user -> name}}</h5>
+                            <h6>Skill : {{ $item->skill }}</h6>
+
                         {{-- <p class="text-muted mb-4">{{ $item}}</p> --}}
                         <div class="mb-4">
                             {{-- <div class="owl-single dots-absolute owl-carousel">

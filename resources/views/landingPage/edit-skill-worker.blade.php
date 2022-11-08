@@ -24,29 +24,36 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-sm-12">
                                 @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                                <form action="/edit-skill/{id}" method="POST" class="mb-5" enctype="multipart/form-data">
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
+                                <form action="/edit-skill/{id}" method="POST" class="mb-5"
+                                    enctype="multipart/form-data">
                                     @method('PUT')
                                     @csrf
                                     <div class="mb-3">
                                         <label for="Skill" class="form-label">Skill</label>
-                                        <select class="js-example-basic-multiple select2-multiple" name="skill[]" multiple="multiple">
+                                        <select class="js-example-basic-multiple select2-multiple" name="skill[]"
+                                            multiple="multiple">
                                             @foreach ($skills as $skill)
+                                            <option value="{{ $skill->name }}" 
+                                                @if (in_array($skill->name, $check))
+                                                    selected
 
-                                            <option value="{{ $skill->name }}" {{ $skill->name == $details->skill ? 'selected' : '' }}>{{ $skill->name }}</option>
+                                                @endif
+                                            >
+                                                {{ $skill->name }}</option>
                                             @endforeach
-                                          </select>
-                                      </div>
+                                        </select>
+                                    </div>
 
-                                      <button type="submit" class="btn btn-primary">Tambah Skill</button>
-                                  </form>
+                                    <button type="submit" class="btn btn-primary">Tambah Skill</button>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -55,7 +55,6 @@ class SkillController extends Controller
 
 
         return redirect('/profile-worker')->with('success', 'Skill telah ditambahkan!');
-
     }
 
     /**
@@ -78,9 +77,14 @@ class SkillController extends Controller
     public function edit(Skill $skill)
     {
         $user = WorkerDetail::where('user_id', Auth::user()->id)->first();
+
+        $skill = explode(',', $user->skill);
+
+
         return view('landingPage.edit-skill-worker', [
             'skills' => Skill::all(),
             'details' => $user,
+            'check' => $skill
         ]);
     }
 
