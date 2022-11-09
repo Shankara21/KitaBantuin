@@ -163,6 +163,7 @@
       </a>
     </li>
 
+        
     <!-- Testimoni -->
     <li class="menu-item {{ Request::is('testimoni*') ? 'active' : '' }}">
       <a href="{{ route('testimoni.index') }}" class="menu-link">
@@ -177,9 +178,6 @@
         <div data-i18n="Basic">Pengajuan</div>
       </a>
     </li>
-
-
-
   </ul>
 </aside>
 <!-- / Menu -->

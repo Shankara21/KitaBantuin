@@ -6,6 +6,7 @@ use App\Models\Bid;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+
 class LandingPageProject extends Controller
 {
     // TODO Function Create Project
@@ -22,7 +23,7 @@ class LandingPageProject extends Controller
         $validateData['user_id'] = auth()->user()->id;
         $validateData['description'] = $request->editor1;
         $validateData['status'] = 'Open';
-        $validateData['excerpt'] = Str::limit($request->editor1, 100);
+        $validateData['excerpt'] = Str::limit(strip_tags($request->editor1), 350);
 
         Project::create($validateData);
 

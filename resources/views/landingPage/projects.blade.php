@@ -57,15 +57,16 @@
                                 <img src="{{ asset('assets/img/icons/avatar/user.png') }}" alt="" width="250px"
                                     class="mg-fluid img-thumbnail rounded-circle w-100 mb-2">
                                 @endif
-                               <p class="text-center">
-                                <a href="/list-project?author={{ $item -> user -> name }}">{{ $item -> user -> name }}</a>
-                               </p>
+                                <p class="text-center">
+                                    <a
+                                        href="/list-project?author={{ $item -> user -> name }}">{{ $item -> user -> name }}</a>
+                                </p>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <h5>{{ $item -> title }}</h5>
                                 <a class="text-muted"
                                     href="/list-project?subCategory={{ $item -> subCategory -> name }}">{{ $item -> subCategory -> name }}</a>
-                                <p>{!! $item -> description !!}</p>
+                                <p>{{ $item -> excerpt }}</p>
                                 <div class="card mb-3 shadow" style="border-radius: 20px">
                                     <div class="card-body">
                                         <div class="row">
