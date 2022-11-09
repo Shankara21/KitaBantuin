@@ -34,6 +34,33 @@ class LandingPageProject extends Controller
     // TODO Function Create Bid
     public function createBid(Request $request)
     {
+        $project = Project::find($request->project_id);
+        $dataAwal = $project->budget;
+
+        // di explode 
+        $data = explode('-', $dataAwal);
+        // memisahkan antara angka dan huruf
+        $new1 = explode('Rp.', $data[0]);
+        $new2 = explode('Rp.', $data[1]);
+
+        $barulagi1 = explode(',', $new1[1]);
+        $barulagi2 = explode(',', $new2[1]);
+
+        // Menggabungkan data dari array
+        $hasil = implode($barulagi1);
+        $hasil2 = implode($barulagi2);
+        $min = (int)$hasil;
+        $max = (int)$hasil2;
+
+        $awal = (int)$request->price;
+
+        if ($awal < $min || $awal > $max) {
+            Alert::error('Gagal', 'Bid gagal dibuat');
+            return redirect()->back();
+        }
+
+
+
         $validateData = $request->validate([
             'project_id' => 'required',
             'price' => 'required',
@@ -49,6 +76,8 @@ class LandingPageProject extends Controller
     public function acceptBid(Request $request)
     {
         $project = Project::where('id', $request->project_id)->first();
+
+
         $project->status = 'onProcess';
         $project->save();
         $bid = Bid::where('id', $request->bid_id)->first();

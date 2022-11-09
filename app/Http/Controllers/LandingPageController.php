@@ -144,6 +144,15 @@ class LandingPageController extends Controller
         $project = Project::with(['subCategory'])->where('title', $id)->first();
         $bids = Bid::where('project_id', $project->id)->get();
 
+        
+
+
+
+
+        // $checkAmount = (int)$new[1];
+
+        // dd($checkAmount);
+
         // Menghitung perbedaan hari antara deadline dan created_at
         $date1 =  date('Y-m-d H:i:s');
         $datetest = date_create($date1);

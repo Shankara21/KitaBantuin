@@ -27,6 +27,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-lg-4 col-md-4 order-1">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-6 mb-4">
@@ -77,6 +78,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Total Revenue -->
         <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
             <div class="card">

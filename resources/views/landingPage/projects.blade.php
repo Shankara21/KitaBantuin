@@ -105,7 +105,7 @@
                                     <!-- Button trigger modal -->
                                     <!-- pop up -->
 
-                                    @if (Auth::user())
+                                    {{-- @if (Auth::user())
                                     @if (Auth::user() -> role == 'Worker')
                                     <!-- Button trigger modal -->
 
@@ -114,7 +114,7 @@
                                         Bid
                                     </button>
                                     @endif
-                                    @endif
+                                    @endif --}}
 
 
                                     <!-- Modal -->
