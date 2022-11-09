@@ -36,7 +36,7 @@
                         <td>
                             @if ($item->photo)
                             <img src="{{ asset('storage/'. $item -> photo) }}" alt="" height="100px">
-                            @elseif (!$item -> photo && $item -> gender == 'Laki-laki')
+                            @elseif (!$item -> photo && $item -> gender == 'Laki-Laki')
                             <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" height="100px">
                             @elseif (!$item -> photo && $item -> gender == 'Perempuan')
                             <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" height="100px">
@@ -87,4 +87,5 @@
         </div>
     </div>
 </div>
+@include('sweetalert::alert')
 @endsection

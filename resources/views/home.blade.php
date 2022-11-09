@@ -43,7 +43,7 @@
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                        <a class="dropdown-item" href="{{ route('worker.index') }}">View More</a>
+                                        <a class="dropdown-item" href="{{ route('workers.index') }}">View More</a>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                        <a class="dropdown-item" href="{{ route('worker.index') }}">View More</a>
+                                        <a class="dropdown-item" href="{{ route('workers.index') }}">View More</a>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                        <a class="dropdown-item" href="{{ route('worker.index') }}">View More</a>
+                                        <a class="dropdown-item" href="{{ route('workers.index') }}">View More</a>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@
                                         <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                        <a class="dropdown-item" href="{{ route('worker.index') }}">View More</a>
+                                        <a class="dropdown-item" href="{{ route('workers.index') }}">View More</a>
                                     </div>
                                 </div>
                             </div>

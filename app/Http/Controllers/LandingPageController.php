@@ -12,11 +12,12 @@ use App\Models\Portofolio;
 use App\Models\SubCategory;
 use App\Models\WorkerDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\TestimoniResource;
-use Illuminate\Support\Facades\DB;
 
 class LandingPageController extends Controller
 {
@@ -46,10 +47,12 @@ class LandingPageController extends Controller
     {
         // $testimoni = \App\Models\Testimoni::with(['user']);
         // dd($testimoni->get());
-        $target = WorkerDetail::all();
-        // dd($target);
+        $check = User::where('role', 'Worker')->get();
+        if ($check ?? false) {
+            $target = WorkerDetail::where('status', 'Accepted')->get();
+        }
         if (Auth::user()) {
-            $check = Pengajuan::where('user_id', Auth::user()->id)->first();
+            $check = WorkerDetail::where('user_id', Auth::user()->id)->first();
         }
 
         return view('landingPage.worker', [
@@ -83,10 +86,8 @@ class LandingPageController extends Controller
     {
         // $target = Project::with(['subCategory'])->where('id', 1)->first();
         // dd($target->user);
-
         return view('landingPage.projects', [
-            'projects' => Project::orderBy('created_at', 'DESC')->paginate(6),
-
+            'projects' => Project::latest()->filter(request(['search', 'subCategory', 'author']))->paginate(7)->withQueryString(),
         ]);
     }
     public function detailProject($id)
@@ -199,6 +200,7 @@ class LandingPageController extends Controller
         $validateDataPengajuan['user_id'] = auth()->user()->id;
         WorkerDetail::create($validateDataPengajuan);
 
-        return redirect()->route('worker')->with('success', 'Data berhasil diubah');
+        Alert::success('Success', 'Data berhasil diubah');
+        return redirect('/list-worker');
     }
 }

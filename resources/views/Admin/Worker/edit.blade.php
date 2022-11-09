@@ -20,7 +20,7 @@
             </div>
             @endif
             <div class="card-body">
-                <form method="POST" action="{{ route('worker.update', $user -> id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('workers.update', $user -> id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row mb-3 align-items-center">
@@ -50,8 +50,8 @@
                         <div class="col-sm-10">
                             <select class="form-select" id="exampleFormControlSelect1"
                                 aria-label="Default select example" name="gender">
-                                <option value="Laki-laki" {{ $user -> gender == 'Laki-laki' ? 'selected' :'' }}>
-                                    Laki-laki</option>
+                                <option value="Laki-Laki" {{ $user -> gender == 'Laki-Laki' ? 'selected' :'' }}>
+                                    Laki-Laki</option>
                                 <option value="Perempuan" {{ $user -> gender == 'Perempuan' ? 'selected' :'' }}>
                                     Perempuan</option>
                             </select>

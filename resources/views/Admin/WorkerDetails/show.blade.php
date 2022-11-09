@@ -4,7 +4,7 @@
     <div class="col-xxl">
         <div class="card mb-4">
             <div class="m-3">
-                <a href="{{ route('pengajuan.index') }}" class="btn btn-primary">Kembali</a>
+                <a href="{{ route('worker-details.index') }}" class="btn btn-primary">Kembali</a>
             </div>
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Admin Detail</strong></h5>
@@ -21,7 +21,7 @@
                                         <img src="{{ asset('storage/'. $pengajuan -> user -> photo) }}" alt=""
                                             width="150px" class="mb-5 img-thumbnail rounded m-auto">
                                         @elseif (!$pengajuan -> user -> photo && $pengajuan -> user -> gender ==
-                                        'Laki-laki')
+                                        'Laki-Laki')
                                         <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="150px"
                                             class="mb-5 img-thumbnail rounded m-auto">
                                         @elseif (!$pengajuan -> user -> photo && $pengajuan -> user -> gender ==
@@ -97,7 +97,8 @@
                                         <h4>cv</h4>
                                     </td>
                                     <td>
-                                        <h4>: <img src="{{ asset('storage/'.$pengajuan -> cv) }}" alt="" style="max-height: 250px; border-radius: 20px">
+                                        <h4>: <img src="{{ asset('storage/'.$pengajuan -> cv) }}" alt=""
+                                                style="max-height: 250px; border-radius: 20px">
                                         </h4>
                                     </td>
                                 </tr>
@@ -122,15 +123,16 @@
                         </table>
                     </div>
 
-                    <form class="d-inline my-5" action="{{ route('pengajuan.update', $pengajuan -> id) }}" method="POST">
+                    <form class="d-inline my-5" action="{{ route('worker-details.update', $pengajuan -> id) }}"
+                        method="POST">
                         @method('PUT')
                         @csrf
-                       <div class="d-flex justify-content-center">
-                        <button class="btn btn-success text-white font-bold w-25 ">
-                            <i class="bx bx-check-circle display-6" style="transform: translateY(-2px)"></i>
-                            <h4 class="d-inline text-white" >Accept</h4>
-                        </button>
-                       </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-success text-white font-bold w-25 ">
+                                <i class="bx bx-check-circle display-6" style="transform: translateY(-2px)"></i>
+                                <h4 class="d-inline text-white">Accept</h4>
+                            </button>
+                        </div>
                     </form>
 
                 </div>

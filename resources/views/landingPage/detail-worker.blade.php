@@ -24,7 +24,7 @@
                                 @if ($worker-> photo)
                                 <img src="{{ asset('storage/'. $worker-> photo) }}" alt="" width="250px"
                                     class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
-                                @elseif (!$worker-> photo && $worker-> gender == 'Laki-laki')
+                                @elseif (!$worker-> photo && $worker-> gender == 'Laki-Laki')
                                 <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
                                     class="img-fluid img-thumbnail rounded-circle w-100 mb-4">
                                 @elseif (!$worker-> photo && $worker-> gender == 'Perempuan')
@@ -134,12 +134,14 @@
                                                 <div class="row">
                                                     @forelse ($portofolio as $item)
                                                     <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                                                        <div class="card shadow" style="border-radius: 20px;background:white">
+                                                        <div class="card shadow"
+                                                            style="border-radius: 20px;background:white">
                                                             <div class="card-body">
                                                                 <h2>{{ $item -> title }}</h2>
                                                                 <div class="mb-4">
-                                                                    <img src="{{ asset('storage/'.$item -> image) }}" height="196px"
-                                                                        width="100%" style="border-radius: 25px">
+                                                                    <img src="{{ asset('storage/'.$item -> image) }}"
+                                                                        height="196px" width="100%"
+                                                                        style="border-radius: 25px">
                                                                 </div>
                                                                 <p class="text-muted">
                                                                     <a href="{{ $item -> link }}" target="_blank"
@@ -150,9 +152,9 @@
                                                             </div>
                                                         </div>
 
-                                                   @empty
+                                                        @empty
 
-                                                   @endforelse
+                                                        @endforelse
 
                                                     </div>
                                                 </div>

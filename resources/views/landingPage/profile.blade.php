@@ -29,7 +29,7 @@
                         @if ($user->photo)
                         <img src="{{ asset('storage/'. $user -> photo) }}" alt="" width="250px"
                             class="rounded-circle img-thumbnail mb-3">
-                        @elseif (!$user -> photo && $user -> gender == 'Laki-laki')
+                        @elseif (!$user -> photo && $user -> gender == 'Laki-Laki')
                         <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
                             class="rounded-circle img-thumbnail mb-3">
                         @elseif (!$user -> photo && $user -> gender == 'Perempuan')
@@ -110,8 +110,8 @@
                                 <div class="col-lg-6 col-sm-12  mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                     <select class="custom-select" name="gender">
-                                        <option value="Laki-laki" {{  $user->gander == 'Laki-laki' ? 'selected' : '' }}>
-                                            Laki-laki</option>
+                                        <option value="Laki-Laki" {{  $user->gander == 'Laki-Laki' ? 'selected' : '' }}>
+                                            Laki-Laki</option>
                                         <option value="Perempuan" {{  $user->gander == 'Perempuan' ? 'selected' : '' }}>
                                             Perempuan</option>
                                     </select>
@@ -139,6 +139,7 @@
         </div>
     </div>
 </div>
+@include('sweetalert::alert')
 @endsection
 
 @section('script')

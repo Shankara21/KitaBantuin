@@ -8,6 +8,8 @@
                         <h1 class="mb-5"><span class="d-block">Let's Code Together</span> With <span
                                 class="typed-words"></span></h1>
 
+
+
                         <div class="row">
                             <div class="col-12">
                                 <form class="form">
@@ -257,7 +259,7 @@
                                     @if ($item->photo)
                                         <img src="{{ asset('storage/' . $item->photo) }}" alt=""
                                             class="img-fluid">
-                                    @elseif (!$item->photo && $item->gender == 'Laki-laki')
+                                    @elseif (!$item->photo && $item->gender == 'Laki-Laki')
                                         <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt=""
                                             class="img-fluid">
                                     @elseif (!$item->photo && $item->gender == 'Perempuan')

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Bid;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LandingPageProject extends Controller
 {
@@ -22,10 +24,12 @@ class LandingPageProject extends Controller
         $validateData['user_id'] = auth()->user()->id;
         $validateData['description'] = $request->editor1;
         $validateData['status'] = 'Open';
+        $validateData['excerpt'] = Str::limit(strip_tags($request->editor1), 350);
 
         Project::create($validateData);
 
-        return redirect()->route('list-project')->with('success', 'Project created successfully');
+        Alert::success('Success', 'Project berhasil dibuat');
+        return redirect('/list-project');
     }
     // TODO Function Create Bid
     public function createBid(Request $request)
@@ -37,7 +41,8 @@ class LandingPageProject extends Controller
         $validateData['deadline'] = date('Y-m-d');
         $validateData['user_id'] = auth()->user()->id;
         Bid::create($validateData);
-        return redirect()->route('list-project')->with('success', 'Bid created successfully');
+        Alert::success('Success', 'Bid berhasil');
+        return redirect('/list-project');
     }
 
     // TODO Function Accept Bid
@@ -49,6 +54,7 @@ class LandingPageProject extends Controller
         $bid = Bid::where('id', $request->bid_id)->first();
         $bid->status = 'Accepted';
         $bid->save();
-        return redirect()->route('list-project')->with('success', 'Bid accepted successfully');
+        Alert::success('Success', 'Bid diterima');
+        return redirect('/list-project');
     }
 }

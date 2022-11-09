@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+@include('sweetalert::alert')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card h-100">
         <h5 class="card-header">List of admins</h5>
@@ -36,7 +37,7 @@
                         <td>
                             @if ($item->photo)
                             <img src="{{ asset('storage/'. $item -> photo) }}" alt="" height="100px">
-                            @elseif (!$item -> photo && $item -> gender == 'Laki-laki')
+                            @elseif (!$item -> photo && $item -> gender == 'Laki-Laki')
                             <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" height="100px">
                             @elseif (!$item -> photo && $item -> gender == 'Perempuan')
                             <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" height="100px">
@@ -87,4 +88,5 @@
         </div>
     </div>
 </div>
+
 @endsection

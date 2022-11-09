@@ -47,7 +47,7 @@
                                                     @if ($user->photo)
                                                     <img src="{{ asset('storage/'. $user -> photo) }}" alt=""
                                                         width="150px" class="mb-5 img-thumbnail rounded m-auto">
-                                                    @elseif (!$user -> photo && $user -> gender == 'Laki-laki')
+                                                    @elseif (!$user -> photo && $user -> gender == 'Laki-Laki')
                                                     <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt=""
                                                         width="150px" class="mb-5 img-thumbnail rounded m-auto">
                                                     @elseif (!$user -> photo && $user -> gender == 'Perempuan')

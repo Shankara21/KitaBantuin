@@ -9,6 +9,8 @@ use App\Http\Requests\UpdateCategoryRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class CategoryController extends Controller
 {
@@ -52,7 +54,8 @@ class CategoryController extends Controller
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
         Category::create($data);
-        return redirect()->route('categories.index')->with('success', 'Category created successfully');
+        Alert::success('Success', 'Category berhasil ditambah');
+        return redirect('/categories');
     }
 
     /**
@@ -105,7 +108,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index')->with('success', 'Category Deleted Successfully');
+        Alert::success('Success', 'Category berhasil dihapus');
+        return redirect('/categories');
     }
 
     public function checkSlug(Request $request){

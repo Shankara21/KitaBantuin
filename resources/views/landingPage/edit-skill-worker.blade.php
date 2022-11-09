@@ -38,13 +38,12 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="Skill" class="form-label">Skill</label>
-                                        <select class="js-example-basic-multiple select2-multiple" name="skill[]"
+                                        <select class="js-example-basic-multiple select2-multiple form-control" name="skill[]"
                                             multiple="multiple">
                                             @foreach ($skills as $skill)
-                                            <option value="{{ $skill->name }}" 
+                                            <option value="{{ $skill->name }}"
                                                 @if (in_array($skill->name, $check))
                                                     selected
-
                                                 @endif
                                             >
                                                 {{ $skill->name }}</option>

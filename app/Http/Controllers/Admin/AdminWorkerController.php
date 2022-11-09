@@ -61,7 +61,7 @@ class AdminWorkerController extends Controller
         }
         User::create($validateData);
 
-        return redirect()->route('worker.index')->with('success', 'Worker berhasil ditambahkan');
+        return redirect()->route('workers.index')->with('success', 'Worker berhasil ditambahkan');
     }
 
     /**
@@ -130,7 +130,7 @@ class AdminWorkerController extends Controller
         }
         User::where('id', $user->id)->update($validateData);
 
-        return redirect()->route('worker.index')->with('success', 'Worker berhasil diubah');
+        return redirect()->route('workers.index')->with('success', 'Worker berhasil diubah');
     }
 
     /**
@@ -144,6 +144,6 @@ class AdminWorkerController extends Controller
         $user = User::find($id);
         Storage::delete('public/' . $user->photo);
         $user->delete();
-        return redirect()->route('worker.index')->with('success', 'Worker berhasil dihapus');
+        return redirect()->route('workers.index')->with('success', 'Worker berhasil dihapus');
     }
 }

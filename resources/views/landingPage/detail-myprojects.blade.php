@@ -81,7 +81,7 @@
                                                 <img src="{{ asset('storage/'. $item -> user -> photo) }}" alt=""
                                                     class="mg-fluid img-thumbnail rounded-circle w-100 mb-4 align-self-center">
                                                 @elseif (!$item -> user -> photo && $item -> user -> gender ==
-                                                'Laki-laki')
+                                                'Laki-Laki')
                                                 <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt=""
                                                     class="mg-fluid img-thumbnail rounded-circle w-100 mb-4 align-self-center">
                                                 @elseif (!$item -> user -> photo && $item -> user -> gender ==

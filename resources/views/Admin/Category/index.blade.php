@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+@include('sweetalert::alert')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card">
         <h5 class="card-header">List of Categories</h5>
@@ -59,4 +60,5 @@
         </div>
     </div>
 </div>
+
 @endsection
