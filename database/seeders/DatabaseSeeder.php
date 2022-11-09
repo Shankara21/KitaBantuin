@@ -56,9 +56,10 @@ class DatabaseSeeder extends Seeder
             SubCategorySeeder::class,
             SkillSeeder::class,
         ]);
-        // WorkerDetail::factory()->create([
-        //     'user_id' => 3,
-        //     'skill_id' => 1,
-        // ]);
+        WorkerDetail::factory()->create([
+            'user_id' => 3,
+            'skill' => "Php",
+            'status' => 'Accepted'
+        ]);
     }
 }

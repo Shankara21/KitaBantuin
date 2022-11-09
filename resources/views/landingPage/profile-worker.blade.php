@@ -9,7 +9,7 @@
                     <p class="text-white">Far far away, behind the word mountains, far from the countries Vokalia and
                         Consonantia, there live the blind texts. </p>
                 </div>
-            </div>
+            </div>  
         </div>
     </div>
 </div>
