@@ -1,5 +1,7 @@
 @extends('layouts.landingPage.main')
 @section('content')
+@include('sweetalert::alert')
+
 <div class="hero hero-inner">
     <div class="container">
         <div class="row align-items-center">

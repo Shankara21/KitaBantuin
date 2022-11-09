@@ -159,6 +159,7 @@
         </div>
     </div>
 </div>
+@include('sweetalert::alert')
 @endsection
 @section('script')
 <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>

@@ -12,11 +12,12 @@ use App\Models\Portofolio;
 use App\Models\SubCategory;
 use App\Models\WorkerDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\TestimoniResource;
-use Illuminate\Support\Facades\DB;
 
 class LandingPageController extends Controller
 {
@@ -199,6 +200,7 @@ class LandingPageController extends Controller
         $validateDataPengajuan['user_id'] = auth()->user()->id;
         WorkerDetail::create($validateDataPengajuan);
 
-        return redirect()->route('worker')->with('success', 'Data berhasil diubah');
+        Alert::success('Success', 'Data berhasil diubah');
+        return redirect('/list-worker');
     }
 }
