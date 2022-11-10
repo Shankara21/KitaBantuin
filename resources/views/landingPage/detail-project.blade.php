@@ -100,9 +100,17 @@
                                 <h6>Bid masih terbuka</h6>
                                 @if (Auth::user())
                                 @if (Auth::user() -> id !== $project -> user_id)
-                                <button type="button" class="btn btn-primary mx-1 px-3 py-2 mb-2" data-toggle="modal"
+                                <button type="button" class="btn btn-primary mx-1 px-3 py-2 mb-2 
+                                @foreach ($bid as $item)
+                                        @if ($item -> user_id == Auth::user() -> id)
+                                            d-none
+                                        @endif
+                                    @endforeach
+                                " data-toggle="modal"
                                     data-target="#staticBackdrop"
-                                    {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }}>
+                                    {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }}
+                                    
+                                    >
                                     Bid
                                 </button>
                                 @endif
@@ -145,7 +153,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="/bid" class="btn btn-info mx-1 px-3 py-2 mb-2">Chat</a>
+
                                 @if (Auth::user())
                                 @if (Auth::user() -> role !== 'Worker' )
                                 <p class="text-danger">Tidak bisa melakukan bid, karena anda bukan worker</p>
@@ -165,7 +173,7 @@
                             <div class="row">
                                 @forelse ($bid as $item)
                                 <div class="col-4 col-lg-1">
-                                    <a href="">
+                                    <a href="{{ route('detailWorker', $item -> user -> name) }}">
                                         @if ($item -> user -> photo)
                                         <img src="{{ asset('storage/'. $item -> user -> photo) }}" alt="" width="250px"
                                             class="mg-fluid img-thumbnail rounded-circle w-100 mb-4">

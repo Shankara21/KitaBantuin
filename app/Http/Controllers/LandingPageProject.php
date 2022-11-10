@@ -55,11 +55,9 @@ class LandingPageProject extends Controller
         $awal = (int)$request->price;
 
         if ($awal < $min || $awal > $max) {
-            Alert::error('Gagal', 'Bid gagal dibuat');
+            Alert::error('Gagal', 'Harga yang anda masukkan tidak sesuai dengan budget');
             return redirect()->back();
         }
-
-
 
         $validateData = $request->validate([
             'project_id' => 'required',

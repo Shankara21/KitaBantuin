@@ -118,8 +118,9 @@ class LandingPageController extends Controller
     public function detailWorker($id)
     {
         $target = User::where('id', $id)->first();
-        $portofolio = Portofolio::where('user_id', $id)->get();
+        $portofolio = Portofolio::where('worker_details_id', $id)->get();
         $details = WorkerDetail::where('user_id', $id)->first();
+
         return view('landingPage.detail-worker', [
             'worker' => $target,
             'portofolio' => $portofolio,

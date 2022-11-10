@@ -144,9 +144,6 @@
                                     {{-- <a href="" class="btn btn-secondary mx-1 px-3 py-2">
                                                                         Bid
                                                                     </a> --}}
-                                    <a href="" class="btn btn-info mx-1 px-3 py-2">
-                                        Chat
-                                    </a>
                                 </div>
                             </div>
                         </div>
