@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portofolio;
+use App\Models\WorkerDetail;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StorePortofolioRequest;
 use App\Http\Requests\UpdatePortofolioRequest;
 
@@ -37,6 +39,7 @@ class PortofolioController extends Controller
      */
     public function store(StorePortofolioRequest $request)
     {
+        $tes = WorkerDetail::where('user_id', auth()->user()->id)->first();
 
         $validateData = $request->validate([
             'title' => 'required',
@@ -44,14 +47,15 @@ class PortofolioController extends Controller
             'image' => 'image|file',
         ]);
 
-        $validateData['user_id'] = Auth::user()->id;
+        $validateData['worker_details_id'] = $tes->id;
         $validateData['description'] = $request->editor1;
         if ($request->file('image')) {
             $validateData['image'] = $request->file('image')->store('portofolio', 'public');
         }
 
         Portofolio::create($validateData);
-        return redirect('/profile-worker')->with('toast_success', 'Portofolio berhasil ditambahkan!');
+        Alert::success('Success', 'Portofolio berhasil ditambah');
+        return redirect('/profile-worker');
     }
 
     /**

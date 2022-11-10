@@ -9,7 +9,7 @@
                     <p class="text-white">Far far away, behind the word mountains, far from the countries Vokalia and
                         Consonantia, there live the blind texts. </p>
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
 </div>
@@ -219,7 +219,11 @@
                                 </ul>
 
                             </div>
-                            <div class="col-6">CV</div>
+                            <div class="col-6">CV
+                                <br />
+                                <img src="{{ asset('storage/'.$details -> cv) }}" height="200px"
+                                width="400" style="border-radius: 25px">
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="contact" role="tabpanel" aria-labelledby="contact-tab">Project

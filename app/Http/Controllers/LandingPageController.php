@@ -57,7 +57,8 @@ class LandingPageController extends Controller
 
         return view('landingPage.worker', [
             'workers' => $target,
-            'check' => $check ?? null
+            'check' => $check ?? null,
+            // 'portofolios' => Portofolio::where('worker_details_id', $target->id)->get(),
         ]);
     }
     public function profile()
@@ -77,7 +78,7 @@ class LandingPageController extends Controller
 
         return view('landingPage.profile-worker', [
             'user' => auth()->user(),
-            'portofolios' => Portofolio::where('user_id', auth()->user()->id)->get(),
+            'portofolios' => Portofolio::where('worker_details_id', $tes->id)->get(),
             'details' => $tes,
             'skill' => $skill ?? null
         ]);
@@ -144,7 +145,7 @@ class LandingPageController extends Controller
         $project = Project::with(['subCategory'])->where('title', $id)->first();
         $bids = Bid::where('project_id', $project->id)->get();
 
-        
+
 
 
 
