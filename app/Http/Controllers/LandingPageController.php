@@ -75,10 +75,10 @@ class LandingPageController extends Controller
         if ($tes) {
             $skill = explode(',', $tes->skill);
         }
-
+        
         return view('landingPage.profile-worker', [
             'user' => auth()->user(),
-            'portofolios' => Portofolio::where('worker_details_id', $tes->id)->get(),
+            'portofolios' => Portofolio::where('worker_details_id', $tes->id)->get() ?? null,
             'details' => $tes,
             'skill' => $skill ?? null
         ]);
@@ -95,11 +95,14 @@ class LandingPageController extends Controller
     {
         $project = Project::with(['subCategory'])->where('title', $id)->first();
         $bids = Bid::where('project_id', $project->id)->get();
+        $checkWorker = WorkerDetail::where('user_id', Auth::user()->id)->first();
+
         return view('landingPage.detail-project', [
             'project' => $project,
             'subCategory' => SubCategory::find($id),
             'bid' => $bids,
-            'total_bid' => $bids->count()
+            'total_bid' => $bids->count(),
+            'checkWorker' => $checkWorker ?? null
         ]);
     }
     public function createProject()

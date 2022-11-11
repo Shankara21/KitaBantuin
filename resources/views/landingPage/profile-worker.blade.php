@@ -133,6 +133,100 @@
                 <h3>About Me</h3>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                            aria-selected="true">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                            aria-selected="false">Expertise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                            aria-selected="false">Project</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <a href="/create-portofolio" class="btn btn-primary">Upload portofoliomu</a>
+                        <div class="row">
+                            
+                            @forelse ($portofolios as $item)
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                <div class="card shadow" style="border-radius: 20px;background:white">
+                                    <div class="card-body">
+                                        <h2>{{ $item -> title }}</h2>
+                                        <div class="mb-4">
+                                            <img src="{{ asset('storage/'.$item -> image) }}" height="196px" width="100%"
+                                                style="border-radius: 25px">
+                                        </div>
+                                        <p class="text-muted">
+                                            <a href="{{ $item -> link }}" target="_blank"
+                                                class="text-decoration-underline">{{ $item -> link }}</a>
+                                        </p>
+                                        <div class="d-flex justify-content-end">
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                @empty
+                        
+                                @endforelse
+                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <!-- Button trigger modal -->
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary p-2" data-toggle="modal" data-target="#staticBackdrop">
+                                Upload CV
+                            </button>
+                            <a href="/edit-skill/{{ $details->id }}/edit" class="btn btn-primary p-2">Update Skill</a>
+                        </div>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Upload CV anda</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Understood</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Skill
+                                <ul>
+                                    @foreach ($skill as $item)
+                                    <li>{{ $item }}</li>
+                                    @endforeach
+                        
+                                </ul>
+                        
+                            </div>
+                            <div class="col-6">CV
+                                <br />
+                                <img src="{{ asset('storage/'.$details -> cv) }}" height="200px" width="400" style="border-radius: 25px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    </div>
+                </div>
+                {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
                             aria-controls="home" aria-selected="true">Portofolio</a>
                     </li>
@@ -147,88 +241,14 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade mt-3 show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="d-flex justify-content-end">
-                            <a href="/create-portofolio" class="btn btn-primary">Upload portofoliomu</a>
-                        </div>
-                        <div class="row">
-                            @forelse ($portofolios as $item)
-                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                                <div class="card shadow" style="border-radius: 20px;background:white">
-                                    <div class="card-body">
-                                        <h2>{{ $item -> title }}</h2>
-                                        <div class="mb-4">
-                                            <img src="{{ asset('storage/'.$item -> image) }}" height="196px"
-                                                width="100%" style="border-radius: 25px">
-                                        </div>
-                                        <p class="text-muted">
-                                            <a href="{{ $item -> link }}" target="_blank"
-                                                class="text-decoration-underline">{{ $item -> link }}</a>
-                                        </p>
-                                        <div class="d-flex justify-content-end">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @empty
-
-                                @endforelse
-
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="tab-pane fade mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <!-- Button trigger modal -->
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary p-2" data-toggle="modal"
-                                data-target="#staticBackdrop">
-                                Upload CV
-                            </button>
-                            <a href="/edit-skill/{{ $details->id }}/edit" class="btn btn-primary p-2">Update Skill</a>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Upload CV anda</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Understood</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                Skill
-                                <ul>
-                                    @foreach ($skill as $item)
-                                    <li>{{ $item }}</li>
-                                    @endforeach
-
-                                </ul>
-
-                            </div>
-                            <div class="col-6">CV
-                                <br />
-                                <img src="{{ asset('storage/'.$details -> cv) }}" height="200px"
-                                width="400" style="border-radius: 25px">
-                            </div>
-                        </div>
+                        
                     </div>
-                    <div class="tab-pane fade mt-3" id="contact" role="tabpanel" aria-labelledby="contact-tab">Project
+                    <div class="tab-pane fade mt-3" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

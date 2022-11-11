@@ -100,20 +100,26 @@
                                 <h6>Bid masih terbuka</h6>
                                 @if (Auth::user())
                                 @if (Auth::user() -> id !== $project -> user_id)
+
                                 <button type="button" class="btn btn-primary mx-1 px-3 py-2 mb-2 
-                                @foreach ($bid as $item)
-                                        @if ($item -> user_id == Auth::user() -> id)
-                                            d-none
-                                        @endif
-                                    @endforeach
-                                " data-toggle="modal"
-                                    data-target="#staticBackdrop"
-                                    {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }}
-                                    
+                                                                    @foreach ($bid as $item)
+                                                                            @if ($item -> user_id == Auth::user() -> id)
+                                                                                d-none
+                                                                            @endif
+                                                                        @endforeach
+                                                                    " data-toggle="modal" data-target="#staticBackdrop"
+                                    {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }} 
+                                    @if ($checkWorker == null)
+                                        disabled
+                                    @endif
                                     >
                                     Bid
                                 </button>
                                 @endif
+
+                                @endif
+                                @if (!$checkWorker)
+                                <h6 class="text-danger">*Anda harus melengkapi data diri terlebih dahulu!</h6>
                                 @endif
 
                                 <!-- Modal -->
