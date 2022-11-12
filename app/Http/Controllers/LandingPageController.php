@@ -243,11 +243,13 @@ class LandingPageController extends Controller
 
     public function rating(Request $request)
     {
-        $validateRating = $request->validate([
-            'rating' => 'required'
-        ]);
-        $validateRating['rating'] = $request->rating;
-        WorkerDetail::where('user_id', auth()->user()->id)->update($validateRating);
+        $point = 5;
+        $totalPoint = $request->rating * $point;
+        WorkerDetail::where('user_id', auth()->user()->id)
+                    ->update([
+                        'rating' => $request->rating,
+                        'point' => $totalPoint,
+                    ]);
 
         Alert::success('Success', 'Rating berhasil ditambah');
         return redirect('/profile-worker');

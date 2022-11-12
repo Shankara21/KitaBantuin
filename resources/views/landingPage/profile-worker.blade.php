@@ -1,118 +1,49 @@
 @extends('layouts.landingPage.main')
 @section('css')
     <style>
-
-        /* .input {
-                            border: 0;
-                            width: 1px;
-                            height: 1px;
-                            overflow: hidden;
-                            position: absolute !important;
-                            clip: rect(1px 1px 1px 1px);
-                            clip: rect(1px, 1px, 1px, 1px);
-                            opacity: 0;
-                        }
-                        .label {
-                            position: relative;
-                            float: left;
-                            color: #C8C8C8;
-                        }
-                        .label:before {
-                            margin: 5px;
-                            content: "\f005";
-                            font-family: FontAwesome;
-                            display: inline-block;
-                            font-size: 1.5rem;
-                            color: #ccc;
-                            -webkit-user-select: none;
-                            -moz-user-select: none;
-                            user-select: none;
-                        }
-                        .input:checked ~ .label:before {
-                            color: #FFC107;
-                        }
-                        .label:hover ~ .label:before {
-                            color: #ffdb70;
-                        }
-                        .label:hover:before {
-                            color: #FFC107;
-                        } */
-
-
-
-        div.rating-select {
-
-            width: 400px;
-
-            display: inline-block;
-
+        /*styling star rating*/
+        .rating {
+            border: none;
+            float: left;
         }
 
-        .mt-200 {
-            margin-top: 200px;
-        }
-
-        input.star {
+        .rating input {
             display: none;
         }
 
-
-
-        label.star {
-
-            float: right;
-
-            padding: 10px;
-
-            font-size: 36px;
-
-            color: #4A148C;
-
-            transition: all .2s;
-
-        }
-
-
-
-        input.star:checked~label.star:before {
-
+        .rating label:before {
             content: '\f005';
-
-            color: #FD4;
-
-            transition: all .25s;
-
-        }
-
-
-        input.star-5:checked~label.star:before {
-
-            color: #FE7;
-
-            text-shadow: 0 0 20px #952;
-
-        }
-
-
-
-        input.star-1:checked~label.star:before {
-            color: #F62;
-        }
-
-
-
-        label.star:hover {
-            transform: rotate(-15deg) scale(1.3);
-        }
-
-
-
-        label.star:before {
-
-            content: '\f006';
-
             font-family: FontAwesome;
+            margin: 5px;
+            font-size: 1.5rem;
+            display: inline-block;
+            cursor: pointer;
+        }
 
+        .rating .half:before {
+            content: '\f089';
+            position: absolute;
+            cursor: pointer;
+        }
+
+
+        .rating label {
+            color: #ddd;
+            float: right;
+            cursor: pointer;
+        }
+
+        .rating input:checked~label,
+        .rating:not(:checked)>label:hover,
+        .rating:not(:checked)>label:hover~label {
+            color: #ffd700;
+        }
+
+        .rating input:checked+label:hover,
+        .rating input:checked~label:hover,
+        .rating label:hover~input:checked~label,
+        .rating input:checked~label:hover~label {
+            color: #ffd700;
         }
     </style>
 @endsection
@@ -377,19 +308,28 @@
                         <br>
                         <form action="/rating" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="rating-select" id="rating-select">
-
-                                <input type="radio" id="rate-5" value="5" name="crating"
-                                    class="star star-5" /><label for="rate-5" class="star star-5"></label>
-                                <input type="radio" id="rate-4" value="4" name="crating"
-                                    class="star star-4" /><label for="rate-4" class="star star-4"></label>
-                                <input type="radio" id="rate-3" value="3" name="crating"
-                                    class="star star-3" /><label for="rate-3" class="star star-3"></label>
-                                <input type="radio" id="rate-2" value="2" name="crating"
-                                    class="star star-2" /><label for="rate-2" class="star star-2"></label>
-                                <input type="radio" id="rate-1" value="1" name="crating"
-                                    class="star star-1" /><label for="rate-1" class="star star-1"></label>
-                            </div>
+                            <fieldset class="rating" id="rating-select">
+                                <input type="radio" id="star5" name="rating" value="5" /><label
+                                    for="star5" class="full" title="Awesome"></label>
+                                <input type="radio" id="star4.5" name="rating" value="4.5" /><label
+                                    for="star4.5" class="half"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label
+                                    for="star4" class="full"></label>
+                                <input type="radio" id="star3.5" name="rating" value="3.5" /><label
+                                    for="star3.5" class="half"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label
+                                    for="star3" class="full"></label>
+                                <input type="radio" id="star2.5" name="rating" value="2.5" /><label
+                                    for="star2.5" class="half"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label
+                                    for="star2" class="full"></label>
+                                <input type="radio" id="star1.5" name="rating" value="1.5" /><label
+                                    for="star1.5" class="half"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label
+                                    for="star1" class="full"></label>
+                                <input type="radio" id="star0.5" name="rating" value="0.5" /><label
+                                    for="star0.5" class="half"></label>
+                            </fieldset>
                             <br>
                             <br>
                             <input type="text" class="form-control rating" id="rating" name="rating" />
@@ -398,16 +338,33 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
-                        <h1>Rating</h1>
-                        <br>
-                        @foreach (range(1,5) as $i)
-                            @if ($details->rating > 0)
-                                <i class="fa fa-star" style="color: #ffd700"></i>
-                            @else
-                                <i class="fa fa-star-o" style="color: #e6e6fa"></i>
-                            @endif
-                            <?php $details->rating--; ?>
-                        @endforeach
+                        <div class="row">
+                            <div class="col-6">
+                                <h1>Rating</h1>
+                                <br>
+                                @foreach (range(1, 5) as $i)
+                                    <span class="fa-stack" style="width:1em">
+                                        <i class="fa fa-star fa-stack-1x" style="color: #ddd"></i>
+
+                                        @if ($details->rating > 0)
+                                            @if ($details->rating > 0.5)
+                                                <i class="fa fa-star fa-stack-1x" style="color: #ffd700"></i>
+                                            @else
+                                                <i class="fa fa-star-half fa-stack-1x" style="color: #ffd700"></i>
+                                            @endif
+                                        @endif
+                                        @php $details->rating--; @endphp
+                                    </span>
+                                @endforeach
+                            </div>
+
+                            <div class="col-6">
+                                <h1>Point</h1>
+                                <br>
+                                <h3>{{ $details->point }}</h3>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
