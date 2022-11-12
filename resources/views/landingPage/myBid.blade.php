@@ -42,7 +42,7 @@
                                 <p class="text-muted">Pengajuan Bid : {{ $item -> created_at -> diffForHumans() }}</p>
                                 <p class="text-muted">Harga Pengajuan : Rp. {{ number_format($item -> price) }}</p>
                                 <div class="d-flex justify-content-end">
-                                    <a href="/details-worker/" class="btn btn-primary ">Details</a>
+                                    <a href="/bid-details/{{ $item -> id }}" class="btn btn-primary ">Details</a>
                                 </div>
                             </div>
                         </div>

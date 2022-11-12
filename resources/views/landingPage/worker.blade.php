@@ -72,6 +72,9 @@
         </div>
         <div class="row">
             @forelse ($workers as $item)
+            @php
+            $porto = $portofolios->where('worker_details_id', $item->id)->first();
+            @endphp
             <div class="col-lg-4 col-sm-12  mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
 
@@ -102,11 +105,15 @@
                                     <img src="/landingPage/images/slider-2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid"
                                         style="border-radius: 25px">
                                     </div> --}}
-                            <img src="/landingPage/images/slider-4.jpg" alt="Free HTML Template by Untree.co"
+                            @if ($porto -> image)
+                            <img src="{{ asset('storage/'.$porto -> image) }}" alt="p"
                                 class="img-fluid" style="border-radius: 25px">
+                            @else
+                            <img src="{{ asset('/landingPage/images/'.$porto -> title.'.png') }}"
+                                alt="{{ '/landingPage/images/'.$porto -> title.'.png' }}" class="img-fluid" style="border-radius: 25px">
+                            @endif
                         </div>
-                        <a href="/chat" class="btn btn-primary d-block mb-2">Chat</a>
-                        <a href="/details-worker/{{ $item->user_id }}" class="btn btn-secondary d-block">Details</a>
+                        <a href="/details-worker/{{ $item->user -> name }}" class="btn btn-info d-block">Details</a>
                     </div>
                 </div>
             </div>

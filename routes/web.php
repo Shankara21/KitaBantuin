@@ -63,17 +63,18 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/list-worker', 'worker')->name('worker');
     Route::get('/list-project', 'project')->name('list-project');
     Route::get('/profile', 'profile')->name('profile');
-    Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
-    Route::put('/profile-worker/{id}', [ProfileController::class, 'updateWorker'])->name('profile.updateWorker');
+    Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+    Route::put('/profile-worker/{id}', [ProfileController::class, 'updateWorker'])->name('profile.updateWorker')->middleware('auth');
     Route::get('/profile-worker', 'profileWorker')->name('profileWorker');
     Route::get('/detail-project/{id}', 'detailProject')->name('detailProject');
-    Route::get('/create-project', 'createProject')->name('create-project');
+    Route::get('/create-project', 'createProject')->name('create-project')->middleware(['isUser', 'auth']);
     Route::get('/myBid', 'myBid')->middleware('isWorker')->name('myBid');
     Route::get('/details-worker/{user}', 'detailWorker')->name('detailWorker');
     Route::get('/myProject', 'listProject')->name('myProject')->middleware('isUser');
-    Route::get('/detail-myProject/{id}', 'detailMyProject')->middleware('isUser')->name('detail-myProject');
+    Route::get('/detail-myProject/{id}', 'detailMyProject')->middleware('isUser')->name('detail-myProject')->middleware('isUser');
     Route::get('/submitWorker', 'submitWorker')->name('submitWorker')->middleware(['auth', 'isUser']);
     Route::post('/submitWorker', 'processWorker')->name('processWorker')->middleware(['auth', 'isUser']);
+    Route::get('/bid-details/{id}', 'bidDetails')->name('bidDetails')->middleware(['auth']);
 });
 Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/create-project', 'createProject')->name('createProject');

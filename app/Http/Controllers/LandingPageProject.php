@@ -75,8 +75,9 @@ class LandingPageProject extends Controller
     {
         $project = Project::where('id', $request->project_id)->first();
 
-
+        $project->worker_id = $request->worker_id;
         $project->status = 'onProcess';
+
         $project->save();
         $bid = Bid::where('id', $request->bid_id)->first();
         $bid->status = 'Accepted';

@@ -72,7 +72,7 @@ class AdminWorkerController extends Controller
      */
     public function show(User $user, $id)
     {
-        $portofolio = Portofolio::where('user_id', $user->id)->get();
+        $portofolio = Portofolio::where('worker_details_id', $user->id)->get();
         $user = User::findOrFail($id);
         return view('Admin.Worker.show', [
             'user' => $user,

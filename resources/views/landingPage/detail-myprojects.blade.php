@@ -66,6 +66,7 @@
                 </div>
             </div>
 
+            @if ($project -> status == 'Open')
             <div class="col-12 mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
                     <div class="card-body">
@@ -103,13 +104,16 @@
                                                 <form action="{{ route('acceptBid', $item -> user -> id) }}"
                                                     class="d-inline" method="POST">
                                                     @csrf
+                                                    <input type="hidden" name="worker_id"
+                                                        value="{{ $item -> user -> id }}">
                                                     <input type="hidden" name="project_id" value="{{ $project -> id }}">
                                                     <input type="hidden" name="bid_id" id="" value="{{ $item -> id }}">
                                                     <button type="submit" class="btn btn-success p-2"><i
                                                             class="fa-solid fa-circle-check"></i> Accept</button>
                                                 </form>
                                                 <a href="{{ route('detailWorker', $item -> user -> id) }}"
-                                                    class="btn btn-info p-2"> <i class="fa-solid fa-circle-info"></i>
+                                                    class="btn btn-info p-2">
+                                                    <i class="fa-solid fa-circle-info"></i>
                                                     Details</a>
                                             </div>
                                         </div>
@@ -126,6 +130,17 @@
                     </div>
                 </div>
             </div>
+            @elseif ($project -> status == 'onProcess')
+            <div class="col-12 mb-4">
+                <div class="card shadow" style="border-radius: 20px;background:white">
+                    <div class="card-body">
+                        <h3>di handle oleh : {{ $project -> worker -> name }}</h3>
+                        
+                    </div>
+                </div>
+            </div>
+            @else
+            @endif
         </div>
     </div>
 </div>

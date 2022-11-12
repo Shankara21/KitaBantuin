@@ -22,9 +22,9 @@ class Project extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function workers()
+    public function worker()
     {
-        return $this->hasMany(Worker::class);
+        return $this->belongsTo(User::class, 'worker_id');
     }
 
     public function result()

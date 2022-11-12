@@ -36,10 +36,10 @@
                                 @endif
                             </div>
                             <div class="col-12 col-lg-9">
-                                <div class="card shadow" style="border-radius: 20px">
+                                <div class="card shadow " style="border-radius: 20px">
                                     <div class="card-body">
                                         <h3>About Me</h3>
-                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
                                                     role="tab" aria-controls="home" aria-selected="true">Details</a>
@@ -59,6 +59,127 @@
                                             <div class="tab-pane fade mt-3 show active" id="home" role="tabpanel"
                                                 aria-labelledby="home-tab">
                                                 <table class="table table-borderless">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>Name</h4>
+                                                            </td>
+                                                            <td>
+                                                                <h4>:</h4>
+                                                            </td>
+                                                            <td>
+                                                                <h4>{{ $details -> user -> name }}</h4>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>email</h4>
+                                            </td>
+                                            <td>
+                                                <h4>:</h4>
+                                            </td>
+                                            <td>
+                                                <h4>{{ $details -> user -> email }}</h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>gender</h4>
+                                            </td>
+                                            <td>
+                                                <h4>:</h4>
+                                            </td>
+                                            <td>
+                                                <h4>{{ $details -> user -> gender }}</h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>address</h4>
+                                            </td>
+                                            <td>
+                                                <h4>:</h4>
+                                            </td>
+                                            <td>
+                                                <h4>{{ $details -> user -> address }}</h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>phone</h4>
+                                            </td>
+                                            <td>
+                                                <h4>:</h4>
+                                            </td>
+                                            <td>
+                                                <h4>{{ $details -> user -> phone }}</h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>skill</h4>
+                                            </td>
+                                            <td>
+                                                <h4>:</h4>
+                                            </td>
+                                            <td>
+                                                <h4>{{ $details -> skill }}</h4>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade mt-3 show active" id="profile" role="tabpanel"
+                                        aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            @forelse ($portofolio as $item)
+                                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                                <div class="card shadow" style="border-radius: 20px;background:white">
+                                                    <div class="card-body">
+                                                        <h2>{{ $item -> title }}</h2>
+                                                        <div class="mb-4">
+                                                            @if ($item -> image)
+                                                            <img src="{{ asset('storage/'.$item -> image) }}"
+                                                                height="196px" width="100%" style="border-radius: 25px">
+                                                            @else
+                                                            <img src="{{ asset('/landingPage/images/'.$item -> title.'.png') }}"
+                                                                height="196px" width="100%" class="img-fluid"
+                                                                style="border-radius: 25px">
+                                                            @endif
+
+                                                        </div>
+                                                        <p class="text-muted">
+                                                            <a href="{{ $item -> link }}" target="_blank"
+                                                                class="text-decoration-underline">{{ $item -> link }}</a>
+                                                        </p>
+                                                        <div class="d-flex justify-content-end">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                @empty
+
+                                                @endforelse
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade mt-3" id="contact" role="tabpanel"
+                                        aria-labelledby="contact-tab">Project
+                                    </div>
+                                </div> --}}
+                                <div class="custom-accordion overflow-auto" id="accordion_1">
+                                    <div class="accordion-item">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">Details</button>
+                                        </h2>
+
+                                        <div id="collapseOne" class="collapse show overflow-auto"
+                                            aria-labelledby="headingOne" data-parent="#accordion_1">
+                                            <div class="accordion-body">
+                                                <table class="table table-borderless overflow-auto">
                                                     <tbody>
                                                         <tr>
                                                             <td>
@@ -129,8 +250,18 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div class="tab-pane fade mt-3 show active" id="profile" role="tabpanel"
-                                                aria-labelledby="profile-tab">
+                                        </div>
+                                    </div> <!-- .accordion-item -->
+
+                                    <div class="accordion-item">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">Portofolio</button>
+                                        </h2>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                            data-parent="#accordion_1">
+                                            <div class="accordion-body">
                                                 <div class="row">
                                                     @forelse ($portofolio as $item)
                                                     <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
@@ -140,12 +271,15 @@
                                                                 <h2>{{ $item -> title }}</h2>
                                                                 <div class="mb-4">
                                                                     @if ($item -> image)
-                                                                        <img src="{{ asset('storage/'.$item -> image) }}" height="196px" width="100%" style="border-radius: 25px">
+                                                                    <img src="{{ asset('storage/'.$item -> image) }}"
+                                                                        height="196px" width="100%"
+                                                                        style="border-radius: 25px">
                                                                     @else
-                                                                        <img src="{{ asset('/landingPage/images/'.$item -> title.'.png') }}" height="196px" width="100%" class="img-fluid"
-                                                                            style="border-radius: 25px">
+                                                                    <img src="{{ asset('/landingPage/images/'.$item -> title.'.png') }}"
+                                                                        height="196px" width="100%" class="img-fluid"
+                                                                        style="border-radius: 25px">
                                                                     @endif
-                                                                   
+
                                                                 </div>
                                                                 <p class="text-muted">
                                                                     <a href="{{ $item -> link }}" target="_blank"
@@ -155,22 +289,35 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                        @empty
-
-                                                        @endforelse
-
+                                                        
                                                     </div>
+                                                    @empty
+                                                    @endforelse
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade mt-3" id="contact" role="tabpanel"
-                                                aria-labelledby="contact-tab">Project
+                                        </div>
+                                    </div> <!-- .accordion-item -->
+                                    <div class="accordion-item">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false"
+                                                aria-controls="collapseThree">Project Result</button>
+                                        </h2>
+
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                            data-parent="#accordion_1">
+                                            <div class="accordion-body">
+                                                When she reached the first hills of the Italic Mountains, she had a last
+                                                view back on the skyline of her
+                                                hometown Bookmarksgrove, the headline of Alphabet Village and the
+                                                subline of her own road, the Line
+                                                Lane.
+                                                Pityful a rethoric question ran over her cheek, then she continued her
+                                                way.
                                             </div>
                                         </div>
-                                        <div class="tab-content" id="myTabContent">
 
-                                        </div>
-                                    </div>
+                                    </div> <!-- .accordion-item -->
                                 </div>
                             </div>
                         </div>
@@ -179,5 +326,7 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection

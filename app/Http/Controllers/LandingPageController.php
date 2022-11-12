@@ -54,10 +54,11 @@ class LandingPageController extends Controller
         if (Auth::user()) {
             $check = WorkerDetail::where('user_id', Auth::user()->id)->first();
         }
-
+        $portofolio = Portofolio::all();
         return view('landingPage.worker', [
             'workers' => $target,
             'check' => $check ?? null,
+            'portofolios' => $portofolio,
             // 'portofolios' => Portofolio::where('worker_details_id', $target->id)->get(),
         ]);
     }
@@ -75,7 +76,7 @@ class LandingPageController extends Controller
         if ($tes) {
             $skill = explode(',', $tes->skill);
         }
-        
+
         return view('landingPage.profile-worker', [
             'user' => auth()->user(),
             'portofolios' => Portofolio::where('worker_details_id', $tes->id)->get() ?? null,
@@ -88,7 +89,7 @@ class LandingPageController extends Controller
         // $target = Project::with(['subCategory'])->where('id', 1)->first();
         // dd($target->user);
         return view('landingPage.projects', [
-            'projects' => Project::latest()->filter(request(['search', 'subCategory', 'author']))->paginate(7)->withQueryString(),
+            'projects' => Project::where('status', 'Open')->latest()->filter(request(['search', 'subCategory', 'author']))->paginate(7)->withQueryString(),
         ]);
     }
     public function detailProject($id)
@@ -120,9 +121,9 @@ class LandingPageController extends Controller
     }
     public function detailWorker(User $user)
     {
-        $target = User::where('id', $user -> id)->first();
-        $details = WorkerDetail::where('user_id', $user -> id)->first();
-        $portofolio = Portofolio::where('worker_details_id', $details -> id)->get();
+        $target = User::where('id', $user->id)->first();
+        $details = WorkerDetail::where('user_id', $user->id)->first();
+        $portofolio = Portofolio::where('worker_details_id', $details->id)->get();
 
         return view('landingPage.detail-worker', [
             'worker' => $target,
@@ -148,7 +149,6 @@ class LandingPageController extends Controller
     {
         $project = Project::with(['subCategory'])->where('title', $id)->first();
         $bids = Bid::where('project_id', $project->id)->get();
-
 
 
 
@@ -216,5 +216,22 @@ class LandingPageController extends Controller
 
         Alert::success('Success', 'Data berhasil diubah');
         return redirect('/list-worker');
+    }
+    public function bidDetails($id)
+    {
+        $target = Bid::where('id', $id)->first();
+        $project = Project::where('id', $target->project_id)->first();
+        // diff date deadline and now
+        $date1 =  date('Y-m-d H:i:s');
+        $datetest = date_create($date1);
+        $date2 = date_create($project->deadline);
+        $diff = date_diff($datetest, $date2);
+        $day = $diff->format("%a");
+
+        return view('landingPage.bid-details', [
+            'bid' => $target,
+            'project' => $project,
+            'day' => $day
+        ]);
     }
 }

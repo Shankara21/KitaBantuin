@@ -53,15 +53,15 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('user.show', $item -> id) }}">
+                                    <a class="dropdown-item" href="{{ route('user.show', $item ->name) }}">
                                         <i class="bx bx-show me-1"></i>
                                         Details
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('user.edit', $item -> id) }}">
+                                    <a class="dropdown-item" href="{{ route('user.edit', $item ->name) }}">
                                         <i class="bx bx-edit-alt me-1"></i>
                                         Edit
                                     </a>
-                                    <form action="{{ route('user.destroy', $item -> id) }}" method="POST"
+                                    <form action="{{ route('user.destroy', $item ->name) }}" method="POST"
                                         class="d-inline">
                                         @csrf
                                         @method('DELETE')
