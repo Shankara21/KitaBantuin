@@ -75,6 +75,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/submitWorker', 'submitWorker')->name('submitWorker')->middleware(['auth', 'isUser']);
     Route::post('/submitWorker', 'processWorker')->name('processWorker')->middleware(['auth', 'isUser']);
     Route::get('/bid-details/{id}', 'bidDetails')->name('bidDetails')->middleware(['auth']);
+    Route::post('/rating', 'rating')->name('rating')->middleware('auth');
 });
 Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/create-project', 'createProject')->name('createProject');

@@ -30,6 +30,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>kITabantuin</title>
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+
+    @yield('css')
 </head>
 
 <body>

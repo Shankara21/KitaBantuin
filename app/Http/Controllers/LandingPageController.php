@@ -240,4 +240,16 @@ class LandingPageController extends Controller
             'day' => $day
         ]);
     }
+
+    public function rating(Request $request)
+    {
+        $validateRating = $request->validate([
+            'rating' => 'required'
+        ]);
+        $validateRating['rating'] = $request->rating;
+        WorkerDetail::where('user_id', auth()->user()->id)->update($validateRating);
+
+        Alert::success('Success', 'Rating berhasil ditambah');
+        return redirect('/profile-worker');
+    }
 }
