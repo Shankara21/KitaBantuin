@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Bid;
+use App\Models\Portofolio;
 use App\Models\Testimoni;
 use App\Models\User;
 use App\Models\WorkerDetail;
@@ -55,11 +57,27 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             SubCategorySeeder::class,
             SkillSeeder::class,
+            BankSeeder::class,
+            ProjectSeeder::class,
         ]);
         WorkerDetail::factory()->create([
             'user_id' => 3,
             'skill' => "Php",
-            'status' => 'Accepted'
+            'status' => 'Accepted',
+            'about' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+        ]);
+        Portofolio::factory()->create([
+            'worker_details_id' => 1,
+            'title' => 'Gorent',
+
+            'link' => 'http://gorent.herokuapp.com/',
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+        ]);
+        Bid::factory()->create([
+            'user_id' => 3,
+            'project_id' => 1,
+            'price' => 100000,
+            'deadline' => '2022-10-10',
         ]);
     }
 }

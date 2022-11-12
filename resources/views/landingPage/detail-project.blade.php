@@ -102,26 +102,33 @@
                                 @if (Auth::user() -> id !== $project -> user_id)
 
                                 <button type="button" class="btn btn-primary mx-1 px-3 py-2 mb-2 
-                                                                    @foreach ($bid as $item)
-                                                                            @if ($item -> user_id == Auth::user() -> id)
-                                                                                d-none
-                                                                            @endif
-                                                                        @endforeach
+                                                                    
                                                                     " data-toggle="modal" data-target="#staticBackdrop"
                                     {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }} 
                                     @if ($checkWorker == null)
                                         disabled
                                     @endif
+                                    @foreach ($bid as $item)
+                                    @if ($item -> user_id == Auth::user() -> id)
+                                    disabled
+                                    @endif
+                                    @endforeach
                                     >
                                     Bid
                                 </button>
                                 @endif
 
                                 @endif
-                                @if (!$checkWorker)
-                                <h6 class="text-danger">*Anda harus melengkapi data diri terlebih dahulu!</h6>
+                                @if (Auth::user() -> role == 'Worker')
+                                    @if (!$checkWorker)
+                                    <h6 class="text-danger">*Anda harus melengkapi data diri terlebih dahulu!</h6>
+                                    @endif
                                 @endif
-
+                                @foreach ($bid as $item)
+                                @if ($item -> user_id == Auth::user() -> id)
+                                <h6 class="text-danger">*Anda sudah melakukan bid pada project ini!</h6>
+                                @endif
+                                @endforeach
                                 <!-- Modal -->
                                 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
                                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -49,6 +49,10 @@ class Project extends Model
     {
         return $this->hasMany(Bid::class);
     }
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
+    }
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, function ($query, $search) {

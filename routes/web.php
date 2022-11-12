@@ -11,9 +11,11 @@ use App\Http\Controllers\Admin\AdminSkillController;
 use App\Http\Controllers\Admin\TestimoniController as AdminTestimoniController;
 use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
-
+use App\Http\Controllers\BalanceController;
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LandingPageProject;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
@@ -67,7 +69,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/detail-project/{id}', 'detailProject')->name('detailProject');
     Route::get('/create-project', 'createProject')->name('create-project');
     Route::get('/myBid', 'myBid')->middleware('isWorker')->name('myBid');
-    Route::get('/details-worker/{id}', 'detailWorker')->name('detailWorker');
+    Route::get('/details-worker/{user}', 'detailWorker')->name('detailWorker');
     Route::get('/myProject', 'listProject')->name('myProject')->middleware('isUser');
     Route::get('/detail-myProject/{id}', 'detailMyProject')->middleware('isUser')->name('detail-myProject');
     Route::get('/submitWorker', 'submitWorker')->name('submitWorker')->middleware(['auth', 'isUser']);
@@ -110,4 +112,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/testimoni', AdminTestimoniController::class);
     Route::resource('/projects', ProjectController::class);
     Route::resource('/result', ProjectResultController::class);
+    Route::resource('/bank', BankController::class);
+    Route::resource('/payment', PaymentController::class);
+    Route::resource('/balance', BalanceController::class);
 });

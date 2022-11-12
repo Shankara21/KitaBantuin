@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('worker_details_id')->constrained();
             $table->string('title');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('link');
             $table->string('description');
             $table->timestamps();

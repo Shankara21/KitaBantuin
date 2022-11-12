@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('norek');
-            $table->string('atasnama');
-            $table->string('image');
+            $table->string('account_number');
+            $table->string('account_name');
+            $table->string('image') -> nullable();
             $table->timestamps();
         });
     }

@@ -137,33 +137,38 @@
       </ul>
     </li>
 
-    <li class="menu-item">
+    <li class="menu-item {{ Request::is('bank*') || Request::is('payment*') || Request::is('balance*') ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon fa-regular fa-file-lines"></i>
-        <div data-i18n="Laporan">Laporan</div>
+        <i class="menu-icon fa-regular fa-credit-card"></i>
+        <div data-i18n="Basic">Pembayaran</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="pages-misc-error.html" class="menu-link">
-            <div data-i18n="Error">Error</div>
+        <li class="menu-item {{ Request::is('bank*') ? 'active' : '' }}">
+          <a href="/bank" class="menu-link">
+            <div data-i18n="Error">Bank</div>
           </a>
         </li>
-        <li class="menu-item">
-          <a href="pages-misc-under-maintenance.html" class="menu-link">
-            <div data-i18n="Under Maintenance">Under Maintenance</div>
+        <li class="menu-item {{ Request::is('payment*') ? 'active' : '' }}">
+          <a href="/payment" class="menu-link">
+            <div data-i18n="Under Maintenance">Payment</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('balance*') ? 'active' : '' }}">
+          <a href="/balance" class="menu-link">
+            <div data-i18n="Under Maintenance">Balance</div>
           </a>
         </li>
       </ul>
     </li>
     <!-- Pembayaran -->
-    <li class="menu-item {{ Request::is('payment*') ? 'active' : '' }}">
-      <a href="payment" class="menu-link">
-        <i class="menu-icon fa-regular fa-credit-card"></i>
-        <div data-i18n="Basic">Pembayaran</div>
-      </a>
-    </li>
+    {{-- <li class="menu-item {{ Request::is('payment*') ? 'active' : '' }}">
+    <a href="payment" class="menu-link">
+      <i class="menu-icon fa-regular fa-credit-card"></i>
+      <div data-i18n="Basic">Pembayaran</div>
+    </a>
+    </li> --}}
 
-        
+
     <!-- Testimoni -->
     <li class="menu-item {{ Request::is('testimoni*') ? 'active' : '' }}">
       <a href="{{ route('testimoni.index') }}" class="menu-link">

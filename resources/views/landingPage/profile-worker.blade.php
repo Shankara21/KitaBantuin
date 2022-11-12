@@ -133,31 +133,37 @@
                 <h3>About Me</h3>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                            aria-selected="true">Portofolio</a>
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">Portofolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                            aria-selected="false">Expertise</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false">Expertise</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-                            aria-selected="false">Project</a>
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                            aria-controls="contact" aria-selected="false">Project</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <a href="/create-portofolio" class="btn btn-primary">Upload portofoliomu</a>
+                        <div class="d-flex justify-content-end m-2">
+                            <a href="/create-portofolio" class="btn btn-primary">Upload portofoliomu</a>
+                        </div>
                         <div class="row">
-                            
                             @forelse ($portofolios as $item)
                             <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
                                 <div class="card shadow" style="border-radius: 20px;background:white">
                                     <div class="card-body">
                                         <h2>{{ $item -> title }}</h2>
                                         <div class="mb-4">
-                                            <img src="{{ asset('storage/'.$item -> image) }}" height="196px" width="100%"
-                                                style="border-radius: 25px">
+                                            @if ($item -> image)
+                                            <img src="{{ asset('storage/'.$item -> image) }}" height="196px"
+                                                width="100%" style="border-radius: 25px">
+                                            @else
+                                            <img src="{{ asset('/landingPage/images/'.$item -> title.'.png') }}"
+                                                height="196px" width="100%" style="border-radius: 25px">
+                                            @endif
                                         </div>
                                         <p class="text-muted">
                                             <a href="{{ $item -> link }}" target="_blank"
@@ -167,26 +173,32 @@
                                         </div>
                                     </div>
                                 </div>
-                        
                                 @empty
-                        
+                                <div class="card shadow" style="border-radius: 20px;background:white">
+                                    <div class="card-body">
+                                        <h2>Belum ada portofolio</h2>
+                                    </div>
+                                </div>
                                 @endforelse
-                        
+
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <!-- Button trigger modal -->
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary p-2" data-toggle="modal" data-target="#staticBackdrop">
+                        <div class="d-flex justify-content-end m-2">
+                            @if (!$details -> cv)
+                            <button type="button" class="btn btn-primary p-2" data-toggle="modal"
+                                data-target="#staticBackdrop">
                                 Upload CV
                             </button>
+                            @endif
                             <a href="/edit-skill/{{ $details->id }}/edit" class="btn btn-primary p-2">Update Skill</a>
                         </div>
-                        
+
                         <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -199,7 +211,8 @@
                                         ...
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
                                         <button type="button" class="btn btn-primary">Understood</button>
                                     </div>
                                 </div>
@@ -212,13 +225,19 @@
                                     @foreach ($skill as $item)
                                     <li>{{ $item }}</li>
                                     @endforeach
-                        
+
                                 </ul>
-                        
+
                             </div>
-                            <div class="col-6">CV
-                                <br />
-                                <img src="{{ asset('storage/'.$details -> cv) }}" height="200px" width="400" style="border-radius: 25px">
+                            <div class="col-6">
+                                <h1>CV</h1>
+                                @if ($details -> cv)
+                                <img src="{{ asset('storage/'.$details -> cv) }}" width="400"
+                                    style="border-radius: 25px">
+                                @else
+                                <img src="{{ asset('/landingPage/images/cv.jpg') }}" width="400"
+                                    style="border-radius: 25px">
+                                @endif
                             </div>
                         </div>
                     </div>

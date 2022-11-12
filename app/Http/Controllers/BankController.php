@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bank;
 use App\Http\Requests\StoreBankRequest;
 use App\Http\Requests\UpdateBankRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BankController extends Controller
 {
@@ -15,7 +16,9 @@ class BankController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.Bank.index', [
+            'banks' => Bank::latest()->paginate(10)
+        ]);
     }
 
     /**
@@ -47,7 +50,9 @@ class BankController extends Controller
      */
     public function show(Bank $bank)
     {
-        //
+        return view('Admin.Bank.show', [
+            'bank' => $bank
+        ]);
     }
 
     /**
@@ -81,6 +86,8 @@ class BankController extends Controller
      */
     public function destroy(Bank $bank)
     {
-        //
+        $bank->delete();
+        Alert::success('Success', 'Bank Deleted Successfully');
+        return redirect()->route('bank.index');
     }
 }

@@ -139,9 +139,13 @@
                                                             <div class="card-body">
                                                                 <h2>{{ $item -> title }}</h2>
                                                                 <div class="mb-4">
-                                                                    <img src="{{ asset('storage/'.$item -> image) }}"
-                                                                        height="196px" width="100%"
-                                                                        style="border-radius: 25px">
+                                                                    @if ($item -> image)
+                                                                        <img src="{{ asset('storage/'.$item -> image) }}" height="196px" width="100%" style="border-radius: 25px">
+                                                                    @else
+                                                                        <img src="{{ asset('/landingPage/images/'.$item -> title.'.png') }}" height="196px" width="100%" class="img-fluid"
+                                                                            style="border-radius: 25px">
+                                                                    @endif
+                                                                   
                                                                 </div>
                                                                 <p class="text-muted">
                                                                     <a href="{{ $item -> link }}" target="_blank"

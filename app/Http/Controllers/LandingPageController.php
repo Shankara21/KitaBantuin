@@ -118,11 +118,11 @@ class LandingPageController extends Controller
             'bids' => $target
         ]);
     }
-    public function detailWorker($id)
+    public function detailWorker(User $user)
     {
-        $target = User::where('id', $id)->first();
-        $portofolio = Portofolio::where('worker_details_id', $id)->get();
-        $details = WorkerDetail::where('user_id', $id)->first();
+        $target = User::where('id', $user -> id)->first();
+        $details = WorkerDetail::where('user_id', $user -> id)->first();
+        $portofolio = Portofolio::where('worker_details_id', $details -> id)->get();
 
         return view('landingPage.detail-worker', [
             'worker' => $target,
