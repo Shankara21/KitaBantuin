@@ -84,12 +84,18 @@ class LandingPageController extends Controller
             'skill' => $skill ?? null
         ]);
     }
-    public function project()
+    public function project(Request $request)
     {
         // $target = Project::with(['subCategory'])->where('id', 1)->first();
         // dd($target->user);
+        $target = Project::where('status', 'Open');
+        if ($request->filter_category) {
+            $category = SubCategory::where('id', $request->filter_category)->first();
+            $target = Project::where('sub_categories_id', $category->id)->where('status', 'Open');
+        }
         return view('landingPage.projects', [
-            'projects' => Project::where('status', 'Open')->latest()->filter(request(['search', 'subCategory', 'author']))->paginate(7)->withQueryString(),
+            'projects' => $target->latest()->filter(request(['search', 'subCategory', 'author']))->paginate(7)->withQueryString(),
+            'categories' => SubCategory::all(),
         ]);
     }
     public function detailProject($id)

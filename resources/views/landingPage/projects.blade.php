@@ -28,7 +28,14 @@
                     <input type="hidden" name="auhtor" value="{{ request('author') }}">
                     @endif
                     <div class="row">
-                        <div class="col-3"></div>
+                        <div class="col-3">
+                            <select class="custom-select" name="filter_category" id="" onchange="submit()">
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" {{ request('filter_category') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" name="search" id="search" class="form-control" placeholder="Search"

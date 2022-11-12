@@ -57,7 +57,8 @@ class Project extends Model
     {
         $query->when($filters['search'] ?? false, function ($query, $search) {
             return $query->where('title', 'like', '%' . $search . '%')
-                ->orWhere('description', 'like', '%' . $search . '%');
+                ->orWhere('description', 'like', '%' . $search . '%')
+                ->orWhere('excerpt', 'like', '%' . $search . '%');
         });
         $query->when($filters['subCategory'] ?? false, function ($query, $subCategory) {
             return $query->whereHas('subCategory', function ($query) use ($subCategory) {
