@@ -64,7 +64,9 @@
           <div class="col-sm-6 my-3 @if ($project -> status == 'Done')
             d-none
           @endif">
-            <div class="card shadow" style="border-radius: 20px;background:white">
+            <div class="card shadow @if ($projectResult)
+              d-none
+            @endif " style="border-radius: 20px;background:white">
               <div class="card-body">
                 @if ($bid -> status == 'Pending')
                 <h6>{{ $bid -> user -> name }}</h6>
@@ -73,19 +75,21 @@
                 @elseif ($project -> status == 'onProcess')
                 <h2>Detail Pengerjaan</h2>
                 <div class="col-sm-12">
-                 <form action="{{ route('submitProject') }}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="form-group">
-                    <label class="text-black" for="fname">Bukti hasil pengerjaan</label>
-                    <input type="file" class="form-control" id="fname" name="image" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="text-black" for="fname">Link file</label>
-                    <input type="text" class="form-control" id="fname" name="link" required>
-                    <input type="hidden" name="project_id" value="{{ $bid -> project_id }}">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                 </form>
+                  <form action="{{ route('submitProject') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                      <label class="text-black" for="fname">Bukti hasil pengerjaan</label>
+                      <img class="img-preview mb-3 w-100" style="border-radius: 20px">
+                      <input type="file" class="form-control" id="photo" placeholder="Photo" name="image" required
+                        onchange="previewImage()" />
+                    </div>
+                    <div class="form-group">
+                      <label class="text-black" for="fname">Link file</label>
+                      <input type="text" class="form-control" id="fname" name="link" required>
+                      <input type="hidden" name="project_id" value="{{ $bid -> project_id }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
                 </div>
                 @endif
               </div>
@@ -97,4 +101,26 @@
   </div>
 </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+  function previewImage(){
+                          const image = document.querySelector('#photo');
+                          const imgPreview = document.querySelector('.img-preview');
+                
+                          imgPreview.style.width = '150px';
+                
+                          const oFReader = new FileReader();
+                          oFReader.readAsDataURL(image.files[0]);
+                
+                          oFReader.onload = function(oFREvent){
+                            imgPreview.src = oFREvent.target.result;
+                          }
+                        }
+                
+                        document.addEventListener('trix-file-accept', function(e){
+                          e.preventDefault()
+                        })
+</script>
 @endsection

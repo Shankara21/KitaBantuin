@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Bid;
 use App\Models\Payment;
 use App\Models\Project;
-use App\Models\Project_result;
-use Illuminate\Http\Request;
+use App\Models\Testimoni;
 use Illuminate\Support\Str;
+use App\Models\WorkerDetail;
+use Illuminate\Http\Request;
+use App\Models\Project_result;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class LandingPageProject extends Controller
@@ -112,7 +115,14 @@ class LandingPageProject extends Controller
     public function submitPayment(Request $request)
     {
         $project = Project::where('id', $request->project_id)->first();
+        $project->status = 'Done';
+        $project->save();
         $projectName = $project->title;
+        $workerDetail = WorkerDetail::where('user_id', $project->worker_id)->first();
+        $pointNow = $workerDetail->point;
+        $point = $pointNow + 5;
+        $workerDetail->point = $point;
+        $workerDetail->save();
         $validateData = $request->validate([
             'project_id' => 'required',
             'bukti_transfer' => 'image|file',
@@ -128,5 +138,26 @@ class LandingPageProject extends Controller
         Payment::create($validateData);
         Alert::success('Success', 'Payment berhasil di submit');
         return redirect('/detail-myProject/' . $projectName);
+    }
+
+    // TODO function submit testimoni
+    public function submitTestimoni(Request $request)
+    {
+        $request->validate([
+            'rating' => 'required',
+            'description' => 'required',
+        ]);
+        $validateDataTestimoni = $request->validate([
+            'project_id' => 'required',
+            'description' => 'required',
+        ]);
+        $validateDataTestimoni['user_id'] = Auth::user()->id;
+        $project = Project::where('id', $request->project_id)->first();
+        $project->rating = $request->rating;
+        $project->save();
+
+        Testimoni::create($validateDataTestimoni);
+        Alert::success('Success', 'Testimoni berhasil di submit');
+        return redirect('/detail-myProject/' . $project->title);
     }
 }

@@ -180,7 +180,14 @@
             </div>
             <div class="card my-5 shadow" style="border-radius: 20px">
                 <div class="card-body">
-                    <h3>About Me</h3>
+                    <div class="d-flex justify-content-between">
+                        <h3>About Me</h3>
+                        <div class="">
+                            <p class="bg-info p-2 rounded-20">My Point : {{ $details -> point }}</p>
+                            <p class="bg-info p-2 rounded-20">My Rating : {{ $details -> rating }}</p>
+
+                        </div>
+                    </div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -193,14 +200,6 @@
                         <li class="nav-item">
                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
                                 aria-controls="contact" aria-selected="false">Project</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab"
-                                aria-controls="review" aria-selected="false">Tambah Rating</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="view-tab" data-toggle="tab" href="#view" role="tab"
-                                aria-controls="view" aria-selected="false">Show Rating</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
@@ -303,69 +302,7 @@
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     </div>
 
-                    <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                        <h1>Rating</h1>
-                        <br>
-                        <form action="/rating" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <fieldset class="rating" id="rating-select">
-                                <input type="radio" id="star5" name="rating" value="5" /><label
-                                    for="star5" class="full" title="Awesome"></label>
-                                <input type="radio" id="star4.5" name="rating" value="4.5" /><label
-                                    for="star4.5" class="half"></label>
-                                <input type="radio" id="star4" name="rating" value="4" /><label
-                                    for="star4" class="full"></label>
-                                <input type="radio" id="star3.5" name="rating" value="3.5" /><label
-                                    for="star3.5" class="half"></label>
-                                <input type="radio" id="star3" name="rating" value="3" /><label
-                                    for="star3" class="full"></label>
-                                <input type="radio" id="star2.5" name="rating" value="2.5" /><label
-                                    for="star2.5" class="half"></label>
-                                <input type="radio" id="star2" name="rating" value="2" /><label
-                                    for="star2" class="full"></label>
-                                <input type="radio" id="star1.5" name="rating" value="1.5" /><label
-                                    for="star1.5" class="half"></label>
-                                <input type="radio" id="star1" name="rating" value="1" /><label
-                                    for="star1" class="full"></label>
-                                <input type="radio" id="star0.5" name="rating" value="0.5" /><label
-                                    for="star0.5" class="half"></label>
-                            </fieldset>
-                            <br>
-                            <br>
-                            <input type="text" class="form-control rating" id="rating" name="rating" />
-                            <br>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
-                        <div class="row">
-                            <div class="col-6">
-                                <h1>Rating</h1>
-                                <br>
-                                @foreach (range(1, 5) as $i)
-                                    <span class="fa-stack" style="width:1em">
-                                        <i class="fa fa-star fa-stack-1x" style="color: #ddd"></i>
-
-                                        @if ($details->rating > 0)
-                                            @if ($details->rating > 0.5)
-                                                <i class="fa fa-star fa-stack-1x" style="color: #ffd700"></i>
-                                            @else
-                                                <i class="fa fa-star-half fa-stack-1x" style="color: #ffd700"></i>
-                                            @endif
-                                        @endif
-                                        @php $details->rating--; @endphp
-                                    </span>
-                                @endforeach
-                            </div>
-
-                            <div class="col-6">
-                                <h1>Point</h1>
-                                <br>
-                                <h3>{{ $details->point }}</h3>
-                            </div>
-                        </div>
-
-                    </div>
+                    
                 </div>
                 {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">

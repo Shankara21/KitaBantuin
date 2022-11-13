@@ -86,6 +86,7 @@ Route::controller(LandingPageProject::class)->group(function () {
     Route::post('/accept-bid/{id}', 'acceptBid')->name('acceptBid');
     Route::post('/submit-project', 'submitProject')->name('submitProject');
     Route::post('/submit-payment', 'submitPayment')->name('submitPayment');
+    Route::post('/submit-testimoni', 'submitTestimoni')->name('submitTestimoni');
 });
 
 

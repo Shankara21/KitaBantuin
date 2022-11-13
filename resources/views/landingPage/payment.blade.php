@@ -24,6 +24,32 @@
                             <div class="col-lg-12 col-sm-12  mb-4">
                                 <div class="card shadow" style="border-radius: 20px;background:white">
                                     <div class="card-body">
+                                        <h3>{{ $project -> title }}</h3>
+                                        <div class="card shadow mb-3" style="border-radius: 20px;background:white">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h6 class="text-muted">Category :
+                                                            <span class="text-black">{{ $project -> subCategory -> name }}</span>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <h6 class="text-muted">Budget : <span class="text-black">{{ $project -> budget }}</span></h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <h6 class="text-muted">Finished :
+                                                            <span class="text-black">{{ $project -> created_at -> format('Y-m-d') }}</span>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <h6 class="text-muted">Deadline : <span class="text-black">{{ $project -> deadline }}</span></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            {!! $project -> excerpt !!}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +60,8 @@
                         <div class="col-lg-12 col-sm-12  mb-4">
                             <div class="card shadow" style="border-radius: 20px;background:white">
                                 <div class="card-body">
-                                    <form action="{{ route('submitPayment') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('submitPayment') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="">Pilih Metode Pembayaran</label>
@@ -73,10 +100,22 @@
                                                 @endforeach
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-sm-2"></div>
+
+                                        </div>
+                                        {{-- <div class="row mb-3 align-items-center">
+                                            <label class="col-sm-2 col-form-label" for="photo">Photo</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" class="form-control" id="photo" placeholder="Photo"
+                                                    name="photo" required onchange="previewImage()" />
+                                            </div>
+                                        </div> --}}
                                         <div class="form-group">
-                                            <label class="text-black" for="fname">Bukti Transfer</label>
-                                            <input type="file" class="form-control" id="fname" name="bukti_transfer"
-                                                required>
+                                            <label class="text-black d-block" for="fname">Bukti Transfer</label>
+                                            <img class="img-preview mb-3 w-100" style="border-radius: 20px">
+                                            <input type="file" class="form-control" id="photo" placeholder="Photo"
+                                                name="bukti_transfer" required onchange="previewImage()" />
                                         </div>
                                         <div class="form-group">
                                             <label class="text-black" for="nominal">Nominal</label>
@@ -100,12 +139,12 @@
             </div>
         </div>
     </div>
+</div>
+@endsection
 
-    @endsection
-
-    @section('script')
-    <script>
-        const radio = document.querySelectorAll('.opt-radio');
+@section('script')
+<script>
+    const radio = document.querySelectorAll('.opt-radio');
             const target = document.querySelectorAll('.img-target');
         
             radio.forEach(function (item, index) {
@@ -118,5 +157,24 @@
                     target[index].style.transform = 'scale(1.2)';
                 });
             });
-    </script>
-    @endsection
+</script>
+<script>
+    function previewImage(){
+                        const image = document.querySelector('#photo');
+                        const imgPreview = document.querySelector('.img-preview');
+              
+                        imgPreview.style.width = '150px';
+              
+                        const oFReader = new FileReader();
+                        oFReader.readAsDataURL(image.files[0]);
+              
+                        oFReader.onload = function(oFREvent){
+                          imgPreview.src = oFREvent.target.result;
+                        }
+                      }
+              
+                      document.addEventListener('trix-file-accept', function(e){
+                        e.preventDefault()
+                      })
+</script>
+@endsection

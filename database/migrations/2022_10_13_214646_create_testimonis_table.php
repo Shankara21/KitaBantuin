@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('project_id')->nullable()->constrained();
             $table->string('description');
-            $table->string('rating')->nullable();
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->date('deadline');
             $table->string('budget');
             $table->string('status');
+            $table->double('rating')->nullable();
             $table->timestamps();
         });
     }

@@ -75,6 +75,14 @@ class LandingPageController extends Controller
     {
         $tes = WorkerDetail::where('user_id', auth()->user()->id)->first();
 
+
+        $countProject = Project::where('worker_id', Auth::user()->id)->count();
+        $sumRating = Project::where('worker_id', Auth::user()->id)->sum('rating');
+
+        $rating = $sumRating / $countProject;
+        $tes -> rating = $rating;
+        $tes -> save();
+
         //    memecah isi dari skill dari koma
         if ($tes) {
             $skill = explode(',', $tes->skill);
@@ -233,6 +241,7 @@ class LandingPageController extends Controller
     {
         $target = Bid::where('id', $id)->first();
         $project = Project::where('id', $target->project_id)->first();
+        $projectResult = Project_result::where('project_id', $project->id)->first();
         // diff date deadline and now
         $date1 =  date('Y-m-d H:i:s');
         $datetest = date_create($date1);
@@ -243,7 +252,8 @@ class LandingPageController extends Controller
         return view('landingPage.bid-details', [
             'bid' => $target,
             'project' => $project,
-            'day' => $day
+            'day' => $day,
+            'projectResult' => $projectResult ?? null
         ]);
     }
 
@@ -266,10 +276,12 @@ class LandingPageController extends Controller
         $bid = Bid::where('id', $id)->first();
         $bank = Bank::all();
         $project = Project::where('id', $bid->project_id)->first();
+        $projectResult = Project_result::where('project_id', $project->id)->first();
         return view('landingPage.payment', [
             'bid' => $bid,
             'bank' => $bank,
-            'project' => $project
+            'project' => $project,
+            'projectResult' => $projectResult ?? null
         ]);
     }
 }
