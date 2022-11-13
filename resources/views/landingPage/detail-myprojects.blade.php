@@ -216,75 +216,69 @@
                                     class="btn btn-primary mb-3">kunjungi file</a>
                                 @endif
                                 @if ($payment)
-                                <h4>Penilaian : </h4>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-info" data-toggle="modal"
-                                    data-target="#staticBackdrop">
-                                    Berikan penilaian
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
-                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Berikan Penilaian</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                @if (!$testimoni)
+                                    <h4>Penilaian : </h4>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#staticBackdrop">
+                                        Berikan penilaian
+                                    </button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Berikan Penilaian</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form action="/submit-testimoni" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <h6 class="text-center">Berikan Rating:</h6>
+                                                        <div class="d-flex justify-content-center m-0">
+                                                            <fieldset class="rating" id="rating-select">
+                                                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" class="full"
+                                                                    title="Awesome"></label>
+                                                                <input type="radio" id="star4.5" name="rating" value="4.5" /><label for="star4.5"
+                                                                    class="half"></label>
+                                                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4"
+                                                                    class="full"></label>
+                                                                <input type="radio" id="star3.5" name="rating" value="3.5" /><label for="star3.5"
+                                                                    class="half"></label>
+                                                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3"
+                                                                    class="full"></label>
+                                                                <input type="radio" id="star2.5" name="rating" value="2.5" /><label for="star2.5"
+                                                                    class="half"></label>
+                                                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2"
+                                                                    class="full"></label>
+                                                                <input type="radio" id="star1.5" name="rating" value="1.5" /><label for="star1.5"
+                                                                    class="half"></label>
+                                                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1"
+                                                                    class="full"></label>
+                                                                <input type="radio" id="star0.5" name="rating" value="0.5" /><label for="star0.5"
+                                                                    class="half"></label>
+                                                            </fieldset>
+                                                        </div>
+                                                        <input type="hidden" class="form-control rating" id="rating" name="rating" />
+                                                        <input type="hidden" name="project_id" value="{{ $project -> id }}">
+                                                        <input type="hidden" name="worker_id" value="{{ $project -> worker_id }}">
+                                                        <div class="form-group">
+                                                            <label for="testimoni">Testimoni</label>
+                                                            <textarea class="form-control" id="testimoni" cols="30" rows="3" name="description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <form action="/submit-testimoni" method="POST"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <h6 class="text-center">Berikan Rating:</h6>
-                                                    <div class="d-flex justify-content-center m-0">
-                                                        <fieldset class="rating" id="rating-select">
-                                                            <input type="radio" id="star5" name="rating"
-                                                                value="5" /><label for="star5" class="full"
-                                                                title="Awesome"></label>
-                                                            <input type="radio" id="star4.5" name="rating"
-                                                                value="4.5" /><label for="star4.5" class="half"></label>
-                                                            <input type="radio" id="star4" name="rating"
-                                                                value="4" /><label for="star4" class="full"></label>
-                                                            <input type="radio" id="star3.5" name="rating"
-                                                                value="3.5" /><label for="star3.5" class="half"></label>
-                                                            <input type="radio" id="star3" name="rating"
-                                                                value="3" /><label for="star3" class="full"></label>
-                                                            <input type="radio" id="star2.5" name="rating"
-                                                                value="2.5" /><label for="star2.5" class="half"></label>
-                                                            <input type="radio" id="star2" name="rating"
-                                                                value="2" /><label for="star2" class="full"></label>
-                                                            <input type="radio" id="star1.5" name="rating"
-                                                                value="1.5" /><label for="star1.5" class="half"></label>
-                                                            <input type="radio" id="star1" name="rating"
-                                                                value="1" /><label for="star1" class="full"></label>
-                                                            <input type="radio" id="star0.5" name="rating"
-                                                                value="0.5" /><label for="star0.5" class="half"></label>
-                                                        </fieldset>
-                                                    </div>
-                                                    <input type="hidden" class="form-control rating" id="rating"
-                                                        name="rating" />
-                                                    <input type="hidden" name="project_id" value="{{ $project -> id }}">
-                                                    <input type="hidden" name="worker_id"
-                                                        value="{{ $project -> worker_id }}">
-                                                    <div class="form-group">
-                                                        <label for="testimoni">Testimoni</label>
-                                                        <textarea class="form-control" id="testimoni" cols="30" rows="3"
-                                                            name="description"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                                 @endif
                             </div>
                             @endif

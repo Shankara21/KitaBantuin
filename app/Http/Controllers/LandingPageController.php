@@ -175,6 +175,8 @@ class LandingPageController extends Controller
 
         $payment = Payment::where('project_id', $project->id)->first();
 
+        $testimoni = Testimoni::where('project_id', $project->id)->first();
+
         // Menghitung perbedaan hari antara deadline dan created_at
         $date1 =  date('Y-m-d H:i:s');
         $datetest = date_create($date1);
@@ -188,7 +190,8 @@ class LandingPageController extends Controller
             'day' => $day,
             'oneBid' => $check ?? null,
             'projectResult' => $projectResult ?? null,
-            'payment' => $payment ?? null
+            'payment' => $payment ?? null,
+            'testimoni' => $testimoni ?? null
         ]);
     }
     public function submitWorker()
