@@ -130,12 +130,37 @@
                     </div>
                 </div>
             </div>
-            @elseif ($project -> status == 'onProcess')
+            @elseif ($project -> status == 'onProcess' || $project -> status == 'Done')
             <div class="col-12 mb-4">
                 <div class="card shadow" style="border-radius: 20px;background:white">
                     <div class="card-body">
-                        <h3>di handle oleh : {{ $project -> worker -> name }}</h3>
-                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2>Worker : </h2>
+                                <h5>Worker Name : {{ $project -> worker -> name }}</h5>
+                                <h6>Worker Email : {{ $project -> worker -> email }}</h6>
+                                <h6>Worker Phone : {{ $project -> worker -> phone }}</h6>
+                                <p>Harga disetujui: Rp.{{ number_format($oneBid -> price) }}</p>
+                            </div>
+                            @if ($projectResult)
+                            <div class="col-sm-6">
+                                <h2>Project Result : </h2>
+                                <h4>Hasil Pengerjaan : </h4>
+                                <img src="{{ asset('storage/'.$projectResult -> image) }}" class="img-fluid mb-3" alt=""
+                                    style="border-radius: 20px;
+                                    @if(!$payment)
+                                    filter: blur(10px);
+                                    -webkit-filter: blur(10px);
+                                    @endif">
+                                <h4>Link File : </h4>
+                                @if (!$payment)
+                                <a href="/getPayment/{{ $oneBid -> id }}" class="btn btn-primary">Lakukan Pembayaran</a>
+                                @else
+                                <a href="{{ $projectResult -> link }}" target="_blank" class="btn btn-primary">kunjungi file</a>
+                                @endif
+                            </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

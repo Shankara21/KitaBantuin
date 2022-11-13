@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bid;
+use App\Models\Payment;
 use App\Models\Project;
+use App\Models\Project_result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -83,6 +85,48 @@ class LandingPageProject extends Controller
         $bid->status = 'Accepted';
         $bid->save();
         Alert::success('Success', 'Bid diterima');
-        return redirect('/list-project');
+        return redirect('/myProject');
+    }
+
+    // TODO Function Submit Project
+    public function submitProject(Request $request)
+    {
+        // $project = Project::where('id', $request->project_id)->first();
+        // $project->status = 'Done';
+        // $project->save();
+
+        $validateData = $request->validate([
+            'project_id' => 'required',
+            'image' => 'image|file',
+            'link' => 'required',
+        ]);
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('project_result', 'public');
+        }
+        Project_result::create($validateData);
+        Alert::success('Success', 'Project berhasil di submit');
+        return redirect('/myBid');
+    }
+
+    // TODO function submit payment
+    public function submitPayment(Request $request)
+    {
+        $project = Project::where('id', $request->project_id)->first();
+        $projectName = $project->title;
+        $validateData = $request->validate([
+            'project_id' => 'required',
+            'bukti_transfer' => 'image|file',
+            'bank_id' => 'required',
+            'bid_id' => 'required',
+            'amount' => 'required',
+            'user_id' => 'required',
+        ]);
+        $validateData['potongan'] = $request->amount * 0.1;
+        if ($request->file('bukti_transfer')) {
+            $validateData['bukti_transfer'] = $request->file('bukti_transfer')->store('bukti_transfer', 'public');
+        }
+        Payment::create($validateData);
+        Alert::success('Success', 'Payment berhasil di submit');
+        return redirect('/detail-myProject/' . $projectName);
     }
 }

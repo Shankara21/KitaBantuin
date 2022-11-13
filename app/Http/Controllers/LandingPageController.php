@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\TestimoniResource;
+use App\Models\Bank;
+use App\Models\Payment;
+use App\Models\Project_result;
 
 class LandingPageController extends Controller
 {
@@ -156,13 +159,13 @@ class LandingPageController extends Controller
         $project = Project::with(['subCategory'])->where('title', $id)->first();
         $bids = Bid::where('project_id', $project->id)->get();
 
+        // if ($project->status == 'onProcess') {
+        // }
+        $check = Bid::where('project_id', $project->id)->where('status', 'Accepted')->first();
 
+        $projectResult = Project_result::where('project_id', $project->id)->first();
 
-
-
-        // $checkAmount = (int)$new[1];
-
-        // dd($checkAmount);
+        $payment = Payment::where('project_id', $project->id)->first();
 
         // Menghitung perbedaan hari antara deadline dan created_at
         $date1 =  date('Y-m-d H:i:s');
@@ -174,7 +177,10 @@ class LandingPageController extends Controller
             'project' => $project,
             'bid' => $bids,
             'total_bid' => $bids->count(),
-            'day' => $day
+            'day' => $day,
+            'oneBid' => $check ?? null,
+            'projectResult' => $projectResult ?? null,
+            'payment' => $payment ?? null
         ]);
     }
     public function submitWorker()
@@ -246,12 +252,24 @@ class LandingPageController extends Controller
         $point = 5;
         $totalPoint = $request->rating * $point;
         WorkerDetail::where('user_id', auth()->user()->id)
-                    ->update([
-                        'rating' => $request->rating,
-                        'point' => $totalPoint,
-                    ]);
+            ->update([
+                'rating' => $request->rating,
+                'point' => $totalPoint,
+            ]);
 
         Alert::success('Success', 'Rating berhasil ditambah');
         return redirect('/profile-worker');
+    }
+
+    public function getPayment($id)
+    {
+        $bid = Bid::where('id', $id)->first();
+        $bank = Bank::all();
+        $project = Project::where('id', $bid->project_id)->first();
+        return view('landingPage.payment', [
+            'bid' => $bid,
+            'bank' => $bank,
+            'project' => $project
+        ]);
     }
 }

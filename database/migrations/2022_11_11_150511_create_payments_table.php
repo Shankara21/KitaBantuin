@@ -20,7 +20,8 @@ return new class extends Migration
             $table->foreignId('bank_id')->constrained();
             $table->foreignId('bid_id')->constrained();
             $table->integer('amount');
-            $table->integer('potongan');
+            $table->integer('potongan')->nullable();
+            $table->string('status')->default('Pending');
             $table->string('bukti_transfer');
             $table->timestamps();
         });

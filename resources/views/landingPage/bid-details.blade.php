@@ -61,21 +61,27 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 my-3">
+          <div class="col-sm-6 my-3 @if ($project -> status == 'Done')
+            d-none
+          @endif">
             <div class="card shadow" style="border-radius: 20px;background:white">
               <div class="card-body">
                 @if ($bid -> status == 'Pending')
                 <h6>{{ $bid -> user -> name }}</h6>
                 <p class="text-muted">Nomial pengajuan : Rp.{{ number_format($bid -> price) }}</p>
                 <p class="text-muted">Pengajuan : {{ $bid -> created_at -> diffForHumans() }}</p>
-                @else
+                @elseif ($project -> status == 'onProcess')
                 <h2>Detail Pengerjaan</h2>
                 <div class="col-sm-12">
-                 <form action="">
+                 <form action="{{ route('submitProject') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="form-group">
+                    <label class="text-black" for="fname">Bukti hasil pengerjaan</label>
+                    <input type="file" class="form-control" id="fname" name="image" required>
+                  </div>
+                  <div class="form-group">
                     <label class="text-black" for="fname">Link file</label>
-                    <input type="text" class="form-control" id="fname" name="link">
+                    <input type="text" class="form-control" id="fname" name="link" required>
                     <input type="hidden" name="project_id" value="{{ $bid -> project_id }}">
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
