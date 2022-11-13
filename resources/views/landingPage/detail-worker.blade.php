@@ -307,13 +307,37 @@
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                             data-parent="#accordion_1">
                                             <div class="accordion-body">
-                                                When she reached the first hills of the Italic Mountains, she had a last
-                                                view back on the skyline of her
-                                                hometown Bookmarksgrove, the headline of Alphabet Village and the
-                                                subline of her own road, the Line
-                                                Lane.
-                                                Pityful a rethoric question ran over her cheek, then she continued her
-                                                way.
+                                                <div class="row">
+                                                    @forelse ($projectResult as $item)
+                                                    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                                        <div class="card shadow" style="border-radius: 20px;background:white">
+                                                            <div class="card-body">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <h2>{{ $item -> project ->  title }}</h2>
+                                                                    <span class="">
+                                                                        <i class="fa-solid fa-star text-warning"></i> {{ $item -> project ->  rating }}
+                                                                    </span>
+                                                                </div>
+                                                                <div class="mb-4">
+                                                                    <p class="text-muted">Category : {{ $item -> project -> subCategory -> name }}</p>
+                                                                    <p class="text-muted">
+                                                                        Deadline : 
+                                                                        {{ $item -> project -> deadline}}
+                                                                    </p>
+                                                                    <p class="text-muted">
+                                                                        Finished : {{ $item -> created_at -> format('Y-m-d') }}
+                                                                    </p>
+                                                                    <p class="text-muted"></p>
+                                                                </div>
+                                                                <div class="d-flex justify-content-end">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                
+                                                    </div>
+                                                    @empty
+                                                    @endforelse
+                                                </div>
                                             </div>
                                         </div>
 

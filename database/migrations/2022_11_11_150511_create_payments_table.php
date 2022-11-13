@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->integer('potongan')->nullable();
             $table->string('status')->default('Pending');
+            $table->string('jenis')->default('Pemasukan');
             $table->string('bukti_transfer');
             $table->timestamps();
         });

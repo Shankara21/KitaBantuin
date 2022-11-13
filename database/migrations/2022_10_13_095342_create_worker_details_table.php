@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('about')->nullable();
             $table->text('skill')->nullable();
             $table->string('ktp')->nullable();
-            $table->double('rating')->nullable();
-            $table->double('point')->nullable();
+            $table->double('rating')->default(0)->nullable();
+            $table->double('point')->default(0)->nullable();
             $table->string('status')->default('Pending');
 
             $table->timestamps();

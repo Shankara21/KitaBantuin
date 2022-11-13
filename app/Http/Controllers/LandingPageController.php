@@ -79,9 +79,14 @@ class LandingPageController extends Controller
         $countProject = Project::where('worker_id', Auth::user()->id)->count();
         $sumRating = Project::where('worker_id', Auth::user()->id)->sum('rating');
 
-        $rating = $sumRating / $countProject;
-        $tes -> rating = $rating;
-        $tes -> save();
+        if ($countProject > 0 && $sumRating > 0) {
+            $rating = $sumRating / $countProject;
+            $tes->rating = $rating;
+            $tes->point = $tes->point + $rating;
+            $tes->save();
+        }
+
+
 
         //    memecah isi dari skill dari koma
         if ($tes) {
@@ -141,11 +146,12 @@ class LandingPageController extends Controller
         $target = User::where('id', $user->id)->first();
         $details = WorkerDetail::where('user_id', $user->id)->first();
         $portofolio = Portofolio::where('worker_details_id', $details->id)->get();
-
+        $projectResult = Project_result::where('worker_id', $target->id)->get();
         return view('landingPage.detail-worker', [
             'worker' => $target,
             'portofolio' => $portofolio,
-            'details' => $details
+            'details' => $details,
+            'projectResult' => $projectResult
         ]);
     }
 
@@ -260,19 +266,19 @@ class LandingPageController extends Controller
         ]);
     }
 
-    public function rating(Request $request)
-    {
-        $point = 5;
-        $totalPoint = $request->rating * $point;
-        WorkerDetail::where('user_id', auth()->user()->id)
-            ->update([
-                'rating' => $request->rating,
-                'point' => $totalPoint,
-            ]);
+    // public function rating(Request $request)
+    // {
+    //     $point = 2;
+    //     $totalPoint = $request->rating * $point;
+    //     WorkerDetail::where('user_id', auth()->user()->id)
+    //         ->update([
+    //             'rating' => $request->rating,
+    //             'point' => $totalPoint,
+    //         ]);
 
-        Alert::success('Success', 'Rating berhasil ditambah');
-        return redirect('/profile-worker');
-    }
+    //     Alert::success('Success', 'Rating berhasil ditambah');
+    //     return redirect('/profile-worker');
+    // }
 
     public function getPayment($id)
     {

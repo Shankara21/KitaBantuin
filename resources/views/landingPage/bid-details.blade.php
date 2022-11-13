@@ -72,6 +72,7 @@
                 <h6>{{ $bid -> user -> name }}</h6>
                 <p class="text-muted">Nomial pengajuan : Rp.{{ number_format($bid -> price) }}</p>
                 <p class="text-muted">Pengajuan : {{ $bid -> created_at -> diffForHumans() }}</p>
+                
                 @elseif ($project -> status == 'onProcess')
                 <h2>Detail Pengerjaan</h2>
                 <div class="col-sm-12">

@@ -12,6 +12,11 @@ class Project_result extends Model
 
     public function project()
     {
-        return $this->hasOne(Project::class);
+        return $this->belongsTo(Project::class);
+    }
+
+    public function worker()
+    {
+        return $this->belongsTo(User::class, 'worker_id');
     }
 }

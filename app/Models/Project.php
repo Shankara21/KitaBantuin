@@ -29,7 +29,7 @@ class Project extends Model
 
     public function result()
     {
-        return $this->belongsTo(Project_result::class);
+        return $this->hasOne(Project_result::class);
     }
 
     public function testimoni()

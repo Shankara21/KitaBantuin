@@ -106,6 +106,7 @@ class LandingPageProject extends Controller
         if ($request->file('image')) {
             $validateData['image'] = $request->file('image')->store('project_result', 'public');
         }
+        $validateData['worker_id'] = auth()->user()->id;
         Project_result::create($validateData);
         Alert::success('Success', 'Project berhasil di submit');
         return redirect('/myBid');
@@ -120,7 +121,7 @@ class LandingPageProject extends Controller
         $projectName = $project->title;
         $workerDetail = WorkerDetail::where('user_id', $project->worker_id)->first();
         $pointNow = $workerDetail->point;
-        $point = $pointNow + 5;
+        $point = $pointNow + 2;
         $workerDetail->point = $point;
         $workerDetail->save();
         $validateData = $request->validate([

@@ -40,6 +40,9 @@
                                     @endif
                                 </div>
                                 <p class="text-muted">Pengajuan Bid : {{ $item -> created_at -> diffForHumans() }}</p>
+                                @if ($item -> status == 'Accepted')
+                                    <p class="text-muted">Diterima : {{ $item -> updated_at -> diffForHumans() }}</p>
+                                @endif
                                 <p class="text-muted">Harga Pengajuan : Rp. {{ number_format($item -> price) }}</p>
                                 <div class="d-flex justify-content-end">
                                     <a href="/bid-details/{{ $item -> id }}" class="btn btn-primary ">Details</a>
