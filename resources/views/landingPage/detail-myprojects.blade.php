@@ -166,7 +166,7 @@
                                                     <button type="submit" class="btn btn-success p-2"><i
                                                             class="fa-solid fa-circle-check"></i> Accept</button>
                                                 </form>
-                                                <a href="{{ route('detailWorker', $item -> user -> id) }}"
+                                                <a href="{{ route('detailWorker', $item -> user -> name) }}"
                                                     class="btn btn-info p-2">
                                                     <i class="fa-solid fa-circle-info"></i>
                                                     Details</a>
