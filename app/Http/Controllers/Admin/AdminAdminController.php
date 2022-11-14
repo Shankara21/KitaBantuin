@@ -16,7 +16,7 @@ class AdminAdminController extends Controller
      */
     public function index()
     {
-        $user = User::paginate(10);
+        $user = User::where('role', 'Admin')->paginate(10);
         return view('Admin.Admin.index', [
             'users' => $user,
             'title' => 'User'

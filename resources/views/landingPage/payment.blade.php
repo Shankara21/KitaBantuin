@@ -30,19 +30,24 @@
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <h6 class="text-muted">Category :
-                                                            <span class="text-black">{{ $project -> subCategory -> name }}</span>
+                                                            <span
+                                                                class="text-black">{{ $project -> subCategory -> name }}</span>
                                                         </h6>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <h6 class="text-muted">Budget : <span class="text-black">{{ $project -> budget }}</span></h6>
+                                                        <h6 class="text-muted">Budget : <span
+                                                                class="text-black">{{ $project -> budget }}</span></h6>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <h6 class="text-muted">Finished :
-                                                            <span class="text-black">{{ $project -> created_at -> format('Y-m-d') }}</span>
+                                                            <span
+                                                                class="text-black">{{ $project -> created_at -> format('Y-m-d') }}</span>
                                                         </h6>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <h6 class="text-muted">Deadline : <span class="text-black">{{ $project -> deadline }}</span></h6>
+                                                        <h6 class="text-muted">Deadline : <span
+                                                                class="text-black">{{ $project -> deadline }}</span>
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -60,6 +65,22 @@
                         <div class="col-lg-12 col-sm-12  mb-4">
                             <div class="card shadow" style="border-radius: 20px;background:white">
                                 <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12  mb-4">
+                            <div class="card shadow" style="border-radius: 20px;background:white">
+                                <div class="card-body">
+                                    @if (count($errors) > 0)
+                                    <div class="mx-3 alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                     <form action="{{ route('submitPayment') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
@@ -111,18 +132,22 @@
                                                     name="photo" required onchange="previewImage()" />
                                             </div>
                                         </div> --}}
-                                        <div class="form-group">
+                                        <div class="form-group mb-3">
                                             <label class="text-black d-block" for="fname">Bukti Transfer</label>
                                             <img class="img-preview mb-3 w-100" style="border-radius: 20px">
                                             <input type="file" class="form-control" id="photo" placeholder="Photo"
                                                 name="bukti_transfer" required onchange="previewImage()" />
                                         </div>
                                         <div class="form-group">
-                                            <label class="text-black" for="nominal">Nominal</label>
+                                            <div class="d-flex justify-content-between m-3">
+                                                <h5>Jumlah Tagihan</h5>
+                                                <h5>:</h5>
+                                                <h5>Rp.{{ number_format($bid -> price) }}</h5>
+                                            </div>
                                             <input type="hidden" class="form-control" id="nominal" name="amount"
                                                 required readonly value="{{ $bid -> price }}">
-                                            <input type="text" class="form-control"
-                                                placeholder="Rp.{{ number_format($bid -> price) }}" readonly>
+                                            {{-- <input type="text" class="form-control"
+                                                placeholder="Rp.{{ number_format($bid -> price) }}" readonly> --}}
                                             <input type="hidden" name="project_id" value="{{ $project -> id }}">
                                             <input type="hidden" name="user_id" value="{{ Auth::user() -> id }}">
                                             <input type="hidden" name="bid_id" value="{{ $bid -> id }}">

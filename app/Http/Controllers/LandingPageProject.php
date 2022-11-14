@@ -157,6 +157,18 @@ class LandingPageProject extends Controller
         $project->rating = $request->rating;
         $project->save();
 
+        $countProject = Project::where('worker_id',  $project->worker_id)->count();
+        $sumRating = Project::where('worker_id',  $project->worker_id)->sum('rating');
+
+
+        $tes = WorkerDetail::where('user_id', $project->worker_id)->first();
+        if ($countProject > 0 && $sumRating > 0) {
+            $rating = $sumRating / $countProject;
+            $tes->point = $tes->point + $rating;
+            $tes->rating = $rating;
+            $tes->save();
+        }
+
         Testimoni::create($validateDataTestimoni);
         Alert::success('Success', 'Testimoni berhasil di submit');
         return redirect('/detail-myProject/' . $project->title);

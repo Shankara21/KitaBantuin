@@ -76,15 +76,7 @@ class LandingPageController extends Controller
         $tes = WorkerDetail::where('user_id', auth()->user()->id)->first();
 
 
-        $countProject = Project::where('worker_id', Auth::user()->id)->count();
-        $sumRating = Project::where('worker_id', Auth::user()->id)->sum('rating');
-
-        if ($countProject > 0 && $sumRating > 0) {
-            $rating = $sumRating / $countProject;
-            $tes->rating = $rating;
-            $tes->point = $tes->point + $rating;
-            $tes->save();
-        }
+        
 
 
 
