@@ -51,7 +51,7 @@
                                 name="editor1"></textarea>
                         </div>
                     </div>
-                
+
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-6">
@@ -82,11 +82,11 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label class="text-black" for="select">Select</label>
+                            <label class="text-black" for="Category">Category</label>
 
-                            <select name="sub_categories_id" id="select" class="custom-select">
+                            <select name="sub_categories[]" id="select" class="js-example-basic-multiple select2-multiple custom-select" multiple>
                                 @foreach ($categories as $item)
-                                <option value="{{ $item -> id }}">{{ $item -> name }}</option>
+                                <option value="{{ $item -> name }}">{{ $item -> name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -107,5 +107,20 @@
 <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor1' );
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Select2 Multiple
+        $('.select2-multiple').select2({
+            placeholder: "Select",
+            allowClear: true
+        });
+
+    });
+
 </script>
 @endsection

@@ -21,7 +21,7 @@ class LandingPageProject extends Controller
         $validateData = $request->validate([
             'title' => 'required',
             'deadline' => 'required',
-            'sub_categories_id' => 'required',
+            'sub_categories' => 'required|array',
         ]);
         $start = number_format($request->start);
         $end = number_format($request->end);
@@ -30,7 +30,7 @@ class LandingPageProject extends Controller
         $validateData['description'] = $request->editor1;
         $validateData['status'] = 'Open';
         $validateData['excerpt'] = Str::limit(strip_tags($request->editor1), 350);
-
+        $validateData['sub_categories'] = implode(', ', $request->sub_categories);
         Project::create($validateData);
 
         Alert::success('Success', 'Project berhasil dibuat');
@@ -42,7 +42,7 @@ class LandingPageProject extends Controller
         $project = Project::find($request->project_id);
         $dataAwal = $project->budget;
 
-        // di explode 
+        // di explode
         $data = explode('-', $dataAwal);
         // memisahkan antara angka dan huruf
         $new1 = explode('Rp.', $data[0]);
