@@ -53,6 +53,7 @@ class LandingPageController extends Controller
         $check = User::where('role', 'Worker')->get();
         if ($check ?? false) {
             $target = WorkerDetail::where('status', 'Accepted')->get();
+            $topWorker = WorkerDetail::where('point', '>=', 50)->where('status', 'Accepted')->orderBy('point', 'DESC')->get();
         }
         if (Auth::user()) {
             $check = WorkerDetail::where('user_id', Auth::user()->id)->first();
@@ -62,6 +63,7 @@ class LandingPageController extends Controller
             'workers' => $target,
             'check' => $check ?? null,
             'portofolios' => $portofolio,
+            'topWorkers' => $topWorker ?? null,
             // 'portofolios' => Portofolio::where('worker_details_id', $target->id)->get(),
         ]);
     }
