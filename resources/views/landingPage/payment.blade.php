@@ -31,7 +31,7 @@
                                                     <div class="col-sm-6">
                                                         <h6 class="text-muted">Category :
                                                             <span
-                                                                class="text-black">{{ $project -> subCategory -> name }}</span>
+                                                                class="text-black">{{ $project -> sub_categories }}</span>
                                                         </h6>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -171,7 +171,7 @@
 <script>
     const radio = document.querySelectorAll('.opt-radio');
             const target = document.querySelectorAll('.img-target');
-        
+
             radio.forEach(function (item, index) {
                 item.addEventListener('click', function () {
                     target.forEach(function (item, index) {
@@ -187,17 +187,17 @@
     function previewImage(){
                         const image = document.querySelector('#photo');
                         const imgPreview = document.querySelector('.img-preview');
-              
+
                         imgPreview.style.width = '150px';
-              
+
                         const oFReader = new FileReader();
                         oFReader.readAsDataURL(image.files[0]);
-              
+
                         oFReader.onload = function(oFREvent){
                           imgPreview.src = oFREvent.target.result;
                         }
                       }
-              
+
                       document.addEventListener('trix-file-accept', function(e){
                         e.preventDefault()
                       })

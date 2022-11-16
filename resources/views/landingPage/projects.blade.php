@@ -31,7 +31,7 @@
                         <div class="col-3">
                             <select class="custom-select" name="filter_category" id="" onchange="submit()">
                                 @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ request('filter_category') == $category->id ? 'selected' : '' }}>
+                                <option value="{{ $category->name }}" {{ request('filter_category') == $category->name ? 'selected' : '' }}>
                                     {{ $category->name }}</option>
                                 @endforeach
                             </select>

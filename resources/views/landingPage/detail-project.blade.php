@@ -101,10 +101,10 @@
                                 @if (Auth::user())
                                 @if (Auth::user() -> id !== $project -> user_id)
 
-                                <button type="button" class="btn btn-primary mx-1 px-3 py-2 mb-2 
-                                                                    
+                                <button type="button" class="btn btn-primary mx-1 px-3 py-2 mb-2
+
                                                                     " data-toggle="modal" data-target="#staticBackdrop"
-                                    {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }} 
+                                    {{ Auth::user() -> role !== 'Worker' ? 'disabled' : ''  }}
                                     @if ($checkWorker == null)
                                         disabled
                                     @endif
@@ -217,4 +217,5 @@
         </div>
     </div>
 </div>
+@include('sweetalert::alert')
 @endsection
