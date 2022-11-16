@@ -5,10 +5,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="intro-wrap">
-                        <h1 class="mb-5"><span class="d-block">Let's Code Together</span> With <span
-                                class="typed-words"></span></h1>
-
-
+                        <h1 class="mb-5"><span class="d-block">Ayo Explore kITabantuin</span> dengan <span
+                                class="typed-words"></span>
+                        </h1>
 
                         <div class="row">
                             <div class="col-12">
@@ -59,8 +58,8 @@
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h2 class="section-title text-center mb-3">Our Services</h2>
-                    <p>kITabantuin.co memiliki our service dan feedback bagi pelanggan kITabantuin.co seperti berikut : </p>
+                    <h2 class="section-title text-center mb-3">Layanan kami</h2>
+                    <p>kITabantuin.co memiliki layanan dan feedback bagi pelanggan kITabantuin.co seperti berikut : </p>
                 </div>
             </div>
             <div class="row align-items-stretch">
@@ -79,7 +78,7 @@
                     <div class="feature-1 d-md-flex">
                         <div class="align-self-center">
                             <img src="/landingPage/icons/video.png" alt="" height="60px">
-                            <h3>Video Conference</h3>
+                            <h3>Konferensi Video</h3>
                             <p class="mb-0">Kami juga akan memberikan fasilitas video conference yang dapat digunakan bagi
                                 client dan worker untuk melakukan komunikasi , baik membahas project yang sedang di kerjakan
                                 , ataupun mngajukan pertanyaan – pertanyaan terkait fitur yang ada pada project tersebut.
@@ -90,7 +89,7 @@
                     <div class="feature-1 ">
                         <div class="align-self-center">
                             <span class="flaticon-phone-call display-4 text-primary"></span>
-                            <h3>Coaching</h3>
+                            <h3>Pelatihan</h3>
                             <p class="mb-0">Kami akan memberikan training dan tahap seleksi kepada seluruh pendaftar
                                 (worker) agar kami memiliki worker yang berkualitas dan dapat di andalakan , sehingga
                                 project project yang di ajukan oleh client dapat terselesaikan dengan baik dan tepat waktu ,
@@ -106,7 +105,7 @@
                     <div class="feature-1 d-md-flex">
                         <div class="align-self-center">
                             <span class="flaticon-mail display-4 text-primary"></span>
-                            <h3>Terms of Service Agreement</h3>
+                            <h3>Ketentuan Perjanjian Layanan</h3>
                             <p class="mb-0">Kami juga akan memberikan terms of service agreement bagi worker dan juga
                                 client pada saat awal mendaftarkan akun di platform ini , sehingga akan tercipta suasana
                                 kondusif dan menimbulkan rasa saling percaya baik dari worker ataupun client
@@ -250,7 +249,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-7 text-center">
-                    <h2 class="section-title text-center mb-5">Testimonials</h2>
+                    <h2 class="section-title text-center mb-5">Testimoni</h2>
 
                     <div class="owl-single owl-carousel no-nav">
                         @forelse ($testimonis as $item)
@@ -290,7 +289,7 @@
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-6">
-                    <h2 class="section-title text-center mb-3">Special Offers &amp; Discounts</h2>
+                    <h2 class="section-title text-center mb-3">Penawaran khusus &amp; Diskon</h2>
                     <p>Harga layanan yang kami berikan jauh lebih terjangkau dibandingkan dengan kompetitor , karena
                         dengan alasan resource yang kami gunakan adalah rekan rekan mahasiswa IT , sementara itu competitor
                         menggunakan resource tenaga ahli
@@ -399,7 +398,7 @@
                 </div>
 
                 <div class="col-lg-5">
-                    <h2 class="section-title text-left mb-4">Programming Language</h2>
+                    <h2 class="section-title text-left mb-4">Bahasa pemrograman</h2>
                     <p>Bahasa pemrograman merupakan untaian kata-kata berupa instruksi atau perintah-perintah yang biasanya
                         terdiri dari banyak baris yang bisa dimengerti oleh komputer. Bahasa pemrograman ini wajib dikuasai
                         oleh seorang developer agar dapat membangun sebuah aplikasi atau software. Dan untuk membuat
@@ -414,24 +413,17 @@
                         <li>C++</li>
                         <li>C</li>
                     </ul>
-
-                    <p><a href="#" class="btn btn-primary">Get Started</a></p>
-
-
                 </div>
             </div>
         </div>
     </div>
 
-
-
     <div class="py-5 cta-section">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
-                    <h2 class="mb-2 text-white">Lets you Explore the Best. Contact Us Now</h2>
-                    <p class="mb-4 lead text-white text-white-opacity">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Excepturi, fugit?</p>
+                    <h2 class="mb-2 text-white">Ayo coding di kITabantuin.co</h2>
+                    <p class="mb-4 lead text-white text-white-opacity">Kirimkan project anda agar beban anda berkurang</p>
                     <p class="mb-0"><a href="booking.html"
                             class="btn btn-outline-white text-white btn-md font-weight-bold">Get in touch</a></p>
                 </div>

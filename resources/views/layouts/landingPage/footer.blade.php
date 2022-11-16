@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-4">
                     <div class="widget">
-                        <h3 class="heading">About kITabantuin.co</h3>
+                        <h3 class="heading">kITabantuin.co</h3>
                         <p>KitaBantuin.co merupakan sebuah bisnis berbasis IT yang menyediakan layanan pengerjaan proyek
                             atau pekerjaan yang terkait dengan IT.</p>
                     </div>
@@ -23,11 +23,12 @@
                 </div>
                 <div class="col-md-6 col-lg-2 pl-lg-5">
                     <div class="widget">
-                        <h3 class="heading">Pages</h3>
+                        <h3 class="heading">Halaman</h3>
                         <ul class="links list-unstyled">
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="/list-worker">Pekerja</a></li>
+                            <li><a href="/service">Layanan</a></li>
+                            <li><a href="/about">Tentang</a></li>
+                            <li><a href="/contact">Kontak</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,15 +36,16 @@
                     <div class="widget">
                         <h3 class="heading">Resources</h3>
                         <ul class="links list-unstyled">
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="/list-worker">Pekerja</a></li>
+                            <li><a href="/service">Layanan</a></li>
+                            <li><a href="/about">Tentang</a></li>
+                            <li><a href="/contact">Kontak</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="widget">
-                        <h3 class="heading">Contact</h3>
+                        <h3 class="heading">Kontak</h3>
                         <ul class="list-unstyled quick-info links">
                             <li class="email"><a href="#">kitabantuin@gmail.com</a></li>
                             <li class="phone"><a href="#">+62 896 7905 1179</a></li>

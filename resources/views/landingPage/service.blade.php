@@ -5,7 +5,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mx-auto text-center">
                     <div class="intro-wrap">
-                        <h1 class="mb-0">Our Services</h1>
+                        <h1 class="mb-0">Pelayanan Kami</h1>
                         <p class="text-white">KitaBantuin.co merupakan sebuah bisnis berbasis IT yang menyediakan layanan
                             pengerjaan proyek atau pekerjaan yang terkait dengan IT.</p>
                     </div>
@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h2 class="section-title text-center mb-3">Populer Programming Language</h2>
+                    <h2 class="section-title text-center mb-3">Populer Bahasa Pemrograman</h2>
                 </div>
             </div>
             <div class="row">
@@ -91,7 +91,7 @@
                 <div class="col-6 col-md-6 col-lg-3">
                     <div class="service text-center">
                         <span class="icon-paper-plane"></span>
-                        <h3>Fast Work</h3>
+                        <h3>Pengerjaan Cepat</h3>
                         <p>Dengan pengalaman dan tim yang solid kami sudah biasa melakukan pengerjaan secara cepat. Hanya
                             sekejap mata</p>
                     </div>
@@ -99,14 +99,14 @@
                 <div class="col-6 col-md-6 col-lg-3">
                     <div class="service text-center">
                         <span class="icon-tag"></span>
-                        <h3>Schedule </h3>
+                        <h3>Jadwal</h3>
                         <p>Jadwal bimbingan dapat dijadwalkan kepada pelanggan untuk mengaturnya.</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-6 col-lg-3">
                     <div class="service text-center">
                         <span class="icon-user"></span>
-                        <h3>Privacy & Security</h3>
+                        <h3>Privasi & Keamanan</h3>
                         <p>kITabantuin.co telah berkomitmen untuk selalu menjaga dan meningkatkan keamanan serta privasi
                             pelanggan dalam hal apapun secara jelas dan tegas.</p>
                     </div>
@@ -114,7 +114,7 @@
                 <div class="col-6 col-md-6 col-lg-3">
                     <div class="service text-center">
                         <span class="icon-support"></span>
-                        <h3>learning guidance</h3>
+                        <h3>Bimbingan belajar</h3>
                         <p>Pelanggan bakal dapat bimbingan sepuasnya sampai pengerjaan hingga kelar dan kamu ga bakal
                             berhadapan dengan tugas lagi</p>
                     </div>
@@ -127,7 +127,7 @@
         <div class="container">
             <div class="row mb-5 justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h2 class="section-title text-center mb-3">More Services</h2>
+                    <h2 class="section-title text-center mb-3">Layanan Lainnya</h2>
                     <p>kITabantuin.co memiliki our service dan feedback bagi pelanggan kITabantuin.co seperti berikut : </p>
                 </div>
             </div>
@@ -147,7 +147,7 @@
                     <div class="feature-1 d-md-flex">
                         <div class="align-self-center">
                             <img src="/landingPage/icons/video.png" alt="" height="60px">
-                            <h3>Video Conference</h3>
+                            <h3>Konferensi Video</h3>
                             <p class="mb-0">Kami juga akan memberikan fasilitas video conference yang dapat digunakan bagi
                                 client dan worker untuk melakukan komunikasi , baik membahas project yang sedang di kerjakan
                                 , ataupun mngajukan pertanyaan – pertanyaan terkait fitur yang ada pada project tersebut.
@@ -158,7 +158,7 @@
                     <div class="feature-1 ">
                         <div class="align-self-center">
                             <span class="flaticon-phone-call display-4 text-primary"></span>
-                            <h3>Coaching</h3>
+                            <h3>Pelatihan</h3>
                             <p class="mb-0">Kami akan memberikan training dan tahap seleksi kepada seluruh pendaftar
                                 (worker) agar kami memiliki worker yang berkualitas dan dapat di andalakan , sehingga
                                 project project yang di ajukan oleh client dapat terselesaikan dengan baik dan tepat waktu ,
@@ -174,7 +174,7 @@
                     <div class="feature-1 d-md-flex">
                         <div class="align-self-center">
                             <span class="flaticon-mail display-4 text-primary"></span>
-                            <h3>Terms of Service Agreement</h3>
+                            <h3>Ketentuan Perjanjian Layanan</h3>
                             <p class="mb-0">Kami juga akan memberikan terms of service agreement bagi worker dan juga
                                 client pada saat awal mendaftarkan akun di platform ini , sehingga akan tercipta suasana
                                 kondusif dan menimbulkan rasa saling percaya baik dari worker ataupun client
@@ -200,8 +200,8 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
-                    <h2 class="mb-2 text-white">Lets you Explore the Best. Contact Us Now</h2>
-                    <p class="mb-4 lead text-white text-white-opacity">non</p>
+                    <h2 class="mb-2 text-white">Ayo coding di kITabantuin.co</h2>
+                    <p class="mb-4 lead text-white text-white-opacity">Kirimkan Proyek anda agar beban anda berkurang</p>
                     <p class="mb-0"><a href="booking.html"
                             class="btn btn-outline-white text-white btn-md font-weight-bold">Get in touch</a></p>
                 </div>
