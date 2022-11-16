@@ -222,7 +222,7 @@
                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#staticBackdrop">
                                         Berikan penilaian
                                     </button>
-                                    
+
                                     <!-- Modal -->
                                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
                                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -291,6 +291,7 @@
         </div>
     </div>
 </div>
+@include('sweetalert::alert')
 @endsection
 @section('script')
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="

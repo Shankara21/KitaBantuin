@@ -76,7 +76,7 @@ class LandingPageController extends Controller
         $tes = WorkerDetail::where('user_id', auth()->user()->id)->first();
 
 
-        
+
 
 
 
@@ -98,11 +98,11 @@ class LandingPageController extends Controller
         // dd($target->user);
         $target = Project::where('status', 'Open');
         if ($request->filter_category) {
-            $category = SubCategory::where('id', $request->filter_category)->first();
-            $target = Project::where('sub_categories_id', $category->id)->where('status', 'Open');
+            $category = SubCategory::where('name', $request->filter_category)->first();
+            $target = Project::where('sub_categories', $category->name)->where('status', 'Open');
         }
         return view('landingPage.projects', [
-            'projects' => $target->latest()->filter(request(['search', 'subCategory', 'author']))->paginate(7)->withQueryString(),
+            'projects' => $target->latest()->filter(request(['search', 'author']))->paginate(7)->withQueryString(),
             'categories' => SubCategory::all(),
         ]);
     }

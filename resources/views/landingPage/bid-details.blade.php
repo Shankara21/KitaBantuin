@@ -53,7 +53,7 @@
                 </p>
                 <h6 class="text-muted">
                   Category :
-                  {{ $bid -> project -> subCategory -> name }}
+                  {{ $bid -> project -> sub_categories }}
                 </h6>
                 <p>
                   {!! $bid -> project -> description !!}
@@ -72,7 +72,7 @@
                 <h6>{{ $bid -> user -> name }}</h6>
                 <p class="text-muted">Nomial pengajuan : Rp.{{ number_format($bid -> price) }}</p>
                 <p class="text-muted">Pengajuan : {{ $bid -> created_at -> diffForHumans() }}</p>
-                
+
                 @elseif ($project -> status == 'onProcess')
                 <h2>Detail Pengerjaan</h2>
                 <div class="col-sm-12">
@@ -102,6 +102,7 @@
   </div>
 </div>
 </div>
+@include('sweetalert::alert')
 @endsection
 
 @section('script')
@@ -109,17 +110,17 @@
   function previewImage(){
                           const image = document.querySelector('#photo');
                           const imgPreview = document.querySelector('.img-preview');
-                
+
                           imgPreview.style.width = '150px';
-                
+
                           const oFReader = new FileReader();
                           oFReader.readAsDataURL(image.files[0]);
-                
+
                           oFReader.onload = function(oFREvent){
                             imgPreview.src = oFREvent.target.result;
                           }
                         }
-                
+
                         document.addEventListener('trix-file-accept', function(e){
                           e.preventDefault()
                         })

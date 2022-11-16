@@ -289,7 +289,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                     @empty
                                                     @endforelse
@@ -321,7 +321,7 @@
                                                                 <div class="mb-4">
                                                                     <p class="text-muted">Category : {{ $item -> project -> subCategory -> name }}</p>
                                                                     <p class="text-muted">
-                                                                        Deadline : 
+                                                                        Deadline :
                                                                         {{ $item -> project -> deadline}}
                                                                     </p>
                                                                     <p class="text-muted">
@@ -333,7 +333,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                
+
                                                     </div>
                                                     @empty
                                                     @endforelse
@@ -353,4 +353,5 @@
 </div>
 </div>
 </div>
+@include('sweetalert::alert')
 @endsection
