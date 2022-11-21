@@ -80,11 +80,6 @@ class LandingPageController extends Controller
     {
         $tes = WorkerDetail::where('user_id', auth()->user()->id)->first();
 
-
-
-
-
-
         //    memecah isi dari skill dari koma
         if ($tes) {
             $skill = explode(',', $tes->skill);

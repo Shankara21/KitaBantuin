@@ -13,17 +13,10 @@
                             <div class="col-12">
                                 <form class="form">
                                     <div class="row mb-2">
-                                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
-                                            <select name="" id="" class="form-control custom-select">
+                                        <div class="col">
+                                            <select name="categories" id="categories" class="form-control custom-select">
                                                 @foreach ($categories as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-5">
-                                            <select name="" id="" class="form-control custom-select">
-                                                @foreach ($subCategories as $item)
-                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
