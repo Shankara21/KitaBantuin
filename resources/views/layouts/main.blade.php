@@ -44,30 +44,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
   integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="{{ asset('fontawesome-free-6.2.0-web/css/all.css') }}">
-  <link rel="stylesheet" href="/fontawesome-free-6.2.0-web/css/all.css">
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/fontawesome-free-6.2.0-web/css/all.css">
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/fontawesome-free-6.2.0-web/css/all.css">
   <!-- Icons. Uncomment required icon fonts -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/fonts/boxicons.css" />
 
   <!-- Core CSS -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
-  <link rel="stylesheet" href="{{ asset('assets/vendor/css/theme-default.css') }}"
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/css/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/css/theme-default.css"
     class="template-customizer-theme-css" />
-  <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/css/demo.css" />
 
   <!-- Vendors CSS -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-  <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome-free-6.0.0-web/css/all.min.css') }}">
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/libs/apex-charts/apex-charts.css" />
+
   <!-- Page CSS -->
 
   <!-- Helpers -->
-  <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/js/helpers.js"></script>
 
   <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-  <script src="{{ asset('assets/js/config.js') }}"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/js/config.js"></script>
   <script src="https://kit.fontawesome.com/088aa140a4.js" crossorigin="anonymous"></script>
 
   </head>
@@ -102,25 +102,25 @@
     </div>
     <!-- / Layout wrapper -->
 
-  
+
 
      <!-- Core JS -->
-  <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
-  <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
-  <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
-  <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+  <script src="https://github.com/Firgisotya/AssetKitaBantuin/blob/main/assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/libs/popper/popper.js"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/js/bootstrap.js"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-  <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/js/menu.js"></script>
   <!-- endbuild -->
 
   <!-- Vendors JS -->
-  <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
   <!-- Main JS -->
-  <script src="{{ asset('assets/js/main.js') }}"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/js/main.js"></script>
 
   <!-- Page JS -->
-  <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+  <script src="https://cdn.statically.io/gh/Firgisotya/AssetKitaBantuin/main/assets/js/dashboards-analytics.js"></script>
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
