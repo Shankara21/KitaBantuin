@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Models\Balance;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PaymentController extends Controller
 {
@@ -15,7 +17,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.Payment.index', [
+            'payments' => Payment::paginate(10),
+        ]);
     }
 
     /**
@@ -70,7 +74,19 @@ class PaymentController extends Controller
      */
     public function update(UpdatePaymentRequest $request, Payment $payment)
     {
-        //
+        $check = Payment::where('id', $payment->id)->first();
+        $check->update([
+            'status' => 'Accepted'
+        ]);
+
+        Balance::create([
+            'payment_id' => $check->id,
+            'status' => $check->jenis,
+            'total_profit' => $check->potongan,
+        ]);
+        Alert::success('Success', 'Pembayaran berhasil diterima');
+        return redirect('/payment');
+
     }
 
     /**

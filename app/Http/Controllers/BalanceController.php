@@ -15,7 +15,9 @@ class BalanceController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.Balance.index', [
+            'balances' => Balance::paginate(10),
+        ]);
     }
 
     /**
