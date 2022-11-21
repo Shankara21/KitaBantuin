@@ -15,19 +15,17 @@
                                     <div class="row mb-2">
                                         <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
                                             <select name="" id="" class="form-control custom-select">
-                                                <option value="">Destination</option>
-                                                <option value="">Peru</option>
-                                                <option value="">Japan</option>
-                                                <option value="">Thailand</option>
-                                                <option value="">Brazil</option>
-                                                <option value="">United States</option>
-                                                <option value="">Israel</option>
-                                                <option value="">China</option>
-                                                <option value="">Russia</option>
+                                                @foreach ($categories as $item)
+                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-5">
-                                            <input type="text" class="form-control" name="daterange">
+                                            <select name="" id="" class="form-control custom-select">
+                                                @foreach ($subCategories as $item)
+                                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row align-items-center">

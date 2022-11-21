@@ -30,7 +30,7 @@
                     @forelse ($projects as $item)
                     <tr>
                         <td>{{ $loop -> iteration }}</td>
-                        <td>{{ $item -> user ->  name }}</td>
+                        <td>{{ $item -> worker ->  name }}</td>
                         <td>{{ $item -> about }}</td>
                         {{-- <td><img src="{{ asset('storage/'.$item -> cv) }}" alt="" width="100px"></td>
                         <td><img src="{{ asset('storage/'.$item -> ktp) }}" alt="" width="100px"></td> --}}

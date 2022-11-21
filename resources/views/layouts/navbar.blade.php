@@ -19,18 +19,24 @@
     <!-- /Search -->
 
     <ul class="navbar-nav flex-row align-items-center ms-auto">
-      <!-- Place this tag where you want the button to render. -->
-      <li class="nav-item lh-1 me-3">
-        <a class="github-button" href="https://github.com/themeselection/sneat-html-admin-template-free"
-          data-icon="octicon-star" data-size="large" data-show-count="true"
-          aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-      </li>
 
       <!-- User -->
       <li class="nav-item navbar-dropdown dropdown-user dropdown">
         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
           <div class="avatar avatar-online">
-            <img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+            @if (Auth::user()->photo)
+                                <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="" width="250px"
+                                    class="rounded-circle img-thumbnail mb-3">
+                            @elseif (!Auth::user()->photo && Auth::user()->gender == 'Laki-Laki')
+                                <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
+                                    class="rounded-circle img-thumbnail mb-3">
+                            @elseif (!Auth::user()->photo && Auth::user()->gender == 'Perempuan')
+                                <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" width="250px"
+                                    class="rounded-circle img-thumbnail mb-3">
+                            @else
+                                <img src="{{ asset('assets/img/icons/avatar/user.png') }}" alt="" width="250px"
+                                    class="rounded-circle img-thumbnail mb-3">
+                            @endif
           </div>
         </a>
         <ul class="dropdown-menu dropdown-menu-end">
@@ -39,7 +45,19 @@
               <div class="d-flex">
                 <div class="flex-shrink-0 me-3">
                   <div class="avatar avatar-online">
-                    <img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                    @if (Auth::user()->photo)
+                                <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="" width="250px"
+                                    class="rounded-circle img-thumbnail mb-3">
+                            @elseif (!Auth::user()->photo && Auth::user()->gender == 'Laki-Laki')
+                                <img src="{{ asset('assets/img/icons/avatar/man.png') }}" alt="" width="250px"
+                                    class="rounded-circle img-thumbnail mb-3">
+                            @elseif (!Auth::user()->photo && Auth::user()->gender == 'Perempuan')
+                                <img src="{{ asset('assets/img/icons/avatar/woman.png') }}" alt="" width="250px"
+                                    class="rounded-circle img-thumbnail mb-3">
+                            @else
+                                <img src="{{ asset('assets/img/icons/avatar/user.png') }}" alt="" width="250px"
+                                    class="rounded-circle img-thumbnail mb-3">
+                            @endif
                   </div>
                 </div>
                 <div class="flex-grow-1">
@@ -56,21 +74,6 @@
             <a class="dropdown-item" href="#">
               <i class="bx bx-user me-2"></i>
               <span class="align-middle">My Profile</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">
-              <i class="bx bx-cog me-2"></i>
-              <span class="align-middle">Settings</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">
-              <span class="d-flex align-items-center align-middle">
-                <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                <span class="flex-grow-1 align-middle">Billing</span>
-                <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-              </span>
             </a>
           </li>
           <li>

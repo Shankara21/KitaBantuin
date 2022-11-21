@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\TestimoniResource;
 use App\Models\Bank;
+use App\Models\Category;
 use App\Models\Payment;
 use App\Models\Project_result;
 
@@ -27,7 +28,9 @@ class LandingPageController extends Controller
     public function home()
     {
         return view('landingPage.home', [
-            'testimonis' => Testimoni::all()
+            'testimonis' => Testimoni::all(),
+            'categories' => Category::all(),
+            'subCategories' => SubCategory::all(),
         ]);
     }
     public function service()
