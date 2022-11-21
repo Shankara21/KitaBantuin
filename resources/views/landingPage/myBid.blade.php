@@ -59,22 +59,10 @@
                                 </div>
                         @endforelse
                     </div>
-
-                    @empty
-                    <div class="col-lg-12 col-sm-12  mb-4">
-                        <div class="d-flex justify-content-center">
-                            <h2>Belum ada bid yang diajukan</h2>
-                        </div>
-                    @endforelse
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
-
 </div>
 @include('sweetalert::alert')
 

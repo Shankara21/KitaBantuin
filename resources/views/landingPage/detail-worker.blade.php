@@ -319,7 +319,7 @@
                                                                     </span>
                                                                 </div>
                                                                 <div class="mb-4">
-                                                                    <p class="text-muted">Category : {{ $item -> project -> subCategory -> name }}</p>
+                                                                    <p class="text-muted">Category : {{ $item -> project -> sub_categories }}</p>
                                                                     <p class="text-muted">
                                                                         Deadline :
                                                                         {{ $item -> project -> deadline}}
