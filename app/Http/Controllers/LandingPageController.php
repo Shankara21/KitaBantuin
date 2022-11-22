@@ -99,10 +99,17 @@ class LandingPageController extends Controller
     {
         // $target = Project::with(['subCategory'])->where('id', 1)->first();
         // dd($target->user);
+        // dd($request->all());
         $target = Project::where('status', 'Open');
-        if ($request->filter_category) {
-            $category = SubCategory::where('id', $request->filter_category)->first();
-            $target = Project::where('sub_categories', $category->name)->where('status', 'Open');
+
+
+
+
+
+
+        if ($request->filter_category && $request->deadline) {
+            $category = SubCategory::where('name', $request->filter_category)->first();
+            $target = Project::where('sub_categories', $category->name)->where('status', 'Open')->where('deadline', '>=', $request->deadline);
         }
         return view('landingPage.projects', [
             'projects' => $target->latest()->filter(request(['search', 'author']))->paginate(7)->withQueryString(),

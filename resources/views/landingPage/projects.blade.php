@@ -9,7 +9,7 @@
                 <div class="intro-wrap">
                     <h1 class="mb-0">Projects</h1>
                     <p class="text-white">Far far away, behind the word mountains, far from the countries Vokalia and
-                        Consonantia, there live the blind texts. </p>
+                        Consonantia, there live the blind texts.</p>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
         {{-- Make search --}}
         <div class="row">
             <div class="col-md-12">
-                <form action="{{ route('list-project') }}" >
+                <form action="{{ route('list-project') }}">
                     @if (request('subCategory'))
                     <input type="hidden" name="subCategory" value="{{ request('subCategory') }}">
                     @endif
@@ -31,7 +31,8 @@
                         <div class="col-3">
                             <select class="custom-select" name="filter_category" id="" onchange="submit()">
                                 @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ request('filter_category') == $category->id ? 'selected' : '' }}>
+                                <option value="{{ $category->name }}"
+                                    {{ request('filter_category') == $category->name ? 'selected' : '' }}>
                                     {{ $category->name }}</option>
                                 @endforeach
                             </select>
@@ -41,6 +42,10 @@
                                 <input type="text" name="search" id="search" class="form-control" placeholder="Search"
                                     onchange="submit()" value="{{ request('search') }}">
                             </div>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" name="deadline" value="{{ request('deadline') }}"
+                                onchange="submit()">
                         </div>
                     </div>
                 </form>
@@ -162,7 +167,7 @@
                 <div class="row align-items-center m-3">
                     <div class="col-lg-6 mx-auto text-center">
 
-                        <h1 class="">Tidak ada project!</h1>
+                        <h1 class="">Tidak ada project.</h1>
                     </div>
                 </div>
             </div>

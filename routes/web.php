@@ -78,6 +78,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::get('/bid-details/{id}', 'bidDetails')->name('bidDetails')->middleware(['auth']);
     Route::post('/rating', 'rating')->name('rating')->middleware('auth');
     Route::get('/getPayment/{id}', 'getPayment')->name('getPayment')->middleware('auth');
+    Route::get('/search', 'search')->name('search');
 });
 
 //TODO Routing untuk project
