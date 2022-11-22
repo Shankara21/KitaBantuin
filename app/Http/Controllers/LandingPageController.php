@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\TestimoniResource;
 use App\Models\Bank;
+use App\Models\BankUser;
 use App\Models\Category;
 use App\Models\Payment;
 use App\Models\Project_result;
@@ -73,7 +74,8 @@ class LandingPageController extends Controller
     public function profile()
     {
         return view('landingPage.profile', [
-            'user' => auth()->user()
+            'user' => auth()->user(),
+            'bank' => BankUser::all(),
         ]);
     }
     public function profileWorker()
@@ -89,7 +91,8 @@ class LandingPageController extends Controller
             'user' => auth()->user(),
             'portofolios' => Portofolio::where('worker_details_id', $tes->id)->get() ?? null,
             'details' => $tes,
-            'skill' => $skill ?? null
+            'skill' => $skill ?? null,
+            'bank' => BankUser::all(),
         ]);
     }
     public function project(Request $request)

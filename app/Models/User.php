@@ -88,4 +88,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project_result::class);
     }
+    public function bankUser()
+    {
+        return $this->belongsTo(BankUser::class, 'bankuser_id');
+    }
 }

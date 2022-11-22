@@ -12,9 +12,14 @@
             </div>
             <div class="card">
                 <div class="table-responsive text-nowrap">
+                    <form action="{{ route('admin-payment.update', $result->id) }}" method="POST" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
                     <table class="table table-borderless">
                         <tbody>
-                            <form>
+
+                                <input type="hidden" name="project_id" value="{{ $result->project_id }}">
+                                <input type="hidden" name="bank_id" value="{{ $result->project->user->bankuser_id }}">
                                 <tr>
                                     <td>
                                         <h4>Name Worker</h4>
@@ -28,7 +33,7 @@
                                         <h4>Bank</h4>
                                     </td>
                                     <td>
-                                        <h4>: {{ $result -> project -> user -> bank }}</h4>
+                                        <h4>: <img src="{{ asset('img/payments/'.$result -> project -> worker -> bankUser -> name.'.png' ) }}" width="200" height="200"></h4>
                                     </td>
                                 </tr>
                                 <tr>
@@ -36,7 +41,7 @@
                                         <h4>Nomor Rekening</h4>
                                     </td>
                                     <td>
-                                        <h4>: {{ $result -> link }}</h4>
+                                        <h4>: {{ $result -> project -> worker -> bank_account }}</h4>
                                     </td>
                                 </tr>
                                 <tr>
@@ -55,15 +60,16 @@
                                         <input type="file" class="form-control" name="bukti_transfer" />
                                     </td>
                                 </tr>
-                            </form>
+
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-center mb-4">
-                        <a href="" class="btn btn-warning">
+                        <button type="submit" class="btn btn-warning">
                             <i class="fa-solid fa-credit-card"></i>
                             Bayar
-                        </a>
+                        </button>
                     </div>
+                </form>
                 </div>
             </div>
         </div>

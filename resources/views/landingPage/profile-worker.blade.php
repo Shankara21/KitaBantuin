@@ -131,6 +131,22 @@
                                         <h4>{{ $user->email }}</h4>
                                     </div>
                                 </div>
+                                <div class="col-lg-6 col-sm-12  mb-3">
+                                    <div class="card" style="border: none">
+                                        <label for="">Bank</label>
+                                        @if ($user->bankuser_id == null)
+                                                <h4></h4>
+                                                @else
+                                                <h4>{{ $user->bankUser->name }}</h4>
+                                            @endif
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12  mb-3">
+                                    <div class="card" style="border: none">
+                                        <label for="">Nomor Rekening</label>
+                                        <h4>{{ $user->bank_account }}</h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form d-none">
@@ -164,6 +180,19 @@
                                     <label for="exampleInputEmail1" class="form-label">Email</label>
                                     <input type="email" class="form-control" value="{{ $user->email }}"
                                         id="exampleInputEmail1" name="email">
+                                </div>
+                                <div class="col-lg-6 col-sm-12  mb-5">
+                                    <label for="" class="form-label">Bank</label>
+                                    <select class="form-control" name="bankuser_id">
+                                        @foreach ($bank as $item)
+                                            <option value="{{ $item->id }}" {{ $user->bankuser_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-sm-12  mb-5">
+                                    <label for="" class="form-label">No Rekening</label>
+                                    <input type="number" class="form-control" value="{{ $user->bank_account }}"
+                                        id="" name="bank_account">
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary">Submit <i

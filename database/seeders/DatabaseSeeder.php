@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
 
         Testimoni::factory(10)->create();
         $this->call([
+            BankUserSeeder::class,
             CategorySeeder::class,
             SubCategorySeeder::class,
             SkillSeeder::class,

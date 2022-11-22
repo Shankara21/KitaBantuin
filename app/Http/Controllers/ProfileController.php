@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -81,6 +82,8 @@ class ProfileController extends Controller
             'gender' => 'required',
             'phone' => 'required',
             'photo' => 'image|file',
+            'bankuser_id' => 'required',
+            'bank_account' => 'required'
             // 'bank_account' => 'required',
         ]);
 
@@ -93,7 +96,8 @@ class ProfileController extends Controller
 
         User::where('id', $id)
             ->update($validateData);
-        return redirect('/profile')->with('success', 'Profile telah diupdate!');
+        Alert::success('Berhasil', 'Profil berhasil di update');
+        return redirect('/profile');
     }
 
     public function updateWorker(Request $request, $id)
@@ -108,6 +112,8 @@ class ProfileController extends Controller
             'gender' => 'required',
             'phone' => 'required',
             'photo' => 'image|file',
+            'bankuser_id' => 'required',
+            'bank_account' => 'required'
             // 'bank_account' => 'required',
         ]);
 
@@ -120,7 +126,8 @@ class ProfileController extends Controller
 
         User::where('id', $id)
             ->update($validateData);
-        return redirect('/profile-worker')->with('success', 'Profile telah diupdate!');
+        Alert::success('Berhasil', 'Profil berhasil di update');
+        return redirect('/profile-worker');
     }
 
     /**

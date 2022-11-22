@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('project_id')->constrained();
             $table->foreignId('bank_id')->constrained();
-            $table->foreignId('bid_id')->constrained();
+            $table->foreignId('bid_id')->nullable()->constrained();
             $table->integer('amount');
             $table->integer('potongan')->nullable();
             $table->string('status')->default('Pending');
