@@ -132,7 +132,7 @@
                         <div class="row align-items-center m-3">
                             <div class="col-lg-6 mx-auto text-center">
 
-                                <h1 class="">Tidak Ada Pekerja Terbaik!!</h1>
+                                <h1 class="">Belum ada pekerja terbaik.</h1>
                             </div>
                         </div>
                     </div>

@@ -22,8 +22,8 @@
                         <th>Bank</th>
                         <th>Total</th>
                         <th>Status</th>
+                        <th>Jenis</th>
                         <th>Tanggal</th>
-                        <th>Bukti</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -35,8 +35,9 @@
                         <td>{{ $item -> bank -> name }}</td>
                         <td>{{ $item -> amount }}</td>
                         <td><span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span></td>
+                        <td>{{ $item -> jenis }}</td>
                         <td>{{ $item -> created_at->format('d/m/Y') }}</td>
-                        <td><img src="{{ asset('storage/'. $item->bukti_transfer) }}" width="100" height="100"></td>
+                       
                         <td class="text-center">
 
                             <form class="d-inline" action="{{ route('payment.update', $item -> id) }}" method="POST">
@@ -63,7 +64,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="5" class="text-center">Tidak ada data</td>
+                        <td colspan="9" class="text-center">Tidak ada data</td>
                     </tr>
                     @endforelse
                 </tbody>

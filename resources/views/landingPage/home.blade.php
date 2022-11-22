@@ -13,12 +13,15 @@
                             <div class="col-12">
                                 <form class="form">
                                     <div class="row mb-2">
-                                        <div class="col">
+                                        <div class="col-6">
                                             <select name="categories" id="categories" class="form-control custom-select">
-                                                @foreach ($categories as $item)
+                                                @foreach ($subCategories as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="date" name="date" id="" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row align-items-center">

@@ -98,7 +98,7 @@ class LandingPageController extends Controller
         // dd($target->user);
         $target = Project::where('status', 'Open');
         if ($request->filter_category) {
-            $category = SubCategory::where('name', $request->filter_category)->first();
+            $category = SubCategory::where('id', $request->filter_category)->first();
             $target = Project::where('sub_categories', $category->name)->where('status', 'Open');
         }
         return view('landingPage.projects', [

@@ -20,7 +20,7 @@
         {{-- Make search --}}
         <div class="row">
             <div class="col-md-12">
-                <form action="" {{ route('list-project') }}>
+                <form action="{{ route('list-project') }}" >
                     @if (request('subCategory'))
                     <input type="hidden" name="subCategory" value="{{ request('subCategory') }}">
                     @endif
