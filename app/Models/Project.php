@@ -49,6 +49,9 @@ class Project extends Model
     {
         return $this->hasMany(Bid::class);
     }
+    public function project_result(){
+        return $this->hasOne(Project_result::class);
+    }
     public function payment()
     {
         return $this->hasOne(Payment::class);

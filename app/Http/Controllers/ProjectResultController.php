@@ -49,9 +49,13 @@ class ProjectResultController extends Controller
      * @param  \App\Models\Project_result  $project_result
      * @return \Illuminate\Http\Response
      */
-    public function show(Project_result $project_result)
+    public function show(Project_result $project_result, $id)
     {
-        //
+        $result = Project_result::where('id', $id)->first();
+        return view('Admin.ProjectResult.show', [
+            'result' => $result,
+            'title' => 'Project Result Detail'
+        ]);
     }
 
     /**

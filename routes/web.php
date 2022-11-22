@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\SubCategoryController as AdminSubCategoryController;
 use App\Http\Controllers\Admin\AdminAdminController as AdminController;
+use App\Http\Controllers\Admin\AdminPaymentController;
 use App\Http\Controllers\Admin\AdminSkillController;
 use App\Http\Controllers\Admin\TestimoniController as AdminTestimoniController;
 use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
@@ -123,4 +124,5 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/bank', BankController::class);
     Route::resource('/payment', PaymentController::class);
     Route::resource('/balance', BalanceController::class);
+    Route::resource('/admin-payment', AdminPaymentController::class);
 });

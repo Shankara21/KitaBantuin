@@ -37,7 +37,7 @@
                         <td><span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span></td>
                         <td class="text-center">
 
-                            <form class="d-inline" action="{{ route('projects.update', $item -> id) }}" method="POST">
+                            <form class="d-inline" action="{{ route('result.update', $item -> id) }}" method="POST">
                                 @method('PUT')
                                 @csrf
                                 <button class="btn btn-success p-1 text-white font-bold">
@@ -46,11 +46,11 @@
                                 </button>
                             </form>
                             <a class="btn btn-info p-1 text-white font-bold p-1"
-                                href="{{ route('projects.show', $item -> id) }}">
+                                href="{{ route('result.show', $item -> id) }}">
                                 <i class="bx bx-info-circle me-1"></i>
                                 Details
                             </a>
-                            <form action="{{ route('projects.destroy', $item -> id) }}" method="POST" class="d-inline">
+                            <form action="{{ route('result.destroy', $item -> id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1"><i
