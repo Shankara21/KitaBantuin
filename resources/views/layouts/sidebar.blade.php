@@ -104,7 +104,7 @@
         </li>
         <li class="menu-item {{ Request::is('user*') ? 'active' : '' }}">
           <a href=" {{ route('user.index') }}" class="menu-link ">
-            <div data-i18n="Notifications">User</div>
+            <div data-i18n="Notifications" id="user">User</div>
           </a>
         </li>
       </ul>
@@ -126,7 +126,7 @@
       <ul class="menu-sub">
         <li class="menu-item {{ Request::is('projects*') ? 'active' : '' }}">
           <a href="/projects" class="menu-link">
-            <div data-i18n="Project">Project</div>
+            <div data-i18n="Project" id="project">Project</div>
           </a>
         </li>
         <li class="menu-item {{ Request::is('result*') ? 'active' : '' }}">

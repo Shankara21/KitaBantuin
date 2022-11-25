@@ -4,7 +4,7 @@
   id="layout-navbar">
   <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
     <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-      <i class="bx bx-menu bx-sm"></i>
+      <i class="bx bx-menu bx-sm" id="sidebar"></i>
     </a>
   </div>
 
@@ -23,7 +23,7 @@
       <!-- User -->
       <li class="nav-item navbar-dropdown dropdown-user dropdown">
         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-          <div class="avatar avatar-online">
+          <div class="avatar avatar-online" id="avatar">
             @if (Auth::user()->photo)
                                 <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="" width="250px"
                                     class="rounded-circle img-thumbnail mb-3">
