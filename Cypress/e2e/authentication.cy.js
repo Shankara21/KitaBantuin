@@ -1,4 +1,9 @@
 describe("Login", () => {
+
+    it("Open login Page", () => {
+        cy.visit("http://localhost:8000/login");
+    });
+
     it("Admin can login", () => {
         cy.visit("http://localhost:8000/login");
         cy.get('input[name=email]').type('judha@gmail.com')
@@ -57,6 +62,11 @@ describe("Login", () => {
 });
 
 describe("Register", () => {
+
+    it("Open register page", () => {
+        cy.visit("http://localhost:8000/register");
+    });
+
     it("New User can register", () => {
         cy.visit("http://localhost:8000/register");
         cy.get('input[name=name]').type('Judha Maygustya')
@@ -67,7 +77,7 @@ describe("Register", () => {
         cy.url().should('contain', 'http://localhost:8000/')
     });
 
-    it("Fullname is required", () => {
+    it("Name is required", () => {
         cy.visit("http://localhost:8000/register");
         cy.get('input[name=name]')
         cy.get('input[name=email]').type('judha@gmail.com')
