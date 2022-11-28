@@ -34,10 +34,13 @@ describe("Menu Dashboard", () => {
         cy.get('div').contains('Category').click()
         cy.url().should('contain', 'http://localhost:8000/categories')
 
+
+
         cy.get('i[id=sidebar]').click()
         cy.get('div').contains('Categories').click()
         cy.get('div').contains('SubCategory').click()
         cy.url().should('contain', 'http://localhost:8000/subCategories')
+
 
     });
 
