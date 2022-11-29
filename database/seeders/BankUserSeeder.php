@@ -20,32 +20,32 @@ class BankUserSeeder extends Seeder
             [
                 'name' => 'Shopeepay',
                 'slug' => 'shopeepay',
-                'image' => 'img/payments/Shopeepay.png',
+                'image' => 'img/payments/shopeepay.png',
             ],
             [
                 'name' => 'Linkaja',
                 'slug' => 'linkaja',
-                'image' => 'img/payments/LinkAja.png',
+                'image' => 'img/payments/linkaja.png',
             ],
             [
                 'name' => 'Gopay',
                 'slug' => 'gopay',
-                'image' => 'img/payments/Gopay.png',
+                'image' => 'img/payments/gopay.png',
             ],
             [
                 'name' => 'BCA',
                 'slug' => 'bca',
-                'image' => 'img/payments/BCA.png',
+                'image' => 'img/payments/bca.png',
             ],
             [
                 'name' => 'BRI',
                 'slug' => 'bri',
-                'image' => 'img/payments/BRI.png',
+                'image' => 'img/payments/bri.png',
             ],
             [
                 'name' => 'Mandiri',
                 'slug' => 'mandiri',
-                'image' => 'img/payments/Mandiri.png',
+                'image' => 'img/payments/mandiri.png',
             ],
         ]);
     }

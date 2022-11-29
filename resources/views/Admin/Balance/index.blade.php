@@ -3,7 +3,32 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card h-100">
-        <h5 class="card-header">Data Pemasukan Dan Pengeluaran</h5>
+        <div class="card-header">
+            <h5>Data Pemasukan Dan Pengeluaran</h5>
+            <div class="row">
+                <div class="col-10">
+                    <h5>Pilih tanggal</h5>
+                    <form action="/balance">
+                        <div class="input-group mb-3 w-25">
+                            <input type="date" class="form-control" placeholder="Pilih tanggal" name="search"
+                                value="" onchange="submit()">
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div style="float: right">
+                        <h5>Status</h5>
+                    <form action="/balance">
+                        <select class="form-select" name="filter_category" id="" onchange="submit()">
+                                <option value="Pemasukan">Pemasukan</option>
+                                <option value="Pengeluaran">Pengeluaran</option>
+                        </select>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @if (count($errors) > 0)
         <div class="mx-3 alert alert-danger">
             <ul>
@@ -13,6 +38,7 @@
             </ul>
         </div>
         @endif
+
         <div class="table-responsive text-nowrap h-100">
             <table class="table table-hover">
                 <thead>

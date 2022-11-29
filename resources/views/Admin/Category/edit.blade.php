@@ -26,8 +26,15 @@
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="basic-default-name"
-                                placeholder="Name of category" name="name" required value="{{ $category -> name }}" />
+                            <input type="text" class="form-control" id="name"
+                                placeholder="Name" name="name" required value="{{ $category -> name }}" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">Slug</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="slug"
+                                placeholder="Slug" name="slug" readonly value="{{ $category -> slug }}" />
                         </div>
                     </div>
                     <div class="row justify-content-end">
@@ -40,4 +47,17 @@
         </div>
     </div>
 </div>
+
+@section('script')
+<script>
+    const name = document.querySelector('#name');
+    const slug = document.querySelector('#slug');
+
+  name.addEventListener('change', function(){
+    fetch('/categories/checkSlug?name=' + name.value)
+    .then(response => response.json())
+    .then(data => slug.value = data.slug)
+  });
+</script>
+@endsection
 @endsection

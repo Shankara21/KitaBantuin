@@ -30,6 +30,13 @@
                                 placeholder="Name of skill" name="name" required value="{{ $skill -> name }}" />
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">Slug</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="slug"
+                                placeholder="Slug of skill" name="slug" readonly value="{{ $skill -> slug }}" />
+                        </div>
+                    </div>
                     <div class="row justify-content-end">
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Send</button>
@@ -40,4 +47,17 @@
         </div>
     </div>
 </div>
+
+@section('script')
+<script>
+    const name = document.querySelector('#name');
+    const slug = document.querySelector('#slug');
+
+  name.addEventListener('change', function(){
+    fetch('/skill/checkSlug?name=' + name.value)
+    .then(response => response.json())
+    .then(data => slug.value = data.slug)
+  });
+</script>
+@endsection
 @endsection

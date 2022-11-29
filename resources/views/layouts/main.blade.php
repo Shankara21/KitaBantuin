@@ -110,6 +110,7 @@
     <!-- / Layout wrapper -->
 
 
+    @yield('script')
 
      <!-- Core JS -->
   <script src="https://github.com/Firgisotya/AssetKitaBantuin/blob/main/assets/vendor/libs/jquery/jquery.js"></script>

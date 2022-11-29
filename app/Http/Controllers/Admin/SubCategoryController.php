@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class SubCategoryController extends Controller
@@ -54,9 +55,9 @@ class SubCategoryController extends Controller
             'name' => 'required|unique:sub_categories|max:255',
             'category_id' => 'required',
         ]);
-        $validateData['slug'] = Str::slug($request->name);
         SubCategory::create($validateData);
-        return redirect()->route('subCategories.index')->with('success', 'SubCategory created successfully');
+        Alert::success('Success', 'SubCategory berhasil ditambah');
+        return redirect()->route('subCategories.index');
     }
 
     /**
@@ -98,9 +99,9 @@ class SubCategoryController extends Controller
             'name' => 'required|unique:sub_categories|max:255',
             'category_id' => 'required',
         ]);
-        $validateData['slug'] = Str::slug($request->name);
         $subCategory->update($validateData);
-        return redirect()->route('subCategories.index')->with('success', 'SubCategory updated successfully');
+        Alert::success('Success', 'SubCategory berhasil diubah');
+        return redirect()->route('subCategories.index');
     }
 
     /**
@@ -112,7 +113,8 @@ class SubCategoryController extends Controller
     public function destroy(SubCategory $subCategory)
     {
         $subCategory->delete();
-        return redirect()->route('subCategories.index')->with('success', 'SubCategory deleted successfully');
+        Alert::success('Success', 'SubCategory berhasil dihapus');
+        return redirect()->route('subCategories.index');
     }
 
     public function checkSlug(Request $request){

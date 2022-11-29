@@ -68,6 +68,24 @@
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">Pages</span>
     </li>
+    <li class="menu-item {{ Request::is('bank*') || Request::is('bank-user*') ? 'active' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon fa-solid fa-building-columns"></i>
+          <div data-i18n="Account Settings">Bank</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item {{ Request::is('bank*') ? 'active' : '' }}">
+            <a href="{{ route('bank.index') }}" class="menu-link">
+              <div data-i18n="Account">Bank Admin</div>
+            </a>
+          </li>
+          <li class="menu-item {{ Request::is('bank-user*') ? 'active' : '' }}"">
+            <a href=" {{ route('bank-user.index') }}" class="menu-link ">
+            <div data-i18n="Notifications">Bank User</div>
+            </a>
+          </li>
+        </ul>
+      </li>
     <li class="menu-item {{ Request::is('categories*') || Request::is('subCategories*') ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-grid-alt"></i>
@@ -137,17 +155,12 @@
       </ul>
     </li>
 
-    <li class="menu-item {{ Request::is('bank*') || Request::is('payment*') || Request::is('balance*') ? 'active' : '' }}">
+    <li class="menu-item {{ Request::is('payment*') || Request::is('balance*') ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon fa-regular fa-credit-card"></i>
         <div data-i18n="Basic">Pembayaran</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item {{ Request::is('bank*') ? 'active' : '' }}">
-          <a href="/bank" class="menu-link">
-            <div data-i18n="Error">Bank</div>
-          </a>
-        </li>
         <li class="menu-item {{ Request::is('payment*') ? 'active' : '' }}">
           <a href="/payment" class="menu-link">
             <div data-i18n="Under Maintenance">Payment</div>

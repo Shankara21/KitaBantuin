@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminWorkerController as AdminWorkerController;
 use App\Http\Controllers\Admin\AdminUserController as AdminUserController;
 use App\Http\Controllers\BalanceController;
 use App\Http\Controllers\BankController;
+use App\Http\Controllers\BankUserController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LandingPageProject;
 use App\Http\Controllers\PaymentController;
@@ -109,9 +110,11 @@ Route::controller(PortofolioController::class)->group(function () {
 // ! Admin Routing
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index']);
-    Route::get('/categories/checkSlug', [AdminController::class, 'checkSlug']);
+    Route::get('/categories/checkSlug', [AdminCategoryController::class, 'checkSlug']);
     Route::get('/subCategories/checkSlug', [AdminSubCategoryController::class, 'checkSlug']);
     Route::get('/skill/checkSlug', [AdminSkillController::class, 'checkSlug']);
+    Route::get('/bank/checkSlug', [BankController::class, 'checkSlug']);
+    Route::get('/bank-user/checkSlug', [BankUserController::class, 'checkSlug']);
     Route::resource('/categories', AdminCategoryController::class);
     Route::resource('/subCategories', AdminSubCategoryController::class);
     Route::resource('/user', AdminUserController::class);
@@ -123,6 +126,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/projects', ProjectController::class);
     Route::resource('/result', ProjectResultController::class);
     Route::resource('/bank', BankController::class);
+    Route::resource('/bank-user', BankUserController::class);
     Route::resource('/payment', PaymentController::class);
     Route::resource('/balance', BalanceController::class);
     Route::resource('/admin-payment', AdminPaymentController::class);
