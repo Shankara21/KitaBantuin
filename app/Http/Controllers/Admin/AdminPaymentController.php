@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Balance;
 use App\Models\Payment;
 use App\Models\Project;
 use App\Models\Project_result;
@@ -94,6 +95,15 @@ class AdminPaymentController extends Controller
             $validatePayment['bukti_transfer'] = $request->file('bukti_transfer')->store('bukti_transfer', 'public');
         }
         Payment::create($validatePayment);
+
+        $payId = Payment::where('project_id', $project->id)->latest()->first();
+        $id = $payId->id;
+        $am = $payId->amount;
+        Balance::create([
+            'payment_id' => $id,
+            'status' => 'Pengeluaran',
+            'total_profit' => $am
+        ]);
 
         Alert::success('Berhasil', 'Pembayaran Worker Berhasil!');
         return redirect('/payment');

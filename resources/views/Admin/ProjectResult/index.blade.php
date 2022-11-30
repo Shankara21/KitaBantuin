@@ -19,7 +19,7 @@
                     <tr>
                         <th>No</th>
                         <th>Name</th>
-                        <th>About</th>
+                        <th>Tanggal</th>
                         {{-- <th>CV</th>
                         <th>KTP</th> --}}
                         <th>Status</th>
@@ -31,20 +31,20 @@
                     <tr>
                         <td>{{ $loop -> iteration }}</td>
                         <td>{{ $item -> worker ->  name }}</td>
-                        <td>{{ $item -> about }}</td>
+                        <td>{{ $item -> created_at->format('m/d/Y') }}</td>
                         {{-- <td><img src="{{ asset('storage/'.$item -> cv) }}" alt="" width="100px"></td>
                         <td><img src="{{ asset('storage/'.$item -> ktp) }}" alt="" width="100px"></td> --}}
-                        <td><span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span></td>
+                        <td>
+                            @if ($item -> project -> status  == 'Pending')
+                            <span class="badge rounded-pill bg-warning text-black">{{ $item -> project -> status }}</span>
+                            @elseif ($item -> project -> status  == 'Done')
+                            <span class="badge rounded-pill bg-success text-black">{{ $item -> project -> status }}</span>
+                            @elseif ($item -> project -> status  == 'Rejected')
+                            <span class="badge rounded-pill bg-danger text-black">{{ $item -> project -> status }}</span>
+                            @endif
+                        </td>
                         <td class="text-center">
 
-                            <form class="d-inline" action="{{ route('result.update', $item -> id) }}" method="POST">
-                                @method('PUT')
-                                @csrf
-                                <button class="btn btn-success p-1 text-white font-bold">
-                                    <i class="bx bx-check-circle me-1"></i>
-                                    Accept
-                                </button>
-                            </form>
                             <a class="btn btn-info p-1 text-white font-bold p-1"
                                 href="{{ route('result.show', $item -> id) }}">
                                 <i class="bx bx-info-circle me-1"></i>
