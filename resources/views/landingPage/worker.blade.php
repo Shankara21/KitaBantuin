@@ -165,7 +165,7 @@
                                 <div class="" style="transform: translateX(-20px);">
                                     <div class="pt-3 d-flex">
                                         <span><i class="fa-solid fa-star text-warning m-1"></i> </span>
-                                        <p class="">{{ $item->rating }}</p>
+                                        <p class="">{{ number_format($item->rating, 2) }}</p>
                                     </div>
                                 </div>
                             </div>
