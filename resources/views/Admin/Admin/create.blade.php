@@ -74,7 +74,7 @@
                     <div class="row mb-3 align-items-center">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Bank Account</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="basic-default-name"
+                            <input type="number" class="form-control" id="basic-default-name"
                                 placeholder="e.g 12612837120948187" name="bank_account" required />
                         </div>
                     </div>

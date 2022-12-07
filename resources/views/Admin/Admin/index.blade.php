@@ -49,11 +49,11 @@
                         <td>{{ $item -> email ?? '-' }}</td>
                         <td>
                             <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow item-{{ $item -> id }}"
                                     data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
-                                <div class="dropdown-menu">
+                                <div class="dropdown-menu ">
                                     <a class="dropdown-item" href="{{ route('admin.show', $item -> id) }}">
                                         <i class="bx bx-show me-1"></i>
                                         Details
@@ -66,7 +66,7 @@
                                         class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="dropdown-item"><i class="bx bx-trash me-1"></i>
+                                        <button type="submit" class="dropdown-item item-{{ $item -> id }}"><i class="bx bx-trash me-1"></i>
                                             Delete</button>
                                     </form>
                                 </div>

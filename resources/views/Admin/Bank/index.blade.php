@@ -40,7 +40,7 @@
                         <td>{{ $item -> name }}</td>
                         <td>{{ $item -> account_number }}</td>
                         <td class="text-center">
-                            <a class="btn btn-info p-1 text-white font-bold p-1"
+                            <a class="btn btn-info p-1 text-white font-bold p-1 item-{{ $item->id }}"
                                 href="{{ route('bank.show', $item -> id) }}">
                                 <i class="bx bx-info-circle me-1"></i>
                                 Details
@@ -49,7 +49,7 @@
                                 class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1"><i
+                                <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1 delete-{{ $item -> id }}"><i
                                         class="bx bx-trash me-1"></i>
                                     Delete</button>
                             </form>

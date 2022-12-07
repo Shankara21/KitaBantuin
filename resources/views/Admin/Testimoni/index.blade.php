@@ -37,7 +37,7 @@
                             <form method="POST" action="{{ route('testimoni.destroy', $item -> id) }}" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1"><i
+                                <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1 item-{{ $item -> id }}"><i
                                         class="bx bx-trash me-1"></i>
                                     Delete</button>
                             </form>
