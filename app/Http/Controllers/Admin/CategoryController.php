@@ -51,9 +51,7 @@ class CategoryController extends Controller
         $validateData = $request->validate([
             'name' => 'required|unique:categories|max:255',
         ]);
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
-        Category::create($data);
+        Category::create($validateData);
         Alert::success('Success', 'Category berhasil ditambah');
         return redirect('/categories');
     }
@@ -94,9 +92,9 @@ class CategoryController extends Controller
     {
         $category->update([
             'name' => $request->name,
-            'slug' => Str::slug($request->name)
         ]);
-        return redirect()->route('categories.index')->with('success', 'Category Updated Successfully');
+        Alert::success('Success', 'Category berhasil diubah');
+        return redirect()->route('categories.index');
     }
 
     /**

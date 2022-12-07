@@ -47,6 +47,7 @@
     </div>
 </div>
 
+@section('script')
 <script>
     const name = document.querySelector('#name');
     const slug = document.querySelector('#slug');
@@ -57,4 +58,5 @@
     .then(data => slug.value = data.slug)
   });
 </script>
+@endsection
 @endsection

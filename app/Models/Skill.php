@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Skill extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
     protected $guarded = ['id'];
 
     public function getRouteKeyName()
@@ -20,7 +20,7 @@ class Skill extends Model
     {
         return [
             'slug' => [
-                'source' => 'na,e'
+                'source' => 'name'
             ]
         ];
     }

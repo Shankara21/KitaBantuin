@@ -33,7 +33,7 @@
                                         <h4>Bank</h4>
                                     </td>
                                     <td>
-                                        <h4>: <img src="{{ asset('img/payments/'.$result -> project -> worker -> bankUser -> name.'.png' ) }}" width="200" height="200"></h4>
+                                        <h4>: <img src="{{ asset('img/payments/'.$result -> project -> worker -> bankUser -> slug.'.png' ) }}" width="200" height="200"></h4>
                                     </td>
                                 </tr>
                                 <tr>

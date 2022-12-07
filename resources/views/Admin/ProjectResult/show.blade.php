@@ -4,7 +4,7 @@
     <div class="col-xxl">
         <div class="card mb-4">
             <div class="m-3">
-                <a href="{{ route('user.index') }}" class="btn btn-primary">Kembali</a>
+                <a href="{{ route('result.index') }}" class="btn btn-primary">Kembali</a>
             </div>
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h5 class="mb-0">Project Result Detail</strong></h5>

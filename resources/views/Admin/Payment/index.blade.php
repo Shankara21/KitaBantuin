@@ -34,13 +34,21 @@
                         <td>{{ $item -> user ->  name }}</td>
                         <td>{{ $item -> bank -> name }}</td>
                         <td>{{ $item -> amount }}</td>
-                        <td><span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span></td>
+                        <td>
+                            @if ($item -> status == 'Pending')
+                            <span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span>
+                            @elseif ($item -> status == 'Accepted')
+                            <span class="badge rounded-pill bg-success text-black">{{ $item -> status }}</span>
+                            @elseif ($item -> status == 'Rejected')
+                            <span class="badge rounded-pill bg-danger text-black">{{ $item -> status }}</span>
+                            @endif
+                        </td>
                         <td>{{ $item -> jenis }}</td>
                         <td>{{ $item -> created_at->format('d/m/Y') }}</td>
-                       
-                        <td class="text-center">
 
-                            <form class="d-inline" action="{{ route('payment.update', $item -> id) }}" method="POST">
+                        <td class="text-center">
+                            @if ($item -> status == 'Pending')
+                                <form class="d-inline" action="{{ route('payment.update', $item -> id) }}" method="POST">
                                 @method('PUT')
                                 @csrf
                                 <button class="btn btn-success p-1 text-white font-bold">
@@ -60,6 +68,34 @@
                                         class="bx bx-trash me-1"></i>
                                     Delete</button>
                             </form>
+                            @elseif ($item -> status == 'Accepted')
+                            <a class="btn btn-info p-1 text-white font-bold p-1"
+                                href="{{ route('payment.show', $item -> id) }}">
+                                <i class="bx bx-info-circle me-1"></i>
+                                Details
+                            </a>
+                            <form action="{{ route('payment.destroy', $item -> id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1"><i
+                                        class="bx bx-trash me-1"></i>
+                                    Delete</button>
+                            </form>
+                            @elseif ($item -> status == 'Rejected')
+                            <a class="btn btn-info p-1 text-white font-bold p-1"
+                                href="{{ route('payment.show', $item -> id) }}">
+                                <i class="bx bx-info-circle me-1"></i>
+                                Details
+                            </a>
+                            <form action="{{ route('payment.destroy', $item -> id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger p-1 text-white font-bold p-1"><i
+                                        class="bx bx-trash me-1"></i>
+                                    Delete</button>
+                            </form>
+                            @endif
+
                         </td>
                     </tr>
                     @empty

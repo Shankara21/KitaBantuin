@@ -7,6 +7,7 @@ use App\Models\Skill;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminSkillController extends Controller
 {
@@ -44,13 +45,12 @@ class AdminSkillController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validateData = $request->validate([
             'name' => 'required|unique:skills|max:255',
         ]);
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
-        Skill::create($data);
-        return redirect()->route('skill.index')->with('success', 'Skill created successfully');
+        Skill::create($validateData);
+        Alert::success('Success', 'Skill berhasil ditambah');
+        return redirect()->route('skill.index');
     }
 
     /**
@@ -89,9 +89,9 @@ class AdminSkillController extends Controller
     {
         $skill->update([
             'name' => $request->name,
-            'slug' => Str::slug($request->name)
         ]);
-        return redirect()->route('skill.index')->with('success', 'Skill Updated Successfully');
+        Alert::success('Success', 'Skill berhasil diubah');
+        return redirect()->route('skill.index');
     }
 
     /**
@@ -103,7 +103,8 @@ class AdminSkillController extends Controller
     public function destroy(Skill $skill)
     {
         $skill->delete();
-        return redirect()->route('skill.index')->with('success', 'Skill Deleted Successfully');
+        Alert::success('Success', 'Skill berhasil dihapus');
+        return redirect()->route('skill.index');
     }
 
     public function checkSlug(Request $request){

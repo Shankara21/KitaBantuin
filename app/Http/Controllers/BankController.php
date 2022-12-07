@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Bank;
 use App\Http\Requests\StoreBankRequest;
 use App\Http\Requests\UpdateBankRequest;
+use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class BankController extends Controller
@@ -28,7 +30,7 @@ class BankController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Bank.create');
     }
 
     /**
@@ -39,7 +41,14 @@ class BankController extends Controller
      */
     public function store(StoreBankRequest $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|unique:banks|max:255',
+            'account_name' => 'required',
+            'account_number' => 'required',
+        ]);
+        Bank::create($validateData);
+        Alert::success('Success', 'Bank berhasil ditambah');
+        return redirect()->route('bank.index');
     }
 
     /**
@@ -63,7 +72,9 @@ class BankController extends Controller
      */
     public function edit(Bank $bank)
     {
-        //
+        return view('Admin.Bank.edit', [
+            'bank' => $bank
+        ]);
     }
 
     /**
@@ -75,7 +86,14 @@ class BankController extends Controller
      */
     public function update(UpdateBankRequest $request, Bank $bank)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|unique:banks|max:255',
+            'account_name' => 'required',
+            'account_number' => 'required',
+        ]);
+        $bank->update($validateData);
+        Alert::success('Success', 'Bank berhasil diubah');
+        return redirect()->route('bank.index');
     }
 
     /**
@@ -87,7 +105,13 @@ class BankController extends Controller
     public function destroy(Bank $bank)
     {
         $bank->delete();
-        Alert::success('Success', 'Bank Deleted Successfully');
+        Alert::success('Success', 'Bank berhasil dihapus');
         return redirect()->route('bank.index');
+    }
+
+    public function checkSlug(Request $request){
+        $slug = SlugService::createSlug(Bank::class, 'slug', $request->name);
+
+        return response()->json(['slug' => $slug]);
     }
 }
