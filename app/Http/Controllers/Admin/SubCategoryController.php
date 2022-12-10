@@ -112,8 +112,13 @@ class SubCategoryController extends Controller
      */
     public function destroy(SubCategory $subCategory)
     {
-        $subCategory->delete();
-        Alert::success('Success', 'SubCategory berhasil dihapus');
+        try {
+            $subCategory->delete();
+            Alert::success('Success', 'SubCategory berhasil dihapus');
+        } catch (\Exception $e){
+        if($e->getCode() == "23000"){
+            Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
+        }}
         return redirect()->route('subCategories.index');
     }
 

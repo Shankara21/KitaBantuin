@@ -33,10 +33,10 @@
                     <tr>
                         <td>{{ $loop -> iteration }}</td>
                         <td>
-                            @if ($item -> image)
+                            @if (File::exists(public_path('storage/'.$item -> image)))
                                 <img src="{{ asset('storage/'.$item -> image) }}" alt="" width="150px">
-                            @else
-                                <img src="{{ asset('img/payments/'.$item -> slug.'.png') }}" alt="" width="150px">
+                            @elseif($item->image)
+                                <img src="{{ asset($item->image) }}" alt="" width="150px">
                             @endif
                         </td>
                         <td>{{ $item -> name }}</td>

@@ -102,8 +102,13 @@ class AdminSkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        $skill->delete();
-        Alert::success('Success', 'Skill berhasil dihapus');
+        try {
+            $skill->delete();
+            Alert::success('Success', 'Skill berhasil dihapus');
+        } catch (\Exception $e){
+        if($e->getCode() == "23000"){
+            Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
+        }}
         return redirect()->route('skill.index');
     }
 

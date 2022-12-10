@@ -267,9 +267,8 @@
                                         <h2>Belum ada portofolio</h2>
                                     </div>
                                 </div>
-                                @endforelse
-
                             </div>
+                            @endforelse
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

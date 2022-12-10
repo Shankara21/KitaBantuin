@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminUserController extends Controller
 {
@@ -59,8 +60,8 @@ class AdminUserController extends Controller
             $validateData['photo'] = $request->file('photo')->store('user', 'public');
         }
         User::create($validateData);
-
-        return redirect()->route('user.index')->with('success', 'User berhasil ditambahkan');
+        Alert::success('Success', 'Client berhasil ditambah');
+        return redirect()->route('user.index');
     }
 
     /**
@@ -123,8 +124,8 @@ class AdminUserController extends Controller
             $validateData['photo'] = $request->file('photo')->store('user', 'public');
         }
         User::where('id', $user->id)->update($validateData);
-
-        return redirect()->route('user.index')->with('success', 'User berhasil diubah');
+        Alert::success('Success', 'Client berhasil diubah');
+        return redirect()->route('user.index');
     }
 
     /**
@@ -135,8 +136,15 @@ class AdminUserController extends Controller
      */
     public function destroy(User $user)
     {
-        Storage::delete('public/' . $user->photo);
-        User::destroy($user->id);
-        return redirect()->route('user.index')->with('success', 'User berhasil dihapus');
+
+        try {
+            Storage::delete('public/' . $user->photo);
+            User::destroy($user->id);
+            Alert::success('Success', 'User berhasil dihapus');
+        } catch (\Exception $e){
+        if($e->getCode() == "23000"){
+            Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
+        }}
+        return redirect()->route('user.index');
     }
 }
