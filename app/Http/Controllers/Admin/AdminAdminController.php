@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminAdminController extends Controller
 {
@@ -52,15 +53,15 @@ class AdminAdminController extends Controller
             'address' => 'required',
             'phone' => 'required',
             'bank_account' => 'required',
-            'photo' => 'required|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'photo' => 'required|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $validateData['password'] = bcrypt($request->password);
         if ($request->file('photo')) {
             $validateData['photo'] = $request->file('photo')->store('user', 'public');
         }
         User::create($validateData);
-
-        return redirect()->route('admin.index')->with('success', 'User berhasil ditambahkan');
+        Alert::success('Success', 'Admin berhasil ditambah');
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -71,7 +72,8 @@ class AdminAdminController extends Controller
      */
     public function show(User $user, $id)
     {
-        $user = User::find($id);
+        // dd($user);
+        // $user = User::find($id);
         return view('Admin.Admin.show', [
             'user' => $user,
             'title' => 'Detail User'
@@ -112,7 +114,7 @@ class AdminAdminController extends Controller
             'address' => 'required',
             'phone' => 'required|numeric',
             'bank_account' => 'numeric',
-            'photo' => 'nullable|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'photo' => 'nullable|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         if ($request->password) {
             $validateData['password'] = bcrypt($request->password);
@@ -126,8 +128,8 @@ class AdminAdminController extends Controller
             $validateData['photo'] = $request->file('photo')->store('user', 'public');
         }
         User::where('id', $user->id)->update($validateData);
-
-        return redirect()->route('admin.index')->with('success', 'User berhasil diubah');
+        Alert::success('Success', 'Admin berhasil diubah');
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -139,8 +141,14 @@ class AdminAdminController extends Controller
     public function destroy(User $user, $id)
     {
         $user = User::find($id);
-        Storage::delete('public/' . $user->photo);
-        $user->delete();
-        return redirect()->route('admin.index')->with('success', 'User berhasil dihapus');
+        try {
+            Storage::delete('public/' . $user->photo);
+            $user->delete();
+            Alert::success('Success', 'Admin berhasil dihapus');
+        } catch (\Exception $e){
+        if($e->getCode() == "23000"){
+            Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
+        }}
+        return redirect()->route('admin.index');
     }
 }

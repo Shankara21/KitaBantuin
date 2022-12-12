@@ -105,9 +105,14 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
-        Alert::success('Success', 'Category berhasil dihapus');
-        return redirect('/categories');
+        try {
+            $category->delete();
+            Alert::success('Success', 'Category berhasil dihapus');
+        } catch (\Exception $e){
+        if($e->getCode() == "23000"){
+            Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
+        }}
+        return redirect()->route('categories.index');
     }
 
     public function checkSlug(Request $request){

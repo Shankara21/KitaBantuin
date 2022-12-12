@@ -69,23 +69,23 @@
       <span class="menu-header-text">Pages</span>
     </li>
     <li class="menu-item {{ Request::is('bank*') || Request::is('bank-user*') ? 'active' : '' }}">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-            <i class="menu-icon fa-solid fa-building-columns"></i>
-          <div data-i18n="Account Settings">Bank</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item {{ Request::is('bank*') ? 'active' : '' }}">
-            <a href="{{ route('bank.index') }}" class="menu-link">
-              <div data-i18n="Account">Bank Admin</div>
-            </a>
-          </li>
-          <li class="menu-item {{ Request::is('bank-user*') ? 'active' : '' }}"">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon fa-solid fa-building-columns"></i>
+        <div data-i18n="Account Settings">Bank</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::is('bank*') ? 'active' : '' }}">
+          <a href="{{ route('bank.index') }}" class="menu-link">
+            <div data-i18n="Account">Bank Admin</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('bank-user*') ? 'active' : '' }}"">
             <a href=" {{ route('bank-user.index') }}" class="menu-link ">
-            <div data-i18n="Notifications">Bank User</div>
-            </a>
-          </li>
-        </ul>
-      </li>
+          <div data-i18n="Notifications">Bank User</div>
+          </a>
+        </li>
+      </ul>
+    </li>
     <li class="menu-item {{ Request::is('categories*') || Request::is('subCategories*') ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-grid-alt"></i>
@@ -136,14 +136,14 @@
       </a>
     </li>
 
-    <li class="menu-item {{ Request::is('projects*') || Request::is('result*') ? 'active' : '' }}">
+    <li class="menu-item {{ Request::is('project*') || Request::is('result*') ? 'active' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-dock-top"></i>
         <div data-i18n="Project">Project</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item {{ Request::is('projects*') ? 'active' : '' }}">
-          <a href="/projects" class="menu-link">
+        <li class="menu-item {{ Request::is('project*') ? 'active' : '' }}">
+          <a href="/project" class="menu-link">
             <div data-i18n="Project" id="project">Project</div>
           </a>
         </li>

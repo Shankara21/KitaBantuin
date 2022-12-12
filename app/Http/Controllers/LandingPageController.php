@@ -87,6 +87,7 @@ class LandingPageController extends Controller
             $skill = explode(',', $tes->skill);
         }
 
+
         return view('landingPage.profile-worker', [
             'user' => auth()->user(),
             'portofolios' => Portofolio::where('worker_details_id', $tes->id)->get() ?? null,
@@ -102,7 +103,7 @@ class LandingPageController extends Controller
         // dd($request->all());
         $target = Project::where('status', 'Open');
 
-        
+
 
         if ($request->filter_category) {
             $category = SubCategory::where('name', $request->filter_category)->first();
