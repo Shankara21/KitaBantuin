@@ -14,6 +14,6 @@ class WorkerDetailSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

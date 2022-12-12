@@ -123,7 +123,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/skill', AdminSkillController::class);
     Route::resource('/worker-details', WorkerDetailController::class);
     Route::resource('/testimoni', AdminTestimoniController::class);
-    Route::resource('/projects', ProjectController::class);
+    Route::resource('/project', ProjectController::class);
     Route::resource('/result', ProjectResultController::class);
     Route::resource('/bank', BankController::class);
     Route::resource('/bank-user', BankUserController::class);

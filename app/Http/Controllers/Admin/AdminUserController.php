@@ -52,8 +52,8 @@ class AdminUserController extends Controller
             'gender' => 'required',
             'address' => 'required',
             'phone' => 'required',
-            'bank_account' => 'required',
-            'photo' => 'required|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bank_account' => 'nullable',
+            // 'photo' => 'nullable|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $validateData['password'] = bcrypt($request->password);
         if ($request->file('photo')) {
@@ -109,8 +109,8 @@ class AdminUserController extends Controller
             'gender' => 'required',
             'address' => 'required',
             'phone' => 'required',
-            'bank_account' => 'required|numeric',
-            'photo' => 'nullable|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bank_account' => 'nullable|numeric',
+            'photo' => 'nullable|image|file|max:2048',
         ]);
         if ($request->password) {
             $validateData['password'] = bcrypt($request->password);

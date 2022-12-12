@@ -53,7 +53,7 @@ class AdminAdminController extends Controller
             'address' => 'required',
             'phone' => 'required',
             'bank_account' => 'required',
-            'photo' => 'required|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'photo' => 'required|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $validateData['password'] = bcrypt($request->password);
         if ($request->file('photo')) {
@@ -72,7 +72,8 @@ class AdminAdminController extends Controller
      */
     public function show(User $user, $id)
     {
-        $user = User::find($id);
+        // dd($user);
+        // $user = User::find($id);
         return view('Admin.Admin.show', [
             'user' => $user,
             'title' => 'Detail User'
@@ -113,7 +114,7 @@ class AdminAdminController extends Controller
             'address' => 'required',
             'phone' => 'required|numeric',
             'bank_account' => 'numeric',
-            'photo' => 'nullable|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'photo' => 'nullable|image|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         if ($request->password) {
             $validateData['password'] = bcrypt($request->password);

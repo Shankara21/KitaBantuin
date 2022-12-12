@@ -42,7 +42,7 @@ class BankUserController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|unique:bank_users|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         if($request->file('image')){
             $validateData['image'] = $request->file('image')->store('bank', 'public');
@@ -87,7 +87,8 @@ class BankUserController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            
         ]);
         if($request->file('image')){
             if ($request->oldImage) {

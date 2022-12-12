@@ -109,7 +109,8 @@ class BankController extends Controller
         return redirect()->route('bank.index');
     }
 
-    public function checkSlug(Request $request){
+    public function checkSlug(Request $request)
+    {
         $slug = SlugService::createSlug(Bank::class, 'slug', $request->name);
 
         return response()->json(['slug' => $slug]);
