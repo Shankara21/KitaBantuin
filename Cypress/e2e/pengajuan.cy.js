@@ -1,4 +1,4 @@
-describe('Cek Payment', () => {
+describe('Cek Pengajuan', () => {
     it('Can access list payment', () => {
         cy.visit("http://localhost:8000/login");
         cy.get('input[name=email]').type('judha@gmail.com')

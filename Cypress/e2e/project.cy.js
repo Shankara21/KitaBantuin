@@ -1,5 +1,5 @@
 describe('Cek Project', () => {
-    it('Can access list projects', () => {
+    it('Can accept list projects', () => {
         cy.visit("http://localhost:8000/login");
         cy.get('input[name=email]').type('judha@gmail.com')
         cy.get('input[name=password]').type('123')
@@ -12,8 +12,7 @@ describe('Cek Project', () => {
         cy.url().should('contain', 'http://localhost:8000/projects')
 
         cy.get('button').contains('Accept').click({ force: true })
-
-        cy.get('h5').contains('List of projects').should('be.visible')
+        cy.get('button').contains('OK').click({ force: true })
     })
 
     it('Can access detail projects', () => {
