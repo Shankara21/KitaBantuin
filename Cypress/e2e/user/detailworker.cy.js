@@ -1,0 +1,11 @@
+it('Detail worker', () =>{
+    cy.visit('http://localhost:8000/login')
+    cy.get('#email').type('user')
+    cy.get('#password').type('123')
+    cy.get('.btn-primary').click()
+    cy.visit('http://localhost:8000/list-worker')
+    cy.contains('Detail').click()
+    cy.contains('Details').click()
+    cy.contains('Portofolio').click()
+    cy.contains('Project Result').click()
+})

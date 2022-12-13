@@ -1,0 +1,10 @@
+it('Proyek saya', () =>{
+    cy.visit('http://localhost:8000/login')
+    cy.get('#email').type('user')
+    cy.get('#password').type('123')
+    cy.get('.btn-primary').click()
+    cy.visit('http://localhost:8000/myProject')
+    cy.contains('Buka').click()
+    cy.contains('Sedang dalam proses').click()
+    cy.contains('Selesai').click()
+})
