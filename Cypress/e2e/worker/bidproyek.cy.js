@@ -1,0 +1,11 @@
+it('Bid Proyek', () =>{
+    cy.visit('http://localhost:8000/login')
+    cy.get('#email').type('worker')
+    cy.get('#password').type('123')
+    cy.get('.btn-primary').click()
+    cy.visit('http://localhost:8000/list-project')
+    cy.contains('Details').click()
+    cy.get('button').contains('Bid').click()
+    cy.get('[name="price"]').type('712345')
+    cy.get('button').contains('Submit').click()
+})
