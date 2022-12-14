@@ -13,19 +13,19 @@ class CrudBankUserTest extends TestCase
      *
      * @return void
      */
-    public function test_index_bank_user()
-    {
-        $response = $this->post('/login', [
-            'email' => 'Timur',
-            'password' => '123'
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/dashboard');
+    // public function test_index_bank_user()
+    // {
+    //     $response = $this->post('/login', [
+    //         'email' => 'Timur',
+    //         'password' => '123'
+    //     ]);
+    //     $response->assertStatus(302);
+    //     $response->assertRedirect('/dashboard');
 
-        $response = $this->get('/bank-user');
-        $response->assertStatus(200);
-        $response->assertViewIs('Admin.BankUser.index');
-    }
+    //     $response = $this->get('/bank-user');
+    //     $response->assertStatus(200);
+    //     $response->assertViewIs('Admin.BankUser.index');
+    // }
     public function test_store_bank_user()
     {
         $response = $this->post('/login', [
@@ -42,33 +42,33 @@ class CrudBankUserTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/bank-user');
     }
-    public function test_update_bank_user()
-    {
-        $response = $this->post('/login', [
-            'email' => 'Timur',
-            'password' => '123'
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/dashboard');
+    // public function test_update_bank_user()
+    // {
+    //     $response = $this->post('/login', [
+    //         'email' => 'Timur',
+    //         'password' => '123'
+    //     ]);
+    //     $response->assertStatus(302);
+    //     $response->assertRedirect('/dashboard');
 
-        $response = $this->put('/bank-user/shopeepay', [
-            'name' => 'Shopeepay Testing',
-            'image' => 'image.jpeg',
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/bank-user');
-    }
-    public function test_delete_bank_user()
-    {
-        $response = $this->post('/login', [
-            'email' => 'Timur',
-            'password' => '123'
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/dashboard');
+    //     $response = $this->put('/bank-user/shopeepay', [
+    //         'name' => 'Shopeepay Testing',
+    //         'image' => 'image.jpeg',
+    //     ]);
+    //     $response->assertStatus(302);
+    //     $response->assertRedirect('/bank-user');
+    // }
+    // public function test_delete_bank_user()
+    // {
+    //     $response = $this->post('/login', [
+    //         'email' => 'Timur',
+    //         'password' => '123'
+    //     ]);
+    //     $response->assertStatus(302);
+    //     $response->assertRedirect('/dashboard');
 
-        $response = $this->delete('/bank-user/bri');
-        $response->assertStatus(302);
-        $response->assertRedirect('/bank-user');
-    }
+    //     $response = $this->delete('/bank-user/bri');
+    //     $response->assertStatus(302);
+    //     $response->assertRedirect('/bank-user');
+    // }
 }

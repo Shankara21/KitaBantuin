@@ -94,6 +94,7 @@ class WorkerDetailController extends Controller
      */
     public function destroy(WorkerDetail $workerDetail)
     {
+
         $workerDetail->delete();
         return redirect()->route('worker-details.index')->with('success', 'Worker Detail deleted successfully');
     }

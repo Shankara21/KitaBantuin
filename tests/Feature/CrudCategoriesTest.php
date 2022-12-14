@@ -13,7 +13,8 @@ class CrudCategoriesTest extends TestCase
      *
      * @return void
      */
-   public function test_index_categories(){
+    public function test_index_categories()
+    {
         $response = $this->post('/login', [
             'email' => 'Timur',
             'password' => '123'
@@ -25,7 +26,8 @@ class CrudCategoriesTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('Admin.Category.index');
     }
-    public function test_create_categories(){
+    public function test_create_categories()
+    {
         $response = $this->post('/login', [
             'email' => 'Timur',
             'password' => '123'
@@ -40,7 +42,8 @@ class CrudCategoriesTest extends TestCase
         ]);
         $response->assertRedirect('/categories');
     }
-    public function test_delete_categories(){
+    public function test_delete_categories()
+    {
         $response = $this->post('/login', [
             'email' => 'Timur',
             'password' => '123'
@@ -51,7 +54,8 @@ class CrudCategoriesTest extends TestCase
         $response = $this->delete('/categories/testing');
         $response->assertRedirect('/categories');
     }
-    public function test_update_categories(){
+    public function test_update_categories()
+    {
         $response = $this->post('/login', [
             'email' => 'Timur',
             'password' => '123'
@@ -65,5 +69,5 @@ class CrudCategoriesTest extends TestCase
             'image' => 'image.jpg',
         ]);
         $response->assertRedirect('/categories');
-   }
+    }
 }

@@ -13,7 +13,7 @@ class CrudAdminTest extends TestCase
      *
      * @return void
      */
-    public function test_index_admin()
+    public function test_index_worker()
     {
         $response = $this->post('/login', [
             'email' => 'Timur',
@@ -22,11 +22,11 @@ class CrudAdminTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/dashboard');
 
-        $response = $this->get('/admin');
+        $response = $this->get('/worker');
         $response->assertStatus(200);
-        $response->assertViewIs('Admin.Admin.index');
+        $response->assertViewIs('Admin.Worker.index');
     }
-    public function test_show_user()
+    public function test_show_worker()
     {
         $response = $this->post('/login', [
             'email' => 'Timur',
@@ -35,9 +35,9 @@ class CrudAdminTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/dashboard');
 
-        $response = $this->get('/admin/3');
+        $response = $this->get('/worker/3');
         $response->assertStatus(200);
-        $response->assertViewIs('Admin.Admin.show');
+        $response->assertViewIs('Admin.Worker.show');
     }
     public function test_create_user()
     {
@@ -49,10 +49,10 @@ class CrudAdminTest extends TestCase
         $response->assertRedirect('/dashboard');
 
         $response = $this->post('/admin', [
-            'name' => 'TestingAdm',
-            'email' => 'testinggAdm@gmail.com',
+            'name' => 'TestingWorker',
+            'email' => 'testinggWorker@gmail.com',
             'password' => '123',
-            'role' => 'User',
+            'role' => 'Worker',
             'photo' => 'image.jpeg',
             'gender' => 'Laki-laki',
             'address' => 'Jl. Testing',
@@ -61,7 +61,7 @@ class CrudAdminTest extends TestCase
         ]);
         $response->assertRedirect('/admin');
     }
-    public function test_update_user()
+    public function test_update_worker()
     {
         $response = $this->post('/login', [
             'email' => 'Timur',
@@ -70,15 +70,15 @@ class CrudAdminTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/dashboard');
 
-        $response = $this->put('/admin/3', [
-            'name' => 'TestingAdmin',
-            'email' => 'updateAdmin@gmail.com',
+        $response = $this->put('/worker/3', [
+            'name' => 'Testingworker',
+            'email' => 'updateworker@gmail.com',
             'password' => '123',
-            'role' => 'Admin',
+            'role' => 'worker',
             'photo' => 'image.jpeg',
         ]);
     }
-    public function test_delete_user()
+    public function test_delete_worker()
     {
         $response = $this->post('/login', [
             'email' => 'Timur',
@@ -87,7 +87,7 @@ class CrudAdminTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/dashboard');
 
-        $response = $this->delete('/admin/3');
-        $response->assertRedirect('/admin');
+        $response = $this->delete('/worker/3');
+        $response->assertRedirect('/worker');
     }
 }

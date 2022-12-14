@@ -42,32 +42,32 @@ class CrudSubCategoriesTest extends TestCase
         $response->assertRedirect('/subCategories');
     }
     
-    public function test_update_sub_categories(){
-        $response = $this->post('/login', [
-            'email' => 'Timur',
-            'password' => '123'
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/dashboard');
+    // public function test_update_sub_categories(){
+    //     $response = $this->post('/login', [
+    //         'email' => 'Timur',
+    //         'password' => '123'
+    //     ]);
+    //     $response->assertStatus(302);
+    //     $response->assertRedirect('/dashboard');
 
-        $response = $this->put('/subCategories/testing', [
-            'name' => 'Testing update',
-            'slug' => 'testing update',
-            'category_id' => '1',
-            'image' => 'image.jpg',
-        ]);
-        $response->assertRedirect('/subCategories');
-    }
-    public function test_delete_sub_categories()
-    {
-        $response = $this->post('/login', [
-            'email' => 'Timur',
-            'password' => '123'
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/dashboard');
+    //     $response = $this->put('/subCategories/testing', [
+    //         'name' => 'Testing update',
+    //         'slug' => 'testing update',
+    //         'category_id' => '1',
+    //         'image' => 'image.jpg',
+    //     ]);
+    //     $response->assertRedirect('/subCategories');
+    // }
+    // public function test_delete_sub_categories()
+    // {
+    //     $response = $this->post('/login', [
+    //         'email' => 'Timur',
+    //         'password' => '123'
+    //     ]);
+    //     $response->assertStatus(302);
+    //     $response->assertRedirect('/dashboard');
 
-        $response = $this->delete('/subCategories/testing');
-        $response->assertRedirect('/subCategories');
-    }
+    //     $response = $this->delete('/subCategories/testing');
+    //     $response->assertRedirect('/subCategories');
+    // }
 }

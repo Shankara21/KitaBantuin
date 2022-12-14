@@ -51,7 +51,7 @@
                                 <i class="bx bx-info-circle me-1"></i>
                                 Details
                             </a>
-                            <form action="{{ route('worker-details.destroy', $item -> id) }}" method="POST"
+                            <form action="/worker-details/{{ $item -> id }}" method="POST"
                                 class="d-inline">
                                 @csrf
                                 @method('DELETE')

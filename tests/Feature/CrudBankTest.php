@@ -53,7 +53,6 @@ class CrudBankTest extends TestCase
             'account_number' => '123456789',
             'account_name' => 'Timur',
             'image' => 'image.jpg',
-
         ]);
         $response->assertRedirect('/bank');
     }
