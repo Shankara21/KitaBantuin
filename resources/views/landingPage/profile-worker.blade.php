@@ -135,10 +135,10 @@
                                     <div class="card" style="border: none">
                                         <label for="">Bank</label>
                                         @if ($user->bankuser_id == null)
-                                                <h4></h4>
-                                                @else
-                                                <h4>{{ $user->bankUser->name }}</h4>
-                                            @endif
+                                        <h4></h4>
+                                        @else
+                                        <h4>{{ $user->bankUser->name }}</h4>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-12  mb-3">
@@ -185,14 +185,16 @@
                                     <label for="" class="form-label">Bank</label>
                                     <select class="form-control" name="bankuser_id">
                                         @foreach ($bank as $item)
-                                            <option value="{{ $item->id }}" {{ $user->bankuser_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}"
+                                            {{ $user->bankuser_id == $item->id ? 'selected' : '' }}>{{ $item->name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-lg-6 col-sm-12  mb-5">
                                     <label for="" class="form-label">No Rekening</label>
-                                    <input type="number" class="form-control" value="{{ $user->bank_account }}"
-                                        id="" name="bank_account">
+                                    <input type="number" class="form-control" value="{{ $user->bank_account }}" id=""
+                                        name="bank_account">
                                 </div>
                                 <div class="d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary">Submit <i
@@ -240,7 +242,7 @@
                         </div>
                         <div class="row">
                             @forelse ($portofolios as $item)
-                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                            <div class="col-lg-4 col-sm-6 col-sm-6  mb-3">
                                 <div class="card shadow" style="border-radius: 20px;background:white">
                                     <div class="card-body">
                                         <h2>{{ $item->title }}</h2>
@@ -261,11 +263,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                @empty
-                                <div class="card shadow" style="border-radius: 20px;background:white">
-                                    <div class="card-body">
-                                        <h2>Belum ada portofolio</h2>
-                                    </div>
+                            </div>
+                            @empty
+                            <div class="card shadow" style="border-radius: 20px;background:white">
+                                <div class="card-body">
+                                    <h2>Belum ada portofolio</h2>
                                 </div>
                             </div>
                             @endforelse
