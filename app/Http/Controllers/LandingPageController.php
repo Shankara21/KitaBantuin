@@ -297,4 +297,8 @@ class LandingPageController extends Controller
             'projectResult' => $projectResult ?? null
         ]);
     }
+
+    public function videoConference(){
+        return view('landingPage.video-conference');
+    }
 }

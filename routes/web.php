@@ -80,6 +80,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::post('/rating', 'rating')->name('rating')->middleware('auth');
     Route::get('/getPayment/{id}', 'getPayment')->name('getPayment')->middleware('auth');
     Route::get('/search', 'search')->name('search');
+    Route::get('/video-conference', 'videoConference')->name('video-conference');
 });
 
 //TODO Routing untuk project
