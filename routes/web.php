@@ -17,6 +17,7 @@ use App\Http\Controllers\BankController;
 use App\Http\Controllers\BankUserController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LandingPageProject;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\PortofolioController;
@@ -50,13 +51,11 @@ use App\Models\Project_result;
 
 Auth::routes();
 
-// Route::get('/', function () {
-//     return view('landingPage.home');
-// });
-// Route::controller(OrderController::class)->group(function () {
-//     Route::get('/orders/{id}', 'show');
-//     Route::post('/orders', 'store');
-// });
+Route::controller(PasswordController::class)->group(function () {
+    Route::get('/change-password', 'index')->name('index')->middleware('auth');
+    Route::post('/change-password', 'store')->name('store')->middleware('auth');
+});
+
 Route::controller(LandingPageController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/service', 'service')->name('service');

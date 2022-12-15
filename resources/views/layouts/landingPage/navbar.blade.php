@@ -46,6 +46,7 @@
                     <li class="has-children">
                         <a href="#">{{ Auth::user()->name }}</a>
                         <ul class="dropdown">
+                            <li><a href="/change-password"><i class="fa-solid fa-key"></i> Ganti Password</a></li>
                             @if (Auth::user()->role == 'Admin')
                             <li><a href="/dashboard"><i class="fa-solid fa-paper-plane"></i> Dashboard</a></li>
                             <li>
