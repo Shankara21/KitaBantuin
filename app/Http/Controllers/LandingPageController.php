@@ -247,7 +247,7 @@ class LandingPageController extends Controller
         $validateDataPengajuan['user_id'] = auth()->user()->id;
         WorkerDetail::create($validateDataPengajuan);
 
-        Alert::success('Success', 'Data berhasil diubah');
+        Alert::success('Success', 'Pengajuan anda berhasil dikirim.');
         return redirect('/list-worker');
     }
     public function bidDetails($id)
@@ -298,7 +298,8 @@ class LandingPageController extends Controller
         ]);
     }
 
-    public function videoConference(){
+    public function videoConference()
+    {
         return view('landingPage.video-conference');
     }
 }
