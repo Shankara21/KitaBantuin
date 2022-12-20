@@ -6,8 +6,7 @@
                 <div class="col-lg-6 mx-auto text-center">
                     <div class="intro-wrap">
                         <h1 class="mb-0">Bids Saya</h1>
-                        <p class="text-white">Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. </p>
+                        <p class="text-white">Menampilkan dari hasil yang telah di Bid oleh worker </p>
                     </div>
                 </div>
             </div>
@@ -63,7 +62,6 @@
             </div>
         </div>
     </div>
-</div>
-@include('sweetalert::alert')
-
+    </div>
+    @include('sweetalert::alert')
 @endsection
