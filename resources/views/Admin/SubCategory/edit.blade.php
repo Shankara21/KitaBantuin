@@ -35,7 +35,7 @@
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Slug</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="slug"
-                                placeholder="Slug" name="name" readonly
+                                placeholder="Slug" name="slug" readonly
                                 value="{{ $subCategory -> slug }}" />
                         </div>
                     </div>

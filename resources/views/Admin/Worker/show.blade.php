@@ -32,7 +32,10 @@
                                 data-bs-target="#navs-pills-justified-messages"
                                 aria-controls="navs-pills-justified-messages" aria-selected="false">
                                 <i class="fa-solid fa-list-check"></i> Project
-                                <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-danger">3</span>
+                                @if ($amount > 0)
+                                <span
+                                    class="badge rounded-pill badge-center h-px-20 w-px-20 bg-danger">{{ $amount }}</span>
+                                @endif
                             </button>
                         </li>
                     </ul>
@@ -102,31 +105,18 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="navs-pills-justified-profile" role="tabpanel">
-                            <p>
-                                Donut dragée jelly pie halvah. Danish gingerbread bonbon cookie wafer candy oat cake ice
-                                cream. Gummies halvah tootsie roll muffin biscuit icing dessert gingerbread. Pastry ice
-                                cream
-                                cheesecake fruitcake.
-                            </p>
-                            <p class="mb-0">
-                                Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu
-                                halvah
-                                cotton candy liquorice caramels.
-                            </p>
+                            @forelse ($portofolio as $porto)
+                            <p>{{ $porto -> title }}</p>
+                            @empty
+                            <h4 class="text-center">Belum ada portofolio.</h4>
+                            @endforelse
                         </div>
                         <div class="tab-pane fade" id="navs-pills-justified-messages" role="tabpanel">
-                            <p>
-                                Oat cake chupa chups dragée donut toffee. Sweet cotton candy jelly beans macaroon
-                                gummies
-                                cupcake gummi bears cake chocolate.
-                            </p>
-                            <p class="mb-0">
-                                Cake chocolate bar cotton candy apple pie tootsie roll ice cream apple pie brownie cake.
-                                Sweet
-                                roll icing sesame snaps caramels danish toffee. Brownie biscuit dessert dessert. Pudding
-                                jelly
-                                jelly-o tart brownie jelly.
-                            </p>
+                            @forelse ($result as $result)
+                            <p>{{ $result -> project_id }}</p>
+                            @empty
+                            <h4 class="text-center">Belum ada project.</h4>
+                            @endforelse
                         </div>
                     </div>
                 </div>

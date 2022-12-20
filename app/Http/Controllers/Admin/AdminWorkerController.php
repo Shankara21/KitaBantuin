@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Portofolio;
+use App\Models\Project_result;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -74,11 +75,15 @@ class AdminWorkerController extends Controller
     public function show(User $user, $id)
     {
         $portofolio = Portofolio::where('worker_details_id', $user->id)->get();
+        $projectResult = Project_result::where('worker_id', $user->id)->get();
+        $amount = $projectResult -> count();
         $user = User::findOrFail($id);
         return view('Admin.Worker.show', [
             'user' => $user,
             'title' => 'Detail Worker',
-            'portofolio' => $portofolio
+            'portofolio' => $portofolio,
+            'result' => $projectResult,
+            'amount' => $amount
         ]);
     }
 
@@ -147,11 +152,11 @@ class AdminWorkerController extends Controller
             Storage::delete('public/' . $user->photo);
             $user->delete();
             Alert::success('Success', 'Worker berhasil dihapus');
-        } catch (\Exception $e){
-        if($e->getCode() == "23000"){
-            Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
-        }}
+        } catch (\Exception $e) {
+            if ($e->getCode() == "23000") {
+                Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
+            }
+        }
         return redirect()->route('workers.index');
-
     }
 }

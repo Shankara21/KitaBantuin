@@ -73,7 +73,7 @@ class AdminAdminController extends Controller
     public function show(User $user, $id)
     {
         // dd($user);
-        // $user = User::find($id);
+        $user = User::find($id);
         return view('Admin.Admin.show', [
             'user' => $user,
             'title' => 'Detail User'
@@ -145,10 +145,11 @@ class AdminAdminController extends Controller
             Storage::delete('public/' . $user->photo);
             $user->delete();
             Alert::success('Success', 'Admin berhasil dihapus');
-        } catch (\Exception $e){
-        if($e->getCode() == "23000"){
-            Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
-        }}
+        } catch (\Exception $e) {
+            if ($e->getCode() == "23000") {
+                Alert::error('Error', 'Data tidak bisa dihapus karena masih digunakan di tabel lain');
+            }
+        }
         return redirect()->route('admin.index');
     }
 }

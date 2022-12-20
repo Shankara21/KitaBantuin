@@ -96,7 +96,7 @@ class SubCategoryController extends Controller
     public function update(UpdateSubCategoryRequest $request, SubCategory $subCategory)
     {
         $validateData = $request->validate([
-            'name' => 'required|unique:sub_categories|max:255',
+            'name' => 'required|max:255',
             'category_id' => 'required',
         ]);
         $subCategory->update($validateData);

@@ -36,15 +36,6 @@
                         <td><img src="{{ asset('storage/'.$item -> ktp) }}" alt="" width="100px"></td> --}}
                         <td><span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span></td>
                         <td class="text-center">
-
-                            <form class="d-inline" action="{{ route('project.update', $item -> id) }}" method="POST">
-                                @method('PUT')
-                                @csrf
-                                <button class="btn btn-success p-1 text-white font-bold">
-                                    <i class="bx bx-check-circle me-1"></i>
-                                    Accept
-                                </button>
-                            </form>
                             <a class="btn btn-info p-1 text-white font-bold p-1"
                                 href="{{ route('project.show', $item -> id) }}">
                                 <i class="bx bx-info-circle me-1"></i>
