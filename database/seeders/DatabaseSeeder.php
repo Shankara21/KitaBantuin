@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123'),
             'role' => 'Admin',
         ]);
-        
+
         User::factory()->create([
             'name' => 'Judha',
             'email' => 'judha@gmail.com',
@@ -87,11 +87,11 @@ class DatabaseSeeder extends Seeder
             'status' => 'Pending',
             'about' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
         ]);
-        // Bid::factory()->create([
-        //     'user_id' => 3,
-        //     'project_id' => 1,
-        //     'price' => 100000,
-        //     'deadline' => '2022-10-10',
-        // ]);
+        Bid::factory()->create([
+            'user_id' => 3,
+            'project_id' => 1,
+            'price' => 100000,
+            'deadline' => '2022-10-10',
+        ]);
     }
 }

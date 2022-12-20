@@ -46,7 +46,7 @@
                         <td>{{ $item -> account_number }}</td>
                         <td class="text-center">
                             <a class="btn btn-info p-1 text-white font-bold p-1 item-{{ $item->id }}"
-                                href="{{ route('bank.show', $item -> id) }}">
+                                href="{{ route('bank.show', $item -> slug) }}">
                                 <i class="bx bx-info-circle me-1"></i>
                                 Details
                             </a>

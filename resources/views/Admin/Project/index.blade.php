@@ -37,7 +37,7 @@
                         <td><span class="badge rounded-pill bg-warning text-black">{{ $item -> status }}</span></td>
                         <td class="text-center">
                             <a class="btn btn-info p-1 text-white font-bold p-1"
-                                href="{{ route('project.show', $item -> id) }}">
+                                href="{{ route('project.show', $item -> title) }}">
                                 <i class="bx bx-info-circle me-1"></i>
                                 Details
                             </a>
