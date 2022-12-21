@@ -203,7 +203,7 @@
                     <h2 class="mb-2 text-white">Ayo coding di kITabantuin.co</h2>
                     <p class="mb-4 lead text-white text-white-opacity">Kirimkan Proyek anda agar beban anda berkurang</p>
                     <p class="mb-0"><a href="/list-project"
-                            class="btn btn-outline-white text-white btn-md font-weight-bold">Get in touch</a></p>
+                            class="btn btn-outline-white text-white btn-md font-weight-bold">Cari Proyek</a></p>
                 </div>
             </div>
         </div>
