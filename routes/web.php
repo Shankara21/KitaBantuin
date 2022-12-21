@@ -67,7 +67,7 @@ Route::controller(LandingPageController::class)->group(function () {
     Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
     Route::put('/profile-worker/{id}', [ProfileController::class, 'updateWorker'])->name('profile.updateWorker')->middleware('auth');
     Route::get('/profile-worker', 'profileWorker')->name('profileWorker');
-    Route::get('/detail-project/{id}', 'detailProject')->name('detailProject');
+    Route::get('/detail-project/{id}', 'detailProject')->name('detailProject') -> middleware('auth');
     Route::get('/create-project', 'createProject')->name('create-project')->middleware(['isUser', 'auth']);
     Route::get('/myBid', 'myBid')->middleware('isWorker')->name('myBid');
     Route::get('/details-worker/{user}', 'detailWorker')->name('detailWorker');

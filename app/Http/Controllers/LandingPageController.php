@@ -123,6 +123,10 @@ class LandingPageController extends Controller
         $project = Project::with(['subCategory'])->where('title', $id)->first();
         $bids = Bid::where('project_id', $project->id)->get();
         $checkWorker = WorkerDetail::where('user_id', Auth::user()->id)->first();
+        // try {
+        // } catch (\Throwable $e) {
+        //  return redirect() -> route('login');
+        // }
 
         return view('landingPage.detail-project', [
             'project' => $project,
