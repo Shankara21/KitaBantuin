@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Bid;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProjectController extends Controller
@@ -89,6 +90,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        Bid::where('project_id', $project->id)->delete();
         $project->delete();
         Alert::success('Success', 'Project berhasil dihapus');
         return redirect()->route('project.index');
