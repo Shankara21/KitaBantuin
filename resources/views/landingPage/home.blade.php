@@ -25,7 +25,7 @@
                                             </select>
                                         </div>
                                         <div class="col-6">
-                                            <label for="tanggal">Batas waktu</label>
+                                            <label for="tanggal">Pilih tanggal</label>
                                             <input type="date" id="tanggal" class="form-control" name="deadline">
                                         </div>
                                     </div>

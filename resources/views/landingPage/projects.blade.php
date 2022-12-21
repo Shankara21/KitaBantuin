@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label for="">Batas waktu</label>
+                                <label for="">Pilih tanggal</label>
                                 <input type="date" class="form-control" name="deadline" value="{{ request('deadline') }}"
                                     onchange="submit()">
                             </div>
