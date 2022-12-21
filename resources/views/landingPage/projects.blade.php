@@ -27,7 +27,8 @@
                             <input type="hidden" name="auhtor" value="{{ request('author') }}">
                         @endif
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-lg-3 col-sm-6">
+                                <label for="">Cari Kategori</label>
                                 <select class="custom-select" name="filter_category" id="" onchange="submit()">
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->name }}"
@@ -38,11 +39,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="">Cari Proyek</label>
                                     <input type="text" name="search" id="search" class="form-control"
                                         placeholder="Search" onchange="submit()" value="{{ request('search') }}">
                                 </div>
                             </div>
                             <div class="col-md-3">
+                                <label for="">Tenggat Waktu</label>
                                 <input type="date" class="form-control" name="deadline" value="{{ request('deadline') }}"
                                     onchange="submit()">
                             </div>

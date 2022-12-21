@@ -26,9 +26,7 @@
                     <li class="{{ Request::is('list-worker') ? 'active' : '' }}"><a
                             href="{{ route('worker') }}">Pekerja</a>
                     </li>
-                    <li class="{{ Request::is('service') ? 'active' : '' }}"><a
-                            href="{{ route('service') }}">Layanan</a>
-                    </li>
+                    
                     <li
                         class="has-children {{ Request::is('about') || Request::is('contact') || Request::is('video-conference') ? 'active' : '' }}">
                         <a href="#">Menu</a>
@@ -37,6 +35,8 @@
                             <li><a href="{{ route('contact') }}"><i class="fa-solid fa-envelope"></i> Kontak</a></li>
                             <li><a href="{{ route('video-conference') }}"><i class="fa-solid fa-video"></i> Conference</a></li>
                         </ul>
+                    </li>
+                    <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="{{ route('service') }}">Layanan</a>
                     </li>
                     @guest
                     <li>
