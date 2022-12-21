@@ -35,12 +35,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-6">
-                                    <h6 class="text-bold pl-5">Budget :
+                                    <h6 class="text-bold pl-5">Anggaran :
                                         <span class="text-muted">{{ $project->budget }}</span>
                                     </h6>
                                 </div>
                                 <div class="col-6">
-                                    <h6 class=" pl-5">Deadline :
+                                    <h6 class=" pl-5">Batas waktu :
                                         <span class="text-muted">{{ $project->deadline }}</span>
                                     </h6>
                                 </div>
