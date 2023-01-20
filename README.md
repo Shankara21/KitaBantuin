@@ -55,7 +55,7 @@ cp .env.example .env
 
 ```bash
 DB_PORT=3306
-DB_DATABASE=apotek
+DB_DATABASE=kitabantuin
 DB_USERNAME=root
 DB_PASSWORD=
 ```
